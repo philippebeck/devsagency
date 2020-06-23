@@ -1,0 +1,76 @@
+{% extends 'layout/layout.twig' %}
+
+{% block subtitle %}Projects{% endblock %}
+
+{% block description %}Frameworks & Websites Projects - Animadio & Free Code Camp Pens - Languages HTML5, Twig, Pugjs, CSS3, SCSS, Stylus, JavaScript, jQuery, CoffeeScript, Nodejs, Expressjs, PHP, MySQL{% endblock %}
+
+{% block main %}
+
+    <input id="tool" class="block-radio1" type="radio" name="project">
+    <input id="website" class="block-radio2" type="radio" name="project" checked>
+
+    <main id="project" class="container-90tn-80md-70wd align-center hide-global block-relay">
+
+        <header class=" container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-purple pad-md mar-bot-lg anima-half block">
+            {# TODO : add project header content #}
+        </header>
+
+        <label class="button-red inblock" for="tool" title="My Tools Creations">
+            <i class="fas fa-tools fa-lg" aria-hidden="true"></i>
+            Tools
+        </label>
+        <label class="button-blue inblock" for="website" title="My Websites">
+            <i class="fas fa-globe fa-lg" aria-hidden="true"></i>
+            WebSites
+        </label>
+
+        <section class="block-target1">
+            <h2 class="color-red">
+                <i class="fas fa-tools" aria-hidden="true"></i> Tools
+            </h2>
+            <figure class="gallery">
+
+                {% for tools in tools %}
+                    <figure class="button-red anima-fullX">
+                        <a href="https://{{ tools.link }}" title="Watch {{ tools.name }} on GitHub" rel="noreferrer noopener" target="_blank">
+                            <img src="img/projects/{{ tools.image }}" alt="Screenshot of {{ tools.name }}">
+                        </a>
+                        <figcaption>
+                            <a href="https://{{ tools.link }}" title="Watch {{ tools.name }} on GitHub" rel="noreferrer noopener" target="_blank">
+                                <h3>{{ tools.name }}</h3>
+                                <p>{{ tools.description }}</p>
+                                <p>{{ tools.year }}</p>
+                            </a>
+                        </figcaption>
+                    </figure>
+                {% endfor %}
+
+            </figure>
+        </section>
+
+        <section class="block-target2">
+            <h2 class="color-blue">
+                <i class="fas fa-globe" aria-hidden="true"></i> WebSites
+            </h2>
+            <figure class="gallery">
+
+                {% for website in websites %}
+                    <figure class="btn-blue anima-fullY">
+                        <a href="https://{{ website.link }}" title="Watch {{ website.name }} on GitHub" rel="noreferrer noopener" target="_blank">
+                            <img src="img/projects/{{ website.image }}" alt="Screenshot of {{ website.name }}">
+                        </a>
+                        <figcaption>
+                            <a href="https://{{ website.link }}" title="Watch {{ website.name }} on GitHub" rel="noreferrer noopener" target="_blank">
+                                <h3>{{ website.name }}</h3>
+                                <p>{{ website.description }}</p>
+                                <p>{{ website.year }}</p>
+                            </a>
+                        </figcaption>
+                    </figure>
+                {% endfor %}
+
+            </figure>
+        </section>
+
+    </main>
+{% endblock %}

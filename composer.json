@@ -1,0 +1,49 @@
+{
+  "name": "philippebeck/devagency",
+  "version": "0.1.0",
+  "type": "library",
+  "description": "Web Development, Dev Tools & Developer Training - Open-source & Cross-platform Technologies - HTML, Twig, CSS, Sass, JavaScript, PHP, Symfony, SQL, Git & GitHub",
+  "keywords": [
+    "agency",
+    "css",
+    "dev",
+    "git",
+    "html",
+    "javascript",
+    "php",
+    "sql"
+  ],
+  "homepage": "https://philippebeck.net",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Philippe Beck",
+      "email": "philippe@philippebeck.net",
+      "homepage": "https://philippebeck.net",
+      "role": "Lead Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {
+    "php": "7.3",
+    "philippebeck/pam": "^4.2.1"
+  },
+  "require-dev": {
+    "tracy/tracy": "^2.7.5"
+  },
+  "config": {
+    "platform": {
+      "php": "7.3"
+    }
+  },
+  "support": {
+    "email": "admin@philippebeck.net",
+    "issues": "https://github.com/philippebeck/devagency/issues",
+    "wiki": "https://github.com/philippebeck/devagency/wiki",
+    "source": "https://github.com/philippebeck/devagency"
+  }
+}

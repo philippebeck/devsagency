@@ -1,0 +1,70 @@
+<nav class="navbar">
+
+    <input id="navbar-close" type="radio" name="navbar" checked>
+    <input id="navbar-open" type="radio" name="navbar">
+
+    <a class="anima-rota-onto" href="./" accesskey="h" title="Home">
+        <img src="img/phi.svg" alt="Logo Phi">
+    </a>
+
+    <ul>
+        <li>
+            <a href="{{ url('home') }}" accesskey="h" title="Homepage">
+                <i class="fas fa-laptop-house fa-lg"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('service') }}" accesskey="s" title="Agency Services">
+                <i class="fas fa-concierge-bell fa-lg"></i>
+                <span>Services</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('project') }}" accesskey="p" title="Tools & WebSites">
+                <i class="fas fa-jedi fa-lg"></i>
+                <span>Projects</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('contact') }}" accesskey="c" title="Contact Form">
+                <i class="fas fa-paper-plane fa-lg"></i>
+                <span>Contact</span>
+            </a>
+        </li>
+    </ul>
+
+    <ul>
+        {% if (isLogged()) %}
+            <li>
+                <a href="{{ url('tool') }}" accesskey="t" title="Image Manager">
+                    <i class="fas fa-tools fa-fw"></i>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('admin') }}" accesskey="a" title="{{ getUserVar('name') }} Admin">
+                    <img class="bord-circle" src="img/user/{{ getUserVar('image') }}" alt="{{ getUserVar('name') }} Picture">
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('user!logout') }}" accesskey="l" title="Logout">
+                    <i class="fas fa-sign-out-alt fa-fw"></i>
+                </a>
+            </li>
+
+        {% else %}
+            <li>
+                <a href="{{ url('user') }}" accesskey="l" title="Login">
+                    <i class="fas fa-sign-in-alt fa-fw"></i>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+
+    <label for="navbar-close" title="Close the Navigation Menu">
+        <i class="fas fa-angle-double-up fa-lg"></i>
+    </label>
+    <label for="navbar-open" title="Open the Navigation Menu">
+        <i class="fas fa-angle-double-down fa-lg"></i>
+    </label>
+</nav>

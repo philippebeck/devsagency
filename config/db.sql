@@ -28,11 +28,12 @@ CREATE TABLE Project
 INSERT INTO Project
 (name,              image,              link,                                       year,   category,   description)
 VALUES
-('Pam',             'pam.png',          'packagist.org/packages/philippebeck/pam',  2018,   'tool',     'Php Approachable Microframework'),
 ('Animadio',        'animadio.png',     'www.npmjs.com/package/animadio',           2019,   'tool',     'CSS Framework'),
+('Pam',             'pam.png',          'packagist.org/packages/philippebeck/pam',  2018,   'tool',     'Php Approachable Microframework'),
+('Animadio.js',     'animadio-js.png',  'www.npmjs.com/package/animadio.js',        2020,   'tool',     'Animadio JS Library'),
 ('Animadio.org',    'animadio-org.jpg', 'animadio.org',                             2019,   'website',  'CSS Framework Website & Documentation'),
-('Animadio.js',     'animadio-js.jpg',  'www.npmjs.com/package/animadio.js',        2020,   'tool',     'Animadio JS Library'),
-('Astronomy',       'astronomy.jpg',    'astronomy.philippebeck.net',               2020,   'website',  'Astronomy Website'),
-('DevAgency',       'devagency.jpg',    'philippebeck.net',                         2020,   'website',  'Development Agency'),
 ('Pam.net',         'pam-net.jpg',      'pam.philippebeck.net',                     2020,   'website',  'Pam Website & Documentation'),
-('Astrology',       'astrology.jpg',    'astrology.philippebeck.net',               2020,   'website',  'Astrology Website');
+('Astronomy',       'astronomy.jpg',    'astronomy.philippebeck.net',               2020,   'website',  'Astronomy Website'),
+('Astrology',       'astrology.jpg',    'astrology.philippebeck.net',               2020,   'website',  'Astrology Website'),
+('DevAgency',       'devagency.jpg',    'philippebeck.net',                         2020,   'website',  'Development Agency');
+

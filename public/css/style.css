@@ -46,10 +46,3 @@ figure {
   font-weight: bold;
   background-color: var(--white);
 }
-
-#service p,
-#service ul {
-  font-weight: bold;
-  color: var(--in);
-}
-

@@ -1,0 +1,39 @@
+<section class="menu-target2">
+    <h2 class="deco-under color-green">
+        <i class="fas fa-jedi"></i>
+        Projects
+    </h2>
+    <a class="btn-green btn-lg" href="{{ url('project!create') }}">New Project</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Project</th>
+            <th>Infos</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>
+                    <a class="button-gh" href="https://{{ project.link }}" title="See the project @GitHub">
+                        <figure>
+                            <img src="img/projects/{{ project.image }}" alt="Screenshot of the project {{ project.name }}">
+                            <figcaption>{{ project.id }} - {{ project.name }}</figcaption>
+                        </figure>
+                    </a>
+                </td>
+                <td>{{ project.description }}<hr>{{ project.year }} - {{ project.category|capitalize }}</td>
+                <td>
+                    <a class="btn-blue" href="{{ url('project!update', {'id': project.id}) }}">
+                        <i class="fas fa-pen-square fa-fw fa-lg"></i>
+                    </a>
+                    <a class="btn-red" href="{{ url('project!delete', {'id': project.id}) }}">
+                        <i class="fas fa-times-circle fa-fw fa-lg"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</section>

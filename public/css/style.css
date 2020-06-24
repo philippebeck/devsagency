@@ -1,18 +1,14 @@
-ody {
+:root {
   --sans-serif-font-family: 'Text Me One', sans-serif;
+  --serif-font-family: 'Cinzel', serif;
+  --monospace-font-family: 'Share Tech Mono', monospace;
+}
+
+body {
   --body-background-color: Lavender;
 
   background: url("../img/bg.jpg") fixed;
   background-size: cover;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  --serif-font-family: 'Cinzel', serif;
 }
 
 h1 {
@@ -35,16 +31,20 @@ select {
 figure {
   margin-right: 10px;
   margin-left: 10px;
-  max-width: 300px;
-}
-
-code,
-pre {
-  --monospace-font-family: 'Share Tech Mono', monospace;
 }
 
 [class*="nav"] {
   --navbar-background-color: var(--blue-dark);
+}
+
+.slider figcaption {
+  margin: auto;
+  border: solid thin;
+  border-radius: 20px;
+  padding: 5px 20px;
+  width: 70%;
+  font-weight: bold;
+  background-color: var(--white);
 }
 
 #service p,

@@ -5,28 +5,29 @@
 {% block description %}Frameworks & Websites Projects - Animadio & Free Code Camp Pens - Languages HTML5, Twig, Pugjs, CSS3, SCSS, Stylus, JavaScript, jQuery, CoffeeScript, Nodejs, Expressjs, PHP, MySQL{% endblock %}
 
 {% block main %}
+    <input id="menu-radio1" class="menu-radio1" type="radio" name="menu" checked>
+    <input id="menu-radio2" class="menu-radio2" type="radio" name="menu">
 
-    <input id="tool" class="block-radio1" type="radio" name="project">
-    <input id="website" class="block-radio2" type="radio" name="project" checked>
+    <nav class="menu">
+        <label class="button-red inblock" for="menu-radio1" title="Programming Tools">
+            <i class="fas fa-tools fa-lg"></i>
+            Tools
+        </label>
+        <label class="button-blue inblock" for="menu-radio2" title="Responsive Web Design">
+            <i class="fas fa-globe fa-lg"></i>
+            WebSites
+        </label>
+    </nav>
 
-    <main id="project" class="container-90tn-80md-70wd align-center hide-global block-relay">
+    <main id="project" class="container-90tn-80md-70wd align-center menu-relay">
 
         <header class=" container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-purple pad-md mar-bot-lg anima-half block">
             {# TODO : add project header content #}
         </header>
 
-        <label class="button-red inblock" for="tool" title="My Tools Creations">
-            <i class="fas fa-tools fa-lg" aria-hidden="true"></i>
-            Tools
-        </label>
-        <label class="button-blue inblock" for="website" title="My Websites">
-            <i class="fas fa-globe fa-lg" aria-hidden="true"></i>
-            WebSites
-        </label>
-
-        <section class="block-target1">
+        <section class="menu-target1">
             <h2 class="color-red">
-                <i class="fas fa-tools" aria-hidden="true"></i> Tools
+                <i class="fas fa-tools"></i> Tools
             </h2>
             <figure class="gallery">
 
@@ -48,9 +49,9 @@
             </figure>
         </section>
 
-        <section class="block-target2">
+        <section class="menu-target2">
             <h2 class="color-blue">
-                <i class="fas fa-globe" aria-hidden="true"></i> WebSites
+                <i class="fas fa-globe"></i> WebSites
             </h2>
             <figure class="gallery">
 

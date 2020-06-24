@@ -5,137 +5,25 @@
 {% block description %}{% endblock %}
 
 {% block main %}
+    <input id="menu-radio1" class="menu-radio1" type="radio" name="menu" checked>
+    <input id="menu-radio2" class="menu-radio2" type="radio" name="menu">
+    <input id="menu-radio3" class="menu-radio3" type="radio" name="menu">
 
-    <input id="service" class="block-radio1" type="radio" name="admin" checked>
-    <input id="project" class="block-radio2" type="radio" name="admin">
-    <input id="user" class="block-radio3" type="radio" name="admin">
+    <nav class="menu">
+        <label class="button-red btn-lg" for="menu-radio1" title="Show Services">
+            <i class="fas fa-concierge-bell fa-lg"></i> Services
+        </label>
+        <label class="button-green btn-lg" for="menu-radio2" title="Show Projects">
+            <i class="fas fa-jedi fa-lg"></i> Projects
+        </label>
+        <label class="button btn-lg" for="menu-radio3" title="Show Users">
+            <i class="far fa-user fa-lg"></i> Users
+        </label>
+    </nav>
 
-    <label class="button-red btn-lg" for="service" title="Show Services">
-        <i class="fas fa-concierge-bell fa-lg" aria-hidden="true"></i>
-    </label>
-    <label class="button-green btn-lg" for="project" title="Show Projects">
-        <i class="fas fa-jedi fa-lg" aria-hidden="true"></i>
-    </label>
-    <label class="button-blue btn-lg" for="user" title="Show Users">
-        <i class="fas fa-user fa-lg" aria-hidden="true"></i>
-    </label>
-
-    <main id="admin" class="container-90sm-80md-70lg hide-global block-relay">
-
-        <section class="block-target1">
-            <h2 class="deco-under color-red">
-                <i class="fas fa-concierge-bell" aria-hidden="true"></i>
-                Service
-            </h2>
-            <a class="btn-green btn-lg" href="{{ url('service!create') }}">New Service</a>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Service</th>
-                    <th>Infos</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for service in services %}
-                    <tr>
-                        <td>
-                            {{ service.id }} -
-                            <i class="fas fa-{{ service.icon }} fa-lg" aria-hidden="true"></i>
-                            <hr>
-                            {{ service.name }}
-                        </td>
-                        <td>{{ service.description }}</td>
-                        <td>
-                            <a class="btn-blue" href="{{ url('service!update', {'id': service.id}) }}">
-                                <i class="fas fa-pen-square fa-fw fa-lg" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn-red" href="{{ url('service!delete', {'id': service.id}) }}">
-                                <i class="fas fa-times-circle fa-fw fa-lg" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </section>
-
-        <section class="block-target2">
-            <h2 class="deco-under color-green">
-                <i class="fas fa-jedi" aria-hidden="true"></i>
-                Projects
-            </h2>
-            <a class="btn-green btn-lg" href="{{ url('project!create') }}">New Project</a>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Project</th>
-                        <th>Infos</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for project in projects %}
-                    <tr>
-                        <td>
-                            <a class="button-gh" href="https://{{ project.link }}" title="See the project @GitHub">
-                                <figure>
-                                    <img src="img/projects/{{ project.image }}" alt="Screenshot of the project {{ project.name }}">
-                                    <figcaption>{{ project.id }} - {{ project.name }}</figcaption>
-                                </figure>
-                            </a>
-                        </td>
-                        <td>{{ project.description }}<hr>{{ project.year }} - {{ project.category|capitalize }}</td>
-                        <td>
-                            <a class="btn-blue" href="{{ url('project!update', {'id': project.id}) }}">
-                                <i class="fas fa-pen-square fa-fw fa-lg" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn-red" href="{{ url('project!delete', {'id': project.id}) }}">
-                                <i class="fas fa-times-circle fa-fw fa-lg" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </section>
-
-        <section class="block-target3">
-            <h2 class="deco-under color-blue">
-                <i class="fas fa-user" aria-hidden="true"></i>
-                Users
-            </h2>
-            <a class="btn-green btn-lg" href="{{ url('user!create') }}">New User</a>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>User</th>
-                    <th>Infos</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for user in users %}
-                    <tr>
-                        <td>
-                            <figure>
-                                <img class="bord-sm bord-purple" src="img/user/{{ user.image }}" alt="Screenshot of {{ user.name }}">
-                                <figcaption>{{ user.id }} - {{ user.name }}</figcaption>
-                            </figure>
-                        </td>
-                        <td>{{ user.email }}</td>
-                        <td>
-                            <a class="btn-blue" href="{{ url('user!update', {'id': user.id}) }}">
-                                <i class="fas fa-pen-square fa-fw fa-lg" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn-red" href="{{ url('user!delete', {'id': user.id}) }}">
-                                <i class="fas fa-times-circle fa-fw fa-lg" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </section>
+    <main id="admin" class="menu-relay">
+        {{ include('back/listServices.twig') }}
+        {{ include('back/listProjects.twig') }}
+        {{ include('back/listUsers.twig') }}
     </main>
 {% endblock %}

@@ -27,12 +27,14 @@ class AdminController extends MainController
         }
 
         $projects   = ModelFactory::getModel("Project")->listData();
+        $services   = ModelFactory::getModel("Service")->listData();
         $users      = ModelFactory::getModel("User")->listData();
 
-        $projects   = array_reverse($projects);
+        $projects = array_reverse($projects);
 
         return $this->render("back/admin.twig", [
             "projects"  => $projects,
+            "services"  => $services,
             "users"     => $users
         ]);
     }

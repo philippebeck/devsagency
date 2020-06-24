@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
+use Pam\Model\Factory\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -21,6 +22,8 @@ class ServiceController extends MainController
      */
     public function defaultMethod()
     {
-        return $this->render("front/service.twig");
+        $services = ModelFactory::getModel("Service")->listData();
+
+        return $this->render("front/service.twig", ["services" => $services]);
     }
 }

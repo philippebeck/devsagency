@@ -19,6 +19,22 @@ class UserController extends MainController
      */
     private $user = [];
 
+    private function checkLogin()
+    {
+        $user = ModelFactory::getModel("User")->readData($this->user["email"], "email");
+
+        if (!password_verify($this->user["pass"], $user["pass"])) {
+            $this->getSession()->createAlert("Failed authentication !", "black");
+
+            $this->redirect("user");
+        }
+
+        $this->getSession()->createSession($user);
+        $this->getSession()->createAlert("Successful authentication, welcome " . $user["name"] . " !", "purple");
+
+        $this->redirect("admin");
+    }
+
     /**
      * @return string
      * @throws LoaderError
@@ -28,23 +44,12 @@ class UserController extends MainController
     public function defaultMethod()
     {
         if (!empty($this->getPost()->getPostArray())) {
-            $userPost = $this->getPost()->getPostArray();
+            $this->user = $this->getPost()->getPostArray();
 
-            if (isset($userPost["g-recaptcha-response"]) && !empty($userPost["g-recaptcha-response"])) {
+            if (isset($this->user["g-recaptcha-response"]) && !empty($this->user["g-recaptcha-response"])) {
 
-                if ($this->service->getSecurity()->checkRecaptcha($userPost["g-recaptcha-response"])) {
-                    $userData = ModelFactory::getModel("User")->readData($userPost["email"], "email");
-
-                    if (password_verify($userPost["pass"], $userData["pass"])) {
-                        $this->getSession()->createSession($userData);
-                        $this->getSession()->createAlert("Successful authentication, welcome " . $userData["name"] . " !", "purple");
-
-                        $this->redirect("admin");
-                    }
-
-                    $this->getSession()->createAlert("Failed authentication !", "black");
-
-                    $this->redirect("user");
+                if ($this->service->getSecurity()->checkRecaptcha($this->user["g-recaptcha-response"])) {
+                    $this->checkLogin();
                 }
             }
 
@@ -52,7 +57,62 @@ class UserController extends MainController
 
             $this->redirect("user");
         }
+
         return $this->render("front/login.twig");
+    }
+
+    public function logoutMethod()
+    {
+        $this->getSession()->destroySession();
+
+        $this->redirect("home");
+    }
+
+    private function setUserData()
+    {
+        $this->user["name"]     = $this->getPost()->getPostVar("name");
+        $this->user["email"]    = $this->getPost()->getPostVar("email");
+    }
+
+    private function setUserImage()
+    {
+        $this->user["image"] = $this->service->getString()->cleanString($this->user["name"]) . $this->getFiles()->setFileExtension();
+
+        $this->getFiles()->uploadFile("img/user/", $this->service->getString()->cleanString($this->user["name"]));
+        $this->service->getImage()->makeThumbnail("img/user/" . $this->user["image"], 150);
+    }
+
+    /**
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function createMethod()
+    {
+        if ($this->service->getSecurity()->checkIsAdmin() !== true) {
+            $this->redirect("home");
+        }
+
+        if (!empty($this->getPost()->getPostArray())) {
+            $this->setUserData();
+            $this->setUserImage();
+
+            if ($this->getPost()->getPostVar("pass") !== $this->getPost()->getPostVar("conf-pass")) {
+                $this->getSession()->createAlert("Passwords do not match !", "red");
+
+                $this->redirect("user!create");
+            }
+
+            $this->user["pass"] = password_hash($this->getPost()->getPostVar("pass"), PASSWORD_DEFAULT);
+
+            ModelFactory::getModel("User")->createData($this->user);
+            $this->getSession()->createAlert("New user successfully created !", "green");
+
+            $this->redirect("admin");
+        }
+
+        return $this->render("back/createUser.twig");
     }
 
     private function setUpdatePassword()
@@ -87,36 +147,36 @@ class UserController extends MainController
         }
 
         if (!empty($this->getPost()->getPostArray())) {
-
-            $user["name"]   = $this->getPost()->getPostVar("name");
-            $user["email"]  = $this->getPost()->getPostVar("email");
+            $this->setUserData();
 
             if (!empty($this->getFiles()->getFileVar("name"))) {
-                $user["image"] = $this->service->getString()->cleanString($user["name"]) . $this->getFiles()->setFileExtension();
-
-                $this->getFiles()->uploadFile("img/user/", $this->service->getString()->cleanString($user["name"]));
-                $this->service->getImage()->makeThumbnail("img/user/" . $user["image"], 150);
+                $this->setUserImage();
             }
 
-            if (!empty($this->getPost()->getPostVar("pass"))) {
-                $user["pass"] = password_hash($this->getPost()->getPostVar("pass"), PASSWORD_DEFAULT);
+            if (!empty($this->getPost()->getPostVar("old-pass"))) {
+                $this->setUpdatePassword();
             }
 
-            ModelFactory::getModel("User")->updateData("1", $user);
+            ModelFactory::getModel("User")->updateData($this->getGet()->getGetVar("id"), $this->user);
             $this->getSession()->createAlert("Successful modification of the user !", "blue");
 
             $this->redirect("admin");
         }
 
-        $user = ModelFactory::getModel("User")->readData(1);
+        $user = ModelFactory::getModel("User")->readData($this->getGet()->getGetVar("id"));
 
         return $this->render("back/updateUser.twig", ["user" => $user]);
     }
 
-    public function logoutMethod()
+    public function deleteMethod()
     {
-        $this->getSession()->destroySession();
+        if ($this->service->getSecurity()->checkIsAdmin() !== true) {
+            $this->redirect("home");
+        }
 
-        $this->redirect("home");
+        ModelFactory::getModel("User")->deleteData($this->getGet()->getGetVar("id"));
+        $this->getSession()->createAlert("User actually deleted !", "red");
+
+        $this->redirect("admin");
     }
 }

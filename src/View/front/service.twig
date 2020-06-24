@@ -5,49 +5,22 @@
 {% block description %}Frameworks & Websites Projects - Animadio & Free Code Camp Pens - Languages HTML5, Twig, Pugjs, CSS3, SCSS, Stylus, JavaScript, jQuery, CoffeeScript, Nodejs, Expressjs, PHP, MySQL{% endblock %}
 
 {% block main %}
-    <article class="text relative" id="services">
+    <article>
         <h2>Nos Services</h2>
 
         <p>Nous proposons des services de design web & mobile en apportant un soin particulier à l'ergonomie, aux interfaces & à la pertinence dans les résultats de recherche.</p>
 
-        <section class="relative" itemscope itemtype="http://schema.org/Service">
-            <i class="fas fa-tablet-alt fa-2x center" aria-hidden="true"></i>
-            <div class="rotate">
-                <span class="circle"></span>
-                <span class="disc"></span>
-            </div>
-            <h3 itemprop="name">Responsive Website</h3>
-            <p itemprop="description"></p>
-        </section>
+        {% for service in services %}
+            <section itemscope itemtype="http://schema.org/Service">
+                <i class="fas fa-{{ service.icon }} fa-2x" aria-hidden="true"></i>
+                <div class="rotate">
+                    <span class="circle"></span>
+                    <span class="disc"></span>
+                </div>
+                <h3 itemprop="name">{{ service.name }}</h3>
+                <p itemprop="description">{{ service.description }}</p>
+            </section>
+        {% endfor %}
 
-        <section class="relative" itemscope itemtype="http://schema.org/Service">
-            <i class="fas fa-chart-line fa-2x center" aria-hidden="true"></i>
-            <div class="rotate">
-                <span class="circle"></span>
-                <span class="disc"></span>
-            </div>
-            <h3 itemprop="name">SEO Expertise</h3>
-            <p itemprop="description"></p>
-        </section>
-
-        <section class="relative" itemscope itemtype="http://schema.org/Service">
-            <i class="fas fa-robot fa-2x center" aria-hidden="true"></i>
-            <div class="rotate">
-                <span class="circle"></span>
-                <span class="disc"></span>
-            </div>
-            <h3 itemprop="name">Digital Tools</h3>
-            <p itemprop="description"></p>
-        </section>
-
-        <section class="relative" itemscope itemtype="http://schema.org/Service">
-            <i class="fas fa-chalkboard-teacher fa-2x center" aria-hidden="true"></i>
-            <div class="rotate">
-                <span class="circle"></span>
-                <span class="disc"></span>
-            </div>
-            <h3 itemprop="name">Development Training</h3>
-            <p itemprop="description"></p>
-        </section>
     </article>
 {% endblock %}

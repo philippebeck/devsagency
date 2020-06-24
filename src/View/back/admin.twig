@@ -6,30 +6,63 @@
 
 {% block main %}
 
-    <!-- CONTROLS -->
-    <input id="project" class="block-radio1" type="radio" name="admin" checked>
-    <input id="job" class="block-radio2" type="radio" name="admin">
-    <input id="certificate" class="block-radio3" type="radio" name="admin">
-    <input id="user" class="block-radio4" type="radio" name="admin">
+    <input id="service" class="block-radio1" type="radio" name="admin" checked>
+    <input id="project" class="block-radio2" type="radio" name="admin">
+    <input id="user" class="block-radio3" type="radio" name="admin">
 
-    <label class="button-red btn-lg" for="project" title="Show Projects">
-        <i class="fas fa-project-diagram fa-lg" aria-hidden="true"></i>
+    <label class="button-red btn-lg" for="service" title="Show Services">
+        <i class="fas fa-concierge-bell fa-lg" aria-hidden="true"></i>
     </label>
-    <label class="button-green btn-lg" for="job" title="Show Jobs">
-        <i class="fas fa-suitcase fa-lg" aria-hidden="true"></i>
+    <label class="button-green btn-lg" for="project" title="Show Projects">
+        <i class="fas fa-jedi fa-lg" aria-hidden="true"></i>
     </label>
-    <label class="button-blue btn-lg" for="certificate" title="Show Certificates">
-        <i class="fas fa-certificate fa-lg" aria-hidden="true"></i>
-    </label>
-    <label class="button btn-lg" for="user" title="Show the User">
+    <label class="button-blue btn-lg" for="user" title="Show Users">
         <i class="fas fa-user fa-lg" aria-hidden="true"></i>
     </label>
 
     <main id="admin" class="container-90sm-80md-70lg hide-global block-relay">
 
         <section class="block-target1">
-            <h2 class="deco-under">
-                <i class="fas fa-project-diagram " aria-hidden="true"></i>
+            <h2 class="deco-under color-red">
+                <i class="fas fa-concierge-bell" aria-hidden="true"></i>
+                Service
+            </h2>
+            <a class="btn-green btn-lg" href="{{ url('service!create') }}">New Service</a>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Infos</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for service in services %}
+                    <tr>
+                        <td>
+                            {{ service.id }} -
+                            <i class="fas fa-{{ service.icon }} fa-lg" aria-hidden="true"></i>
+                            <hr>
+                            {{ service.name }}
+                        </td>
+                        <td>{{ service.description }}</td>
+                        <td>
+                            <a class="btn-blue" href="{{ url('service!update', {'id': service.id}) }}">
+                                <i class="fas fa-pen-square fa-fw fa-lg" aria-hidden="true"></i>
+                            </a>
+                            <a class="btn-red" href="{{ url('service!delete', {'id': service.id}) }}">
+                                <i class="fas fa-times-circle fa-fw fa-lg" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <section class="block-target2">
+            <h2 class="deco-under color-green">
+                <i class="fas fa-jedi" aria-hidden="true"></i>
                 Projects
             </h2>
             <a class="btn-green btn-lg" href="{{ url('project!create') }}">New Project</a>
@@ -52,7 +85,7 @@
                                 </figure>
                             </a>
                         </td>
-                        <td>{{ project.description }}<hr>{{ project.year }}</td>
+                        <td>{{ project.description }}<hr>{{ project.year }} - {{ project.category|capitalize }}</td>
                         <td>
                             <a class="btn-blue" href="{{ url('project!update', {'id': project.id}) }}">
                                 <i class="fas fa-pen-square fa-fw fa-lg" aria-hidden="true"></i>
@@ -67,94 +100,12 @@
             </table>
         </section>
 
-        <section class="block-target2">
-            <h2 class="deco-under">
-                <i class="fas fa-suitcase" aria-hidden="true"></i>
-                Jobs
-            </h2>
-            <a class="btn-green btn-lg" href="{{ url('job!create') }}">New Job</a>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Company</th>
-                        <th>Position</th>
-                        <th>Infos</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for job in jobs %}
-                    <tr>
-                        <td>
-                            <a class="button-green" href="https://{{ job.company_link }}" title="See the Company">
-                                <figure>
-                                    <img src="img/jobs/{{ job.logo }}" alt="Logo of {{ job.company }}">
-                                    <figcaption>{{ job.company }}</figcaption>
-                                </figure>
-                            </a>
-                        </td>
-                        <td>
-                            {{ job.position }}
-                            <hr>
-                            <a href="https://{{ job.project_link }}"> {{ job.project }}</a>
-                        </td>
-                        <td>{{ job.description }}<hr>{{ job.start_date }} - {{ job.end_date }}</td>
-                        <td>
-                            <a class="btn-blue" href="{{ url('job!update', {'id': job.id}) }}">
-                                <i class="fas fa-pen-square fa-fw fa-lg" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn-red" href="{{ url('job!delete', {'id': job.id}) }}">
-                                <i class="fas fa-times-circle fa-fw fa-lg" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </section>
-
         <section class="block-target3">
-            <h2 class="deco-under">
-                <i class="fas fa-certificate" aria-hidden="true"></i>
-                Certificates
-            </h2>
-            <a class="btn-green btn-lg" href="{{ url('certificate!create') }}">New certificate</a>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Certificate</th>
-                        <th>Infos</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for certificate in certificates %}
-                    <tr>
-                        <td>
-                            <a class="button-in" href="https://{{ certificate.link }}" title="See the certificate # {{ certificate.certif_id }}">
-                            {{ certificate.id }}<br>{{ certificate.name }}
-                            </a>
-                        </td>
-                        <td>{{ certificate.certif_id }}<hr>{{ date(certificate.certif_date)|date('d/m/y') }}</td>
-                        <td>
-                            <a class="btn-blue" href="{{ url('certificate!update', {'id': certificate.id}) }}">
-                                <i class="fas fa-pen-square fa-fw fa-lg" aria-hidden="true"></i>
-                            </a>
-                            <a class="btn-red" href="{{ url('certificate!delete', {'id': certificate.id}) }}">
-                                <i class="fas fa-times-circle fa-fw fa-lg" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </section>
-
-        <section class="block-target4">
-            <h2 class="deco-under">
-                <i class="fas fa-user " aria-hidden="true"></i>
+            <h2 class="deco-under color-blue">
+                <i class="fas fa-user" aria-hidden="true"></i>
                 Users
             </h2>
+            <a class="btn-green btn-lg" href="{{ url('user!create') }}">New User</a>
             <table class="table">
                 <thead>
                 <tr>
@@ -169,13 +120,16 @@
                         <td>
                             <figure>
                                 <img class="bord-sm bord-purple" src="img/user/{{ user.image }}" alt="Screenshot of {{ user.name }}">
-                                <figcaption>{{ user.id }}</figcaption>
+                                <figcaption>{{ user.id }} - {{ user.name }}</figcaption>
                             </figure>
                         </td>
-                        <td>{{ user.name }}<hr>{{ user.email }}</td>
+                        <td>{{ user.email }}</td>
                         <td>
                             <a class="btn-blue" href="{{ url('user!update', {'id': user.id}) }}">
                                 <i class="fas fa-pen-square fa-fw fa-lg" aria-hidden="true"></i>
+                            </a>
+                            <a class="btn-red" href="{{ url('user!delete', {'id': user.id}) }}">
+                                <i class="fas fa-times-circle fa-fw fa-lg" aria-hidden="true"></i>
                             </a>
                         </td>
                     </tr>

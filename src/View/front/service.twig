@@ -5,20 +5,20 @@
 {% block description %}Frameworks & Websites Projects - Animadio & Free Code Camp Pens - Languages HTML5, Twig, Pugjs, CSS3, SCSS, Stylus, JavaScript, jQuery, CoffeeScript, Nodejs, Expressjs, PHP, MySQL{% endblock %}
 
 {% block main %}
-    <article>
+    <article class="container-90tn-80sm-70md-60lg-50wd">
         <h2>Nos Services</h2>
 
         <p>Nous proposons des services de design web & mobile en apportant un soin particulier à l'ergonomie, aux interfaces & à la pertinence dans les résultats de recherche.</p>
 
         {% for service in services %}
-            <section itemscope itemtype="http://schema.org/Service">
-                <i class="fas fa-{{ service.icon }} fa-2x"></i>
+            <section class="relative" itemscope itemtype="http://schema.org/Service">
+                <i class="fas fa-{{ service.icon }} fa-2x center color-blue"></i>
                 <div class="rotate">
                     <span class="circle"></span>
                     <span class="disc"></span>
                 </div>
-                <h3 itemprop="name">{{ service.name }}</h3>
-                <p itemprop="description">{{ service.description }}</p>
+                <h3 class="color-navy" itemprop="name">{{ service.name }}</h3>
+                <p class="bord-curve bg-white pad-sm" itemprop="description">{{ service.description }}</p>
             </section>
         {% endfor %}
 

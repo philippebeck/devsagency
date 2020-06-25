@@ -37,12 +37,102 @@ figure {
   --navbar-background-color: var(--blue-dark);
 }
 
+.slider {
+  --slider-image-max-height: 100vh;
+  --slider-figure-max-height: 100vh;
+}
+
 .slider figcaption {
-  margin: auto;
+  position: absolute;
+  bottom: 10vh;
   border: solid thin;
   border-radius: 20px;
   padding: 5px 20px;
-  width: 70%;
+  width: 95vw;
   font-weight: bold;
   background-color: var(--white);
+}
+
+@media (min-width: 576px) {
+  .slider figcaption {
+    bottom: 15vh;
+    right: 10vw;
+    width: 80vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .slider figcaption {
+    bottom: 20vh;
+    right: 20vw;
+    width: 60vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .slider figcaption {
+    right: 27vw;
+    width: 46vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .slider figcaption {
+    right: 31vw;
+    width: 38vw;
+  }
+}
+
+.center,
+.rotate {
+  position: absolute;
+  top: 20vh;
+  left: 45vw;
+}
+
+.center {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+  .center,
+  .rotate {
+    top: 10vh;
+    left: -5vw;
+  }
+}
+
+.circle,
+.disc {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.disc {
+  width: 15px;
+  height: 15px;
+  background: var(--blue);
+}
+
+.rotate {
+  -webkit-animation: full 2s ease-in-out 2 alternate;
+  animation: full 2s ease-in-out 2 alternate;
+}
+
+.rotate .disc {
+  -webkit-transform: translate(-50%, -50%) translate(33px, 0);
+  transform: translate(-50%, -50%) translate(33px, 0);
+}
+
+*:hover > .rotate,
+*:focus > .rotate,
+*:active > .rotate {
+  -webkit-animation: full 3s linear infinite;
+  animation: full 3s linear infinite;
 }

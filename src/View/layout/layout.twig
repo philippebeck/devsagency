@@ -6,9 +6,9 @@
     <meta name="viewport"               content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible"  content="IE=edge">
 
-    <title>{% block title %}Dev Agency - {{ block('subtitle') }}{% endblock %}</title>
+    <title>{{ block('title') }}</title>
 
-    <link rel="canonical" href="{% block canonical %}https://philippebeck.net{% endblock %}">
+    <link rel="canonical" href="{% block canonical %}https://devagency.philippebeck.net{% endblock %}">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
     <meta name="description"                content="{{ block('description') }}">
@@ -19,7 +19,7 @@
     <meta property="og:title"       content="{{ block('title') }}">
     <meta property="og:url"         content="{{ block('canonical') }}">
     <meta property="og:description" content="{{ block('description') }}">
-    <meta property="og:image"       content="{% block image %}https://philippebeck.net/img/background.jpg{% endblock %}">
+    <meta property="og:image"       content="{% block image %}https://devagency.philippebeck.net/img/slider/welcome.jpg{% endblock %}">
 
     <meta name="twitter:card"           content="summary">
     <meta name="twitter:title"          content="{{ block('title') }}">
@@ -38,10 +38,9 @@
     <link rel="stylesheet" href="node_modules/animadio/dist/min/animadio.min.css">
 
     <link rel="stylesheet" href="css/style.css">
-    <script data-ad-client="ca-pub-3068718378181393" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
-<body class="align-center">
+<body class="align-center mar-bot-lg">
 
 {{ include('layout/navbar.twig') }}
 
@@ -50,7 +49,7 @@
         <p id="alert" class="bg-{{ getAlertType() }} color-white">{{ getAlertMessage() }}</p>
     {% endif %}
 
-    <h1 class="color-purple">{{ block('subtitle') }}</h1>
+    <h1 class="color-purple">{{ block('title') }}</h1>
 </header>
 
 {% block main %}{% endblock %}

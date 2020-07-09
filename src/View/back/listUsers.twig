@@ -23,6 +23,9 @@
                 </td>
                 <td>{{ user.email }}</td>
                 <td>
+                    <a class="btn-orange" href="{{ url('user!logout') }}">
+                        <i class="fas fa-sign-out-alt fa-fw fa-lg"></i>
+                    </a>
                     <a class="btn-blue" href="{{ url('user!update', {'id': user.id}) }}">
                         <i class="fas fa-pen-square fa-fw fa-lg"></i>
                     </a>

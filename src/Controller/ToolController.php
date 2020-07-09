@@ -21,7 +21,7 @@ class ToolController extends MainController
      */
     public function defaultMethod()
     {
-        if ($this->service->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->getSecurity()->checkIsAdmin() !== true) {
             $this->redirect("home");
         }
 
@@ -32,12 +32,12 @@ class ToolController extends MainController
             $image["width"] = $this->getPost()->getPostVar("width");
 
             if ($image["type"] !== "") {
-                $this->service->getImage()->convertImage($image["image"], $image["type"], "img/convert/convert" . $image["type"]);
+                $this->getImage()->convertImage($image["image"], $image["type"], "img/convert/convert" . $image["type"]);
                 $image["image"] = "img/convert/convert" . $image["type"];
             }
 
             if ($image["width"] !== "") {
-                $this->service->getImage()->makeThumbnail($image["image"], $image["width"]);
+                $this->getImage()->makeThumbnail($image["image"], $image["width"]);
             }
 
             return $this->render("front/tool.twig", ["image" => $image]);

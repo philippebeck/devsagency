@@ -1,12 +1,12 @@
 {% extends 'layout/layout.twig' %}
 
-{% block subtitle %}Projects{% endblock %}
+{% block title %}Projects{% endblock %}
 
 {% block description %}Frameworks & Websites Projects - Animadio & Free Code Camp Pens - Languages HTML5, Twig, Pugjs, CSS3, SCSS, Stylus, JavaScript, jQuery, CoffeeScript, Nodejs, Expressjs, PHP, MySQL{% endblock %}
 
 {% block main %}
-    <input id="menu-radio1" class="menu-radio1" type="radio" name="menu" checked>
-    <input id="menu-radio2" class="menu-radio2" type="radio" name="menu">
+    <input id="menu-radio1" class="menu-radio1" type="radio" name="menu">
+    <input id="menu-radio2" class="menu-radio2" type="radio" name="menu" checked>
 
     <nav class="menu">
         <label class="button-red inblock" for="menu-radio1" title="Programming Tools">
@@ -21,8 +21,8 @@
 
     <main id="project" class="container-90tn-80md-70wd align-center menu-relay">
 
-        <header class=" container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-purple pad-md mar-bot-lg anima-half block">
-            {# TODO : add project header content #}
+        <header class="container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-purple pad-md mar-bot-lg block">
+                You would find here Programming Tools & Responsive Websites, don't hesitate to watch them.
         </header>
 
         <section class="menu-target1">
@@ -32,7 +32,7 @@
             <figure class="gallery">
 
                 {% for tools in tools %}
-                    <figure class="button-red anima-fullX">
+                    <figure class="button-red anima-halfX">
                         <a href="https://{{ tools.link }}" title="Watch {{ tools.name }} on GitHub" rel="noreferrer noopener" target="_blank">
                             <img src="img/projects/{{ tools.image }}" alt="Screenshot of {{ tools.name }}">
                         </a>
@@ -56,7 +56,7 @@
             <figure class="gallery">
 
                 {% for website in websites %}
-                    <figure class="btn-blue anima-fullY">
+                    <figure class="btn-blue anima-halfY">
                         <a href="https://{{ website.link }}" title="Watch {{ website.name }} on GitHub" rel="noreferrer noopener" target="_blank">
                             <img src="img/projects/{{ website.image }}" alt="Screenshot of {{ website.name }}">
                         </a>

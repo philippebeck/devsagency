@@ -5,10 +5,7 @@
 }
 
 body {
-  --body-background-color: Lavender;
-
-  background: url("../img/bg.jpg") fixed;
-  background-size: cover;
+  --body-background-color: AliceBlue;
 }
 
 h1 {
@@ -29,20 +26,22 @@ select {
 }
 
 figure {
-  margin-right: 10px;
-  margin-left: 10px;
+  margin: 0;
 }
 
 [class*="nav"] {
-  --navbar-background-color: var(--blue-dark);
+  --navbar-background-color: var(--navy-light);
+}
+
+.slider {
+  --slider-image-max-height: 100%;
+  --slider-figure-max-height: auto;
 }
 
 .slider figcaption {
-  margin: auto;
-  border: solid thin;
-  border-radius: 20px;
+  position: absolute;
+  top: -5vh;
   padding: 5px 20px;
-  width: 70%;
+  width: 100vw;
   font-weight: bold;
-  background-color: var(--white);
 }

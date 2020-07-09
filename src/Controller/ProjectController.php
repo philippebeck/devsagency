@@ -27,7 +27,7 @@ class ProjectController extends MainController
      */
     public function defaultMethod()
     {
-        $projects = $this->service->getArray()->getArrayElements(ModelFactory::getModel("Project")->listData());
+        $projects = $this->getArray()->getArrayElements(ModelFactory::getModel("Project")->listData());
 
         return $this->render("front/project.twig", [
             "tools"      => $projects["tool"],
@@ -46,10 +46,10 @@ class ProjectController extends MainController
     }
 
     private function setProjectPicture() {
-        $this->project["image"] = $this->service->getString()->cleanString($this->project["name"]) . $this->getFiles()->setFileExtension();
+        $this->project["image"] = $this->getString()->cleanString($this->project["name"]) . $this->getFiles()->setFileExtension();
 
-        $this->getFiles()->uploadFile("img/projects/", $this->service->getString()->cleanString($this->project["name"]));
-        $this->service->getImage()->makeThumbnail("img/projects/" . $this->project["image"], 300);
+        $this->getFiles()->uploadFile("img/projects/", $this->getString()->cleanString($this->project["name"]));
+        $this->getImage()->makeThumbnail("img/projects/" . $this->project["image"], 300);
     }
 
     /**
@@ -60,7 +60,7 @@ class ProjectController extends MainController
      */
     public function createMethod()
     {
-        if ($this->service->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->getSecurity()->checkIsAdmin() !== true) {
             $this->redirect("home");
         }
 
@@ -85,7 +85,7 @@ class ProjectController extends MainController
      */
     public function updateMethod()
     {
-        if ($this->service->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->getSecurity()->checkIsAdmin() !== true) {
             $this->redirect("home");
         }
 
@@ -109,7 +109,7 @@ class ProjectController extends MainController
 
     public function deleteMethod()
     {
-        if ($this->service->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->getSecurity()->checkIsAdmin() !== true) {
             $this->redirect("home");
         }
 

@@ -37,11 +37,11 @@ CREATE TABLE `User`
 INSERT INTO Service
 (name,                      icon,                   description)
 VALUES
-('Responsive Web Design',   'tablet-alt',           'Responsive Web Design is an approach to web design that makes web pages render well on a variety of devices & window or screen sizes.'),
-('SEO Expertise',           'chart-line',           'Search Engine Optimization is the process of growing the website traffic by increasing the visibility of a web page to users of a web search engine.'),
-('Programming Tool',        'robot',                'Programming Tool is a computer program that software developers use to create, debug, maintain, or otherwise support other programs & applications.'),
-('Digital Transformation',  'magic',                'Digital Transformation is the use of new, fast & frequently changing digital technology to solve problems ; it is about transforming processes that were non digital or manual to digital processes.'),
-('Development Mentorship',  'chalkboard-teacher',   'Development Mentorship is a relationship in which a more experienced or more knowledgeable developer helps to guide a less experienced or less knowledgeable in computer development.');
+('Responsive Web Design',   'tablet-alt',           'If your need is a Website, we offer a Mobile First approach for Responsive Web Design, a SEO Friendly Conception & a completely Secure Administration.'),
+('SEO Expertise',           'chart-line',           'Else if you have your own website & need Search Engine Optimization, we offer Structured Data creation & Programming Languages optimization.'),
+('Programming Tool',        'robot',                'Even if your need is a Programming Tool for Website Building, we can offer a Completely Personalized Framework for your Own Projects.'),
+('Digital Transformation',  'magic',                'But if you think that your Company need a real Digital Transformation, we can help you to transform old processes to Digital Processes & to optimize Time & Money.'),
+('Development Mentorship',  'chalkboard-teacher',   'Finally, we propose Development Mentorship for some kind of computer domains, like Frontend & Backend Development or else System Administration.');
 
 INSERT INTO Project
 (name,              image,              link,                                       year,   category,   description)
@@ -51,7 +51,5 @@ VALUES
 ('Animadio.js',     'animadio-js.png',  'www.npmjs.com/package/animadio.js',        2020,   'tool',     'Animadio JS Library'),
 ('Animadio.org',    'animadio-org.jpg', 'animadio.org',                             2019,   'website',  'CSS Framework Website & Documentation'),
 ('Pam.net',         'pam-net.jpg',      'pam.philippebeck.net',                     2020,   'website',  'Pam Website & Documentation'),
-('Astronomy',       'astronomy.jpg',    'astronomy.philippebeck.net',               2020,   'website',  'Astronomy Website'),
-('Astrology',       'astrology.jpg',    'astrology.philippebeck.net',               2020,   'website',  'Astrology Website'),
-('DevAgency',       'devagency.jpg',    'philippebeck.net',                         2020,   'website',  'Development Agency');
+('Astronomy',       'astronomy.jpg',    'astronomy.philippebeck.net',               2020,   'website',  'Astronomy Website');
 

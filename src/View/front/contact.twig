@@ -2,7 +2,12 @@
 
 {% block title %}Contact{% endblock %}
 
-{% block description %}You can contact us by message{% endblock %}
+{% block description %}You can Contact us by Message{% endblock %}
+
+{% block script %}
+    <script src="js/recaptcha.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+{% endblock %}
 
 {% block main %}
     <main class="align-center">

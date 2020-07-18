@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block main %}
-    <main id="slider" class="slider anima-grow">
+    <main id="slider" class="slider">
         <input id="slider-radio1" class="slider-radio1" type="radio" name="slider" disabled checked>
         <input id="slider-radio2" class="slider-radio2" type="radio" name="slider" disabled>
         <input id="slider-radio3" class="slider-radio3" type="radio" name="slider" disabled>
@@ -21,7 +21,7 @@
         <figure id="slider-relay" class="slider-relay">
             <figure class="slider-target1">
                 <img src="img/slider/welcome.jpg" alt="Welcome Picture">
-                <figcaption>Welcome to the Dev Agency !</figcaption>
+                <figcaption>Welcome to the Development Agency !</figcaption>
             </figure>
             <figure class="slider-target2">
                 <img src="img/slider/website.jpg" alt="Website Shop Picture">
@@ -33,7 +33,7 @@
             </figure>
             <figure class="slider-target4">
                 <img src="img/slider/tool.jpg" alt="Digital Tool Picture">
-                <figcaption>Or else a Digital Tool for your Business...</figcaption>
+                <figcaption>Or else a Programming Tool for your Business...</figcaption>
             </figure>
             <figure class="slider-target5">
                 <img src="img/slider/training.jpg" alt="Development Training Picture">
@@ -43,66 +43,61 @@
                 <img src="img/slider/devagency.jpg" alt="DevAgency Picture">
                 <figcaption>You can find All of Them Here, @DevAgency !</figcaption>
             </figure>
-         </figure>
+        </figure>
 
-        <ul class="slider-controls">
+        <ul>
             <li>
-                <ul>
-                    <li>
-                        <button id="slider-previous" title="Previous (&larr;)">
-                            <i class="fas fa-step-backward fa-lg"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button id="slider-auto" title="Pause (&uarr;)">
-                            <i class="fas fa-pause fa-lg"></i>
-                        </button>
-                    </li>
-                    <li class="hide">
-                        <button id="slider-random" title="Random (&darr;)">
-                            <i class="fas fa-random fa-lg"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button id="slider-next" title="Next (&rarr;)">
-                            <i class="fas fa-step-forward fa-lg"></i>
-                        </button>
-                    </li>
-                </ul>
+                <button id="slider-previous" class="slider-previous" title="Previous (&larr;)">
+                    <i class="fas fa-step-backward fa-2x"></i>
+                </button>
             </li>
             <li>
-                <ul>
-                    <li>
-                        <label for="slider-radio1">
-                            <i class="fas fa-dot-circle" aria-hidden="true"></i>
-                        </label>
-                    </li>
-                    <li>
-                        <label for="slider-radio2">
-                            <i class="fas fa-dot-circle" aria-hidden="true"></i>
-                        </label>
-                    </li>
-                    <li>
-                        <label for="slider-radio3">
-                            <i class="fas fa-dot-circle" aria-hidden="true"></i>
-                        </label>
-                    </li>
-                    <li>
-                        <label for="slider-radio4">
-                            <i class="fas fa-dot-circle" aria-hidden="true"></i>
-                        </label>
-                    </li>
-                    <li>
-                        <label for="slider-radio5">
-                            <i class="fas fa-dot-circle" aria-hidden="true"></i>
-                        </label>
-                    </li>
-                    <li>
-                        <label for="slider-radio6">
-                            <i class="fas fa-dot-circle" aria-hidden="true"></i>
-                        </label>
-                    </li>
-                </ul>
+                <button id="slider-auto" class="slider-auto" title="Pause (&uarr;)">
+                    <i class="fas fa-pause fa-2x"></i>
+                </button>
+            </li>
+            <li class="hide">
+                <button id="slider-random" class="slider-random" title="Random (&darr;)">
+                    <i class="fas fa-random fa-2x"></i>
+                </button>
+            </li>
+            <li>
+                <button id="slider-next" class="slider-next" title="Next (&rarr;)">
+                    <i class="fas fa-step-forward fa-2x"></i>
+                </button>
+            </li>
+        </ul>
+
+        <ul class="slider-progress">
+            <li>
+                <label for="slider-radio1">
+                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                </label>
+            </li>
+            <li>
+                <label for="slider-radio2">
+                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                </label>
+            </li>
+            <li>
+                <label for="slider-radio3">
+                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                </label>
+            </li>
+            <li>
+                <label for="slider-radio4">
+                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                </label>
+            </li>
+            <li>
+                <label for="slider-radio5">
+                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                </label>
+            </li>
+            <li>
+                <label for="slider-radio6">
+                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                </label>
             </li>
         </ul>
     </main>

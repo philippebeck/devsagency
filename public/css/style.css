@@ -30,18 +30,5 @@ figure {
 }
 
 [class*="nav"] {
-  --navbar-background-color: var(--navy-light);
-}
-
-.slider {
-  --slider-image-max-height: 100%;
-  --slider-figure-max-height: auto;
-}
-
-.slider figcaption {
-  position: absolute;
-  top: -5vh;
-  padding: 5px 20px;
-  width: 100vw;
-  font-weight: bold;
+  --navbar-background-color: var(--blue);
 }

@@ -45,7 +45,8 @@ class ProjectController extends MainController
         $this->project["link"] = str_replace("https://", "", $this->getPost()->getPostVar("link"));
     }
 
-    private function setProjectPicture() {
+    private function setProjectPicture()
+    {
         $this->project["image"] = $this->getString()->cleanString($this->project["name"]) . $this->getFiles()->setFileExtension();
 
         $this->getFiles()->uploadFile("img/projects/", $this->getString()->cleanString($this->project["name"]));

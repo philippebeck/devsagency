@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS `devagency`;
-CREATE DATABASE `devagency` CHARACTER SET utf8;
+DROP DATABASE IF EXISTS `devsagency`;
+CREATE DATABASE `devsagency` CHARACTER SET utf8;
 
-USE `devagency`;
+USE `devsagency`;
 
 CREATE TABLE `Service`
 (
@@ -50,6 +50,6 @@ VALUES
 ('Pam',             'pam.png',          'packagist.org/packages/philippebeck/pam',  2018,   'tool',     'Php Approachable Microframework'),
 ('Animadio.js',     'animadio-js.png',  'www.npmjs.com/package/animadio.js',        2020,   'tool',     'Animadio JS Library'),
 ('Animadio.org',    'animadio-org.jpg', 'animadio.org',                             2019,   'website',  'CSS Framework Website & Documentation'),
-('Pam.net',         'pam-net.jpg',      'pam.devagency.net',                        2020,   'website',  'Pam Website & Documentation'),
+('Pam.net',         'pam-net.jpg',      'pam.devsagency.net',                        2020,   'website',  'Pam Website & Documentation'),
 ('Astronomy',       'astronomy.jpg',    'astronomy.philippebeck.net',               2020,   'website',  'Astronomy Website');
 

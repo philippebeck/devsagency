@@ -2,16 +2,16 @@
 
 Development Agency
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/11555444b63f4d0eae88a083b8708312)](https://www.codacy.com/manual/philippebeck/devagency?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=philippebeck/devagency&amp;utm_campaign=Badge_Grade)
-[![Maintainability](https://api.codeclimate.com/v1/badges/938dc2d59372341b6ee2/maintainability)](https://codeclimate.com/github/philippebeck/devagency/maintainability)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/11555444b63f4d0eae88a083b8708312)](https://www.codacy.com/manual/philippebeck/devsagency?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=philippebeck/devsagency&amp;utm_campaign=Badge_Grade)
+[![Maintainability](https://api.codeclimate.com/v1/badges/938dc2d59372341b6ee2/maintainability)](https://codeclimate.com/github/philippebeck/devsagency/maintainability)
 
 ---
 
 ## Download
 
-`git clone https://github.com/philippebeck/devagency.git`  
+`git clone https://github.com/philippebeck/devsagency.git`  
   
-[![Repo Size](https://img.shields.io/github/repo-size/philippebeck/devagency.svg?label=Repo+Size)](https://github.com/philippebeck/porfolio/tree/master)
+[![Repo Size](https://img.shields.io/github/repo-size/philippebeck/devsagency.svg?label=Repo+Size)](https://github.com/philippebeck/porfolio/tree/master)
 
 ---
 
@@ -19,14 +19,14 @@ Development Agency
 
 Dev Agency has continuous support !
 
-[![Project Maintained](https://img.shields.io/maintenance/yes/2020.svg?label=Maintained)](https://github.com/philippebeck/devagency)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/philippebeck/devagency.svg?label=Last+Commit)](https://github.com/philippebeck/devagency/commits/master)
+[![Project Maintained](https://img.shields.io/maintenance/yes/2020.svg?label=Maintained)](https://github.com/philippebeck/devsagency)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/philippebeck/devsagency.svg?label=Last+Commit)](https://github.com/philippebeck/devsagency/commits/master)
 
 ---
 
 ## Open-Source
 
-[![GitHub Stars](https://img.shields.io/github/stars/philippebeck/devagency.svg?label=GitHub+:+DevAgency+|+Stars)](https://github.com/philippebeck/devagency)
+[![GitHub Stars](https://img.shields.io/github/stars/philippebeck/devsagency.svg?label=GitHub+:+DevsAgency+|+Stars)](https://github.com/philippebeck/devsagency)
 
 ---
 
@@ -44,4 +44,4 @@ Philippe Beck
 
 Code released under the MIT License
 
-[![GitHub License](https://img.shields.io/github/license/philippebeck/devagency.svg?label=License)](https://github.com/philippebeck/devagency/blob/master/LICENSE)
+[![GitHub License](https://img.shields.io/github/license/philippebeck/devsagency.svg?label=License)](https://github.com/philippebeck/devsagency/blob/master/LICENSE)

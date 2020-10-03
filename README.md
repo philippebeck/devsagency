@@ -1,6 +1,6 @@
-# Dev Agency
+# DevsAgency
 
-Development Agency
+Developers Agency
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/11555444b63f4d0eae88a083b8708312)](https://www.codacy.com/manual/philippebeck/devsagency?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=philippebeck/devsagency&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/938dc2d59372341b6ee2/maintainability)](https://codeclimate.com/github/philippebeck/devsagency/maintainability)

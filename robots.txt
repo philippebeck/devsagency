@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /src/View/back/
 
-Sitemap: https://devagency.net/public/sitemap.xml
+Sitemap: https://devsagency.net/public/sitemap.xml

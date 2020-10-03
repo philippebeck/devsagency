@@ -1,5 +1,5 @@
 {
-  "name": "devagency",
+  "name": "devsagency",
   "description": "Web Development, Dev Tools & Developer Training - Open-source & Cross-platform Technologies - HTML, Twig, CSS, Sass, JavaScript, PHP, Symfony, SQL, Git & GitHub",
   "keywords": [
     "agency",
@@ -13,9 +13,9 @@
   ],
   "license": "MIT",
   "main": "index.php",
-  "homepage": "https://devagency.net",
-  "repository": "github:philippebeck/devagency",
-  "bugs": "https://github.com/philippebeck/devagency/issues",
+  "homepage": "https://devsagency.net",
+  "repository": "github:philippebeck/devsagency",
+  "bugs": "https://github.com/philippebeck/devsagency/issues",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "animadio": "^2.4.5",

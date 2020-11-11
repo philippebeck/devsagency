@@ -26,16 +26,18 @@ class AdminController extends MainController
             $this->redirect("home");
         }
 
-        $projects   = ModelFactory::getModel("Project")->listData();
-        $services   = ModelFactory::getModel("Service")->listData();
-        $users      = ModelFactory::getModel("User")->listData();
+        $allServices    = ModelFactory::getModel("Services")->listData();
+        $allProjects    = ModelFactory::getModel("Projects")->listData();
+        $allGraduates   = ModelFactory::getModel("Graduates")->listData();
+        $allMembers     = ModelFactory::getModel("Members")->listData();
 
-        $projects = array_reverse($projects);
+        $allProjects = array_reverse($allProjects);
 
         return $this->render("back/admin.twig", [
-            "projects"  => $projects,
-            "services"  => $services,
-            "users"     => $users
+            "allProjects"   => $allProjects,
+            "allServices"   => $allServices,
+            "allGraduates"  => $allGraduates,
+            "allMembers"    => $allMembers
         ]);
     }
 }

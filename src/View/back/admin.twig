@@ -8,19 +8,24 @@
     <input id="menu-radio1" class="menu-radio1" type="radio" name="menu" checked>
     <input id="menu-radio2" class="menu-radio2" type="radio" name="menu">
     <input id="menu-radio3" class="menu-radio3" type="radio" name="menu">
+    <input id="menu-radio4" class="menu-radio4" type="radio" name="menu">
 
     <nav class="menu">
         <label class="button-red" for="menu-radio1" title="Show Services">
             <i class="fas fa-concierge-bell color-red-into"></i>
             <span class="color-red-into">Services</span>
         </label>
-        <label class="button-blue" for="menu-radio2" title="Show Projects">
-            <i class="fas fa-jedi color-blue-into"></i>
-            <span class="color-blue-into">Projects</span>
+        <label class="button-green" for="menu-radio2" title="Show Projects">
+            <i class="fas fa-jedi color-green-into"></i>
+            <span class="color-green-into">Projects</span>
         </label>
-        <label class="button-purple" for="menu-radio3" title="Show Users">
-            <i class="far fa-user color-purple-into"></i>
-            <span class="color-purple-into">Users</span>
+        <label class="button-blue" for="menu-radio3" title="Show Graduates">
+            <i class="fas fa-user-graduate color-blue-into"></i>
+            <span class="color-blue-into">Graduates</span>
+        </label>
+        <label class="button-purple" for="menu-radio4" title="Show Members">
+            <i class="fas fa-users color-purple-into"></i>
+            <span class="color-purple-into">Members</span>
         </label>
     </nav>
 
@@ -30,7 +35,7 @@
                 <i class="fas fa-concierge-bell"></i>
                 Service
             </h2>
-            <a class="btn-green btn-lg" href="{{ url('service!create') }}">New Service</a>
+            <a class="btn-green btn-lg" href="{{ url('services!create') }}">New Service</a>
             <table class="table">
                 <thead>
                 <tr>
@@ -40,7 +45,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for service in services %}
+                {% for service in allServices %}
                     <tr>
                         <td>
                             {{ service.id }} -
@@ -50,10 +55,10 @@
                         </td>
                         <td>{{ service.description }}</td>
                         <td>
-                            <a class="btn-blue" href="{{ url('service!update', {'id': service.id}) }}">
+                            <a class="btn-blue" href="{{ url('services!update', {'id': service.id}) }}">
                                 <i class="fas fa-pen-square fa-fw fa-lg"></i>
                             </a>
-                            <a class="btn-red" href="{{ url('service!delete', {'id': service.id}) }}">
+                            <a class="btn-red" href="{{ url('services!delete', {'id': service.id}) }}">
                                 <i class="fas fa-times-circle fa-fw fa-lg"></i>
                             </a>
                         </td>
@@ -68,7 +73,7 @@
                 <i class="fas fa-jedi"></i>
                 Projects
             </h2>
-            <a class="btn-green btn-lg" href="{{ url('project!create') }}">New Project</a>
+            <a class="btn-green btn-lg" href="{{ url('projects!create') }}">New Project</a>
             <table class="table">
                 <thead>
                 <tr>
@@ -78,7 +83,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for project in projects %}
+                {% for project in allProjects %}
                     <tr>
                         <td>
                             <a class="button-gh" href="https://{{ project.link }}" title="See the project @GitHub">
@@ -90,10 +95,10 @@
                         </td>
                         <td>{{ project.description }}<hr>{{ project.year }} - {{ project.category|capitalize }}</td>
                         <td>
-                            <a class="btn-blue" href="{{ url('project!update', {'id': project.id}) }}">
+                            <a class="btn-blue" href="{{ url('projects!update', {'id': project.id}) }}">
                                 <i class="fas fa-pen-square fa-fw fa-lg"></i>
                             </a>
-                            <a class="btn-red" href="{{ url('project!delete', {'id': project.id}) }}">
+                            <a class="btn-red" href="{{ url('projects!delete', {'id': project.id}) }}">
                                 <i class="fas fa-times-circle fa-fw fa-lg"></i>
                             </a>
                         </td>
@@ -105,36 +110,74 @@
 
         <section class="menu-target3">
             <h2 class="deco-under color-blue">
-                <i class="fas fa-user"></i>
-                Users
+                <i class="fas fa-user-graduate"></i>
+                Graduates
             </h2>
-            <a class="btn-green btn-lg" href="{{ url('user!create') }}">New User</a>
+            <a class="btn-green btn-lg" href="{{ url('graduates!create') }}">New Graduate</a>
             <table class="table">
                 <thead>
                 <tr>
-                    <th>User</th>
+                    <th>Graduate</th>
                     <th>Infos</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for user in users %}
+                {% for graduate in allGraduates %}
                     <tr>
                         <td>
                             <figure>
-                                <img class="bord-sm bord-purple" src="img/user/{{ user.image }}" alt="Screenshot of {{ user.name }}">
-                                <figcaption>{{ user.id }} - {{ user.name }}</figcaption>
+                                <img class="bord-sm bord-purple" src="img/graduates/{{ graduate.image }}" alt="Screenshot of {{ graduate.name }}">
+                                <figcaption>{{ graduate.id }} - {{ graduate.name }}</figcaption>
                             </figure>
                         </td>
-                        <td>{{ user.email }}</td>
+                        <td>{{ graduate.email }}</td>
                         <td>
-                            <a class="btn-orange" href="{{ url('user!logout') }}">
-                                <i class="fas fa-sign-out-alt fa-fw fa-lg"></i>
-                            </a>
-                            <a class="btn-blue" href="{{ url('user!update', {'id': user.id}) }}">
+                              <a class="btn-blue" href="{{ url('graduates!update', {'id': graduate.id}) }}">
                                 <i class="fas fa-pen-square fa-fw fa-lg"></i>
                             </a>
-                            <a class="btn-red" href="{{ url('user!delete', {'id': user.id}) }}">
+                            <a class="btn-red" href="{{ url('graduates!delete', {'id': graduate.id}) }}">
+                                <i class="fas fa-times-circle fa-fw fa-lg"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <section class="menu-target4">
+            <h2 class="deco-under color-purple">
+                <i class="fas fa-users"></i>
+                Members
+            </h2>
+            <a class="btn-green btn-lg" href="{{ url('members!create') }}">New Member</a>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Member</th>
+                    <th>Infos</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for member in allMembers %}
+                    <tr>
+                        <td>
+                            <figure>
+                                <img class="bord-sm bord-purple" src="img/members/{{ member.image }}" alt="Screenshot of {{ member.name }}">
+                                <figcaption>{{ member.id }} - {{ member.name }}</figcaption>
+                            </figure>
+                        </td>
+                        <td>{{ member.email }}</td>
+                        <td>
+                            <a class="btn-orange" href="{{ url('auth!logout') }}">
+                                <i class="fas fa-sign-out-alt fa-fw fa-lg"></i>
+                            </a>
+                            <a class="btn-blue" href="{{ url('members!update', {'id': member.id}) }}">
+                                <i class="fas fa-pen-square fa-fw fa-lg"></i>
+                            </a>
+                            <a class="btn-red" href="{{ url('members!delete', {'id': member.id}) }}">
                                 <i class="fas fa-times-circle fa-fw fa-lg"></i>
                             </a>
                         </td>

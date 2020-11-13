@@ -48,7 +48,6 @@
                 {% for service in allServices %}
                     <tr>
                         <td>
-                            {{ service.id }} -
                             <i class="fas fa-{{ service.icon }} fa-lg"></i>
                             <hr>
                             {{ service.name }}
@@ -89,11 +88,11 @@
                             <a class="button-gh" href="https://{{ project.link }}" title="See the project @GitHub">
                                 <figure>
                                     <img src="img/projects/{{ project.image }}" alt="Screenshot of the project {{ project.name }}">
-                                    <figcaption>{{ project.id }} - {{ project.name }}</figcaption>
+                                    <figcaption>{{ project.name }}</figcaption>
                                 </figure>
                             </a>
                         </td>
-                        <td>{{ project.description }}<hr>{{ project.year }} - {{ project.category|capitalize }}</td>
+                        <td>{{ project.description }}<hr>{{ project.category|capitalize }} - {{ project.year }}</td>
                         <td>
                             <a class="btn-blue" href="{{ url('projects!update', {'id': project.id}) }}">
                                 <i class="fas fa-pen-square fa-fw fa-lg"></i>
@@ -128,12 +127,27 @@
                         <td>
                             <figure>
                                 <img class="bord-sm bord-purple" src="img/graduates/{{ graduate.image }}" alt="Screenshot of {{ graduate.name }}">
-                                <figcaption>{{ graduate.id }} - {{ graduate.name }}</figcaption>
+                                <figcaption>
+                                    <h3>{{ graduate.name }}</h3>
+                                    <p>{{ graduate.position }}</p>
+                                </figcaption>
                             </figure>
                         </td>
-                        <td>{{ graduate.email }}</td>
                         <td>
-                              <a class="btn-blue" href="{{ url('graduates!update', {'id': graduate.id}) }}">
+                            <p><i class="fas fa-map-marker-alt fa-fw fa-lg"></i> {{ graduate.city }}</p>
+                            <p>
+                                <i class="fas fa-envelope fa-fw fa-lg"></i>
+                                <a href="mailto:{{ graduate.email }}">{{ graduate.email }}</a>
+                            </p>
+                            <p>
+                                <i class="fas fa-globe-europe fa-fw fa-lg"></i>
+                                <a href="https://{{ graduate.website }}">https://{{ graduate.website }}</a>
+                            </p>
+                            <hr>
+                            <p>{{ graduate.presentation }}</p>
+                        </td>
+                        <td>
+                            <a class="btn-blue" href="{{ url('graduates!update', {'id': graduate.id}) }}">
                                 <i class="fas fa-pen-square fa-fw fa-lg"></i>
                             </a>
                             <a class="btn-red" href="{{ url('graduates!delete', {'id': graduate.id}) }}">
@@ -166,10 +180,25 @@
                         <td>
                             <figure>
                                 <img class="bord-sm bord-purple" src="img/members/{{ member.image }}" alt="Screenshot of {{ member.name }}">
-                                <figcaption>{{ member.id }} - {{ member.name }}</figcaption>
+                                <figcaption>
+                                    <h3>{{ member.name }}</h3>
+                                    <p>{{ member.position }}</p>
+                                </figcaption>
                             </figure>
                         </td>
-                        <td>{{ member.email }}</td>
+                        <td>
+                            <p><i class="fas fa-map-marker-alt fa-fw fa-lg"></i> {{ member.city }}</p>
+                            <p>
+                                <i class="fas fa-envelope fa-fw fa-lg"></i>
+                                <a href="mailto:{{ member.email }}">{{ member.email }}</a>
+                            </p>
+                            <p>
+                                <i class="fas fa-globe-europe fa-fw fa-lg"></i>
+                                <a href="https://{{ member.website }}">https://{{ member.website }}</a>
+                            </p>
+                            <hr>
+                            <p>{{ member.presentation }}</p>
+                        </td>
                         <td>
                             <a class="btn-orange" href="{{ url('auth!logout') }}">
                                 <i class="fas fa-sign-out-alt fa-fw fa-lg"></i>

@@ -46,16 +46,16 @@ class AuthController extends MainController
         if (!empty($this->getPost()->getPostArray())) {
             $this->member = $this->getPost()->getPostArray();
 
-            /*if (isset($this->member["g-recaptcha-response"]) && !empty($this->member["g-recaptcha-response"])) {
+            if (isset($this->member["g-recaptcha-response"]) && !empty($this->member["g-recaptcha-response"])) {
 
                 if ($this->getSecurity()->checkRecaptcha($this->member["g-recaptcha-response"])) {
-                    */$this->checkLogin();/*
+                    $this->checkLogin();
                 }
             }
 
             $this->getSession()->createAlert("Check the reCAPTCHA !", "red");
 
-            $this->redirect("auth");*/
+            $this->redirect("auth");
         }
 
         return $this->render("front/login.twig");

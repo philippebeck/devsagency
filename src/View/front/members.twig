@@ -1,0 +1,32 @@
+{% extends 'layout/layout.twig' %}
+
+{% block subtitle %}Members{% endblock %}
+
+{% block summary %}Discover the Team Members of the DevsAgency !{% endblock %}
+
+{% block main %}
+    <main class="container-90tn-80sm-70md-60lg-50wd mar-bot-lg">
+
+        <header class="container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-purple pad-md mar-bot-lg">We are a professional team for all of your projects !</header>
+
+        {% for member in allMembers %}
+            <section class="card-purple anima-grow">
+                <h2>{{ member.name }}</h2>
+
+                <figure>
+                    <img class="bord-rounded" src="img/members/{{ member.image }}" alt="{{ member.name }} picture">
+                    <figcaption>{{ member.position }}<br>from<br>{{ member.city }}</figcaption>
+                </figure>
+
+                <a class="btn-blue" href="https://{{ member.website }}" title="Watch the website of {{ member.name }} !">
+                    <i class="fas fa-globe-europe fa-lg"></i>
+                </a>
+                <a class="btn-blue" href="mailto:{{ member.email }}" title="Contact {{ member.name}} by email !">
+                    <i class="fas fa-envelope fa-lg"></i>
+                </a>
+
+                <p>{{ member.presentation }}</p>
+            </section>
+        {% endfor %}
+    </main>
+{% endblock %}

@@ -9,10 +9,10 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class ProjectController
+ * Class ProjectsController
  * @package App\Controller
  */
-class ProjectController extends MainController
+class ProjectsController extends MainController
 {
     /**
      * @var array
@@ -27,11 +27,11 @@ class ProjectController extends MainController
      */
     public function defaultMethod()
     {
-        $projects = $this->getArray()->getArrayElements(ModelFactory::getModel("Project")->listData());
+        $allProjects = $this->getArray()->getArrayElements(ModelFactory::getModel("Projects")->listData());
 
-        return $this->render("front/project.twig", [
-            "tools"      => $projects["tool"],
-            "websites"   => $projects["website"]
+        return $this->render("front/projects.twig", [
+            "tools"      => $allProjects["tool"],
+            "websites"   => $allProjects["website"]
         ]);
     }
 
@@ -69,13 +69,13 @@ class ProjectController extends MainController
             $this->setProjectData();
             $this->setProjectPicture();
 
-            ModelFactory::getModel("Project")->createData($this->project);
+            ModelFactory::getModel("Projects")->createData($this->project);
             $this->getSession()->createAlert("New project created successfully !", "green");
 
             $this->redirect("admin");
         }
 
-        return $this->render("back/createProject.twig");
+        return $this->render("back/projects/createProject.twig");
     }
 
     /**
@@ -97,15 +97,15 @@ class ProjectController extends MainController
                 $this->setProjectPicture();
             }
 
-            ModelFactory::getModel("Project")->updateData($this->getGet()->getGetVar("id"), $this->project);
+            ModelFactory::getModel("Projects")->updateData($this->getGet()->getGetVar("id"), $this->project);
             $this->getSession()->createAlert("Successful modification of the selected project !", "blue");
 
             $this->redirect("admin");
         }
 
-        $project = ModelFactory::getModel("Project")->readData($this->getGet()->getGetVar("id"));
+        $project = ModelFactory::getModel("Projects")->readData($this->getGet()->getGetVar("id"));
 
-        return $this->render("back/updateProject.twig", ["project" => $project]);
+        return $this->render("back/projects/updateProject.twig", ["project" => $project]);
     }
 
     public function deleteMethod()
@@ -114,7 +114,7 @@ class ProjectController extends MainController
             $this->redirect("home");
         }
 
-        ModelFactory::getModel("Project")->deleteData($this->getGet()->getGetVar("id"));
+        ModelFactory::getModel("Projects")->deleteData($this->getGet()->getGetVar("id"));
         $this->getSession()->createAlert("Project actually deleted !", "red");
 
         $this->redirect("admin");

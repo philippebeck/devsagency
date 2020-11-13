@@ -27,7 +27,7 @@ class MembersController extends MainController
      */
     public function defaultMethod()
     {
-        $allMembers = $this->getArray()->getArrayElements(ModelFactory::getModel("Members")->listData());
+        $allMembers = ModelFactory::getModel("Members")->listData();
 
         return $this->render("front/members.twig", ["allMembers" => $allMembers]);
     }

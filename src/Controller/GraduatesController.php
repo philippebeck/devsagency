@@ -27,7 +27,7 @@ class GraduatesController extends MainController
      */
     public function defaultMethod()
     {
-        $allGraduates = $this->getArray()->getArrayElements(ModelFactory::getModel("Graduates")->listData());
+        $allGraduates = ModelFactory::getModel("Graduates")->listData();
 
         return $this->render("front/graduates.twig", ["allGraduates" => $allGraduates]);
     }

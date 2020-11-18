@@ -14,8 +14,13 @@
                 <h2>{{ graduate.name }}</h2>
 
                 <figure>
-                    <img src="img/members/{{ graduate.image }}" alt="{{ graduate.name }} picture">
-                    <figcaption>Looking for<br>{{ graduate.position }}<br>in<br>{{ graduate.city }}</figcaption>
+                    <img class="bord-rounded" src="img/graduates/{{ graduate.image }}" alt="{{ graduate.name }} picture">
+                    <figcaption>
+                        Looking for<br>
+                        <strong>{{ graduate.position }}</strong>
+                        <br>in<br>
+                        <strong>{{ graduate.city }}</strong>
+                    </figcaption>
                 </figure>
 
                 <a class="btn-blue" href="https://www.linkedin.com/in/{{ graduate.linkedin }}" title="Watch the LinkedIn profile of {{ graduate.name }} !">

@@ -15,9 +15,16 @@
 
                 <figure>
                     <img class="bord-rounded" src="img/members/{{ member.image }}" alt="{{ member.name }} picture">
-                    <figcaption>{{ member.position }}<br>from<br>{{ member.city }}</figcaption>
+                    <figcaption>
+                        <strong>{{ member.position }}</strong>
+                        <br>from<br>
+                        <strong>{{ member.city }}</strong>
+                    </figcaption>
                 </figure>
 
+                <a class="btn-blue" href="https://www.linkedin.com/in/{{ member.linkedin }}" title="Watch the LinkedIn profile of {{ member.name }} !">
+                    <i class="fab fa-linkedin fa-lg"></i>
+                </a>
                 <a class="btn-blue" href="https://{{ member.website }}" title="Watch the website of {{ member.name }} !">
                     <i class="fas fa-globe-europe fa-lg"></i>
                 </a>

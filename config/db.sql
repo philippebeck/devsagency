@@ -45,6 +45,7 @@ CREATE TABLE `Members`
     `image`         VARCHAR(30)     NOT NULL    UNIQUE,
     `email`         VARCHAR(30)     NOT NULL    UNIQUE,
     `pass`          VARCHAR(100)    NOT NULL,
+    `linkedin`      VARCHAR(30)     NOT NULL    UNIQUE,
     `website`       VARCHAR(30)     NOT NULL    UNIQUE,
     `position`      VARCHAR(30)     NOT NULL    UNIQUE,
     `city`          VARCHAR(30)     NOT NULL,
@@ -71,3 +72,8 @@ VALUES
 ('Animadio.org',    'animadio-org.jpg', 'animadio.org',                             2019,   'website',  'Animadio Website & Documentation'),
 ('Pam.net',         'pam-net.jpg',      'pam.devsagency.net',                       2020,   'website',  'Pam Website & Documentation'),
 ('Astronomy',       'astronomy.jpg',    'astronomy.philippebeck.net',               2020,   'website',  'Astronomy Website');
+
+INSERT INTO `Graduates`
+(`name`,                `image`,        `email`,                        `linkedin`,         `website`,          `position`,                     `city`,             `presentation`)
+VALUES
+('Timothée Segard',     'timothee.jpg', 'segard.timothee@gmail.com',    'timothee-segard',   'boutiqueaem.pro',  'Web Developer / Integrator',  'Paris / Lille',    'Freelance or team web developer, also having several years of experience in digital project management. I know how to understand and anticipate the expectations of people who want to have a first online presence, or a redesign of their website.');

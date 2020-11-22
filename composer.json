@@ -1,17 +1,22 @@
 {
   "name": "devsagency/devsagency",
   "version": "0.3.1",
-  "type": "library",
+  "type": "project",
   "description": "Web Development, Dev Tools & Developer Training - Open-source & Cross-platform Technologies - HTML, Twig, CSS, Sass, JavaScript, PHP, Symfony, SQL, Git & GitHub",
   "keywords": [
-    "agency",
-    "css",
-    "dev",
-    "git",
-    "html",
-    "javascript",
-    "php",
-    "sql"
+    "web agency",
+    "responsive web design",
+    "seo expertise",
+    "programing tool",
+    "digital transformation",
+    "development mentorship",
+    "developer recruitment",
+    "twig",
+    "animadio",
+    "animadio.js",
+    "pam",
+    "sql",
+    "git"
   ],
   "homepage": "https://devsagency.net",
   "license": "MIT",
@@ -33,7 +38,7 @@
     "devsagency/pam": "^4.6.0"
   },
   "require-dev": {
-    "tracy/tracy": "^2.7.5"
+    "tracy/tracy": "^2.7.6"
   },
   "config": {
     "platform": {
@@ -41,9 +46,9 @@
     }
   },
   "support": {
-    "email": "admin@philippebeck.net",
-    "issues": "https://github.com/philippebeck/devsagency/issues",
-    "wiki": "https://github.com/philippebeck/devsagency/wiki",
-    "source": "https://github.com/philippebeck/devsagency"
+    "email": "admin@devsagency.net",
+    "issues": "https://github.com/devsagency/devsagency/issues",
+    "wiki": "https://github.com/devsagency/devsagency/wiki",
+    "source": "https://github.com/devsagency/devsagency"
   }
 }

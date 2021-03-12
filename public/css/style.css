@@ -8,10 +8,6 @@ body {
   --body-background-color: AliceBlue;
 }
 
-h1 {
-  text-shadow: 2px 2px 2px;
-}
-
 form label {
   display: inline-block;
   background: var(--white);
@@ -30,5 +26,5 @@ figure {
 }
 
 [class*="nav"] {
-  --navbar-background-color: var(--blue);
+  --navbar-background-color: var(--pp);
 }

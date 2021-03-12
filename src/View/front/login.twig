@@ -11,29 +11,46 @@
 
 {% block main %}
     <main class="align-center">
-        <form class="form" action="{{ url('auth')}}" method="post">
+        <form class="form" 
+            action="{{ url('auth')}}" 
+            method="post">
             <fieldset>
                 <ul>
                     <li>
                         <label for="email">Email</label>
-                        <input id="email" name="email" type="email" placeholder="Insert your email" required>
+                        <input id="email" 
+                            name="email" 
+                            type="email" 
+                            placeholder="Insert your email" 
+                            required>
                     </li>
                     <li>
                         <label for="pass">Password</label>
-                        <input id="pass" name="pass" type="password" placeholder="Insert your password" autocomplete="off" required>
+                        <input id="pass" 
+                            name="pass" 
+                            type="password" 
+                            placeholder="Insert your password" 
+                            autocomplete="off" 
+                            required>
                     </li>
                 </ul>
                 <ul>
                     <li>
-                        <div id="recaptcha" class="g-recaptcha container" data-sitekey="6LddRNMZAAAAADmqqZklZD2MAdxrJI5yi_xCS1On"></div>
+                        <div id="recaptcha" 
+                            class="g-recaptcha container" 
+                            data-sitekey="6LddRNMZAAAAADmqqZklZD2MAdxrJI5yi_xCS1On">
+                        </div>
                     </li>
                     <li>
-                        <input type="reset" value="Reset">
-                        <input type="submit" value="Login">
+                        <input type="reset" 
+                            value="Reset">
+                        <input type="submit" 
+                            value="Login">
                     </li>
                 </ul>
             </fieldset>
         </form>
-        <a class="btn-black btn-lg" href="./">Quit</a>
+        <a class="btn-black btn-lg" 
+            href="./">Quit</a>
     </main>
 {% endblock %}

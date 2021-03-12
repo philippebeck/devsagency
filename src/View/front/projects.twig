@@ -1,29 +1,41 @@
 {% extends 'layout/layout.twig' %}
 
-{% block subtitle %}Projects{% endblock %}
+{% block subtitle %}Projets{% endblock %}
 
-{% block summary %}Frameworks & Websites Projects - Animadio & Free Code Camp Pens - Languages HTML5, Twig, Pugjs, CSS3, SCSS, Stylus, JavaScript, jQuery, CoffeeScript, Nodejs, Expressjs, PHP, MySQL{% endblock %}
+{% block summary %}Frameworks & Sites Web - Animadio & Free Code Camp Pens - Languages HTML5, Twig, Pugjs, CSS3, SCSS, Stylus, JavaScript, jQuery, CoffeeScript, Nodejs, Expressjs, PHP, MySQL{% endblock %}
 
 {% block main %}
-    <input id="menu-radio1" class="menu-radio1" type="radio" name="menu">
-    <input id="menu-radio2" class="menu-radio2" type="radio" name="menu" checked>
+    <input id="menu-radio1" 
+        class="menu-radio1" 
+        type="radio" 
+        name="menu">
+    <input id="menu-radio2" 
+        class="menu-radio2" 
+        type="radio" 
+        name="menu" 
+        checked>
 
     <nav class="menu">
-        <label class="button-red" for="menu-radio1" title="Programming Tools">
+        <label class="button-red" 
+            for="menu-radio1" 
+            title="Programming Tools">
             <i class="fas fa-tools color-red-into"></i>
             <span class="color-red-into">Tools</span>
         </label>
-        <label class="button-blue" for="menu-radio2" title="Responsive Web Design">
+        <label class="button-blue" 
+            for="menu-radio2" 
+            title="Responsive Web Design">
             <i class="fas fa-globe color-blue-into"></i>
             <span class="color-blue-into">WebSites</span>
         </label>
     </nav>
 
-    <main id="project" class="container-90tn-80md-70wd align-center menu-relay">
+    <header class="container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-violet pad-md mar-bot-lg block">
+        Vous trouverez ici quelques exemples de nos Créations : des outils de programmation & des sites Web Responsives, n'hésitez pas à les regarder.
+    </header>
 
-        <header class="container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-purple pad-md mar-bot-lg block">
-                You would find here Programming Tools & Responsive Websites, don't hesitate to watch them.
-        </header>
+    <main id="project" 
+        class="container-90tn-80md-70wd align-center menu-relay">
 
         <section class="menu-target1">
             <h2 class="color-red">
@@ -32,12 +44,15 @@
             <figure class="gallery">
 
                 {% for tools in tools %}
-                    <figure class="button-red anima-halfX">
-                        <a href="https://{{ tools.link }}" title="Watch {{ tools.name }} on GitHub">
-                            <img src="img/projects/{{ tools.image }}" alt="Screenshot of {{ tools.name }}">
+                    <figure class="button-red anima-turnX-this">
+                        <a href="https://{{ tools.link }}" 
+                            title="Watch {{ tools.name }} on GitHub">
+                            <img src="img/projects/{{ tools.image }}" 
+                                alt="Screenshot of {{ tools.name }}">
                         </a>
                         <figcaption>
-                            <a href="https://{{ tools.link }}" title="Watch {{ tools.name }} on GitHub">
+                            <a href="https://{{ tools.link }}" 
+                                title="Watch {{ tools.name }} on GitHub">
                                 <h3>{{ tools.name }}</h3>
                                 <p>{{ tools.description }}</p>
                                 <p>{{ tools.year }}</p>
@@ -56,12 +71,15 @@
             <figure class="gallery">
 
                 {% for website in websites %}
-                    <figure class="btn-blue anima-halfY">
-                        <a href="https://{{ website.link }}" title="Watch {{ website.name }} on GitHub">
-                            <img src="img/projects/{{ website.image }}" alt="Screenshot of {{ website.name }}">
+                    <figure class="btn-blue anima-turnY-this">
+                        <a href="https://{{ website.link }}" 
+                            title="Watch {{ website.name }} on GitHub">
+                            <img src="img/projects/{{ website.image }}" 
+                                alt="Screenshot of {{ website.name }}">
                         </a>
                         <figcaption>
-                            <a href="https://{{ website.link }}" title="Watch {{ website.name }} on GitHub">
+                            <a href="https://{{ website.link }}" 
+                                title="Watch {{ website.name }} on GitHub">
                                 <h3>{{ website.name }}</h3>
                                 <p>{{ website.description }}</p>
                                 <p>{{ website.year }}</p>

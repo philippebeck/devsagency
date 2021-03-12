@@ -1,8 +1,10 @@
 {% extends 'layout/layout.twig' %}
 
-{% block subtitle %}Welcome{% endblock %}
+{% block subtitle %}DevsAgency{% endblock %}
 
-{% block description %}Web Development, Dev Tools & Developer Training - Open-source & Cross-platform Technologies - HTML, Twig, CSS, Sass, JavaScript, PHP, Symfony, SQL, Git & GitHub{% endblock %}
+{% block description %}
+    Développement Web, outils de développement & formation pour développeurs - Technologies open-source & multiplateformes - HTML, Twig, CSS, Sass, JavaScript, PHP, Symfony, SQL, Git & GitHub
+{% endblock %}
 
 {% block script %}
     <script src="node_modules/animadio.js/dist/animadio.js"></script>
@@ -10,59 +12,112 @@
 {% endblock %}
 
 {% block main %}
-    <main id="slider" class="slider">
-        <input id="slider-radio1" class="slider-radio1" type="radio" name="slider" disabled checked>
-        <input id="slider-radio2" class="slider-radio2" type="radio" name="slider" disabled>
-        <input id="slider-radio3" class="slider-radio3" type="radio" name="slider" disabled>
-        <input id="slider-radio4" class="slider-radio4" type="radio" name="slider" disabled>
-        <input id="slider-radio5" class="slider-radio5" type="radio" name="slider" disabled>
-        <input id="slider-radio6" class="slider-radio6" type="radio" name="slider" disabled>
+    <main id="slider" 
+        class="slider">
+        <input id="slider-radio1" 
+            class="slider-radio1" 
+            type="radio" 
+            name="slider" 
+            disabled 
+            checked>
+        <input id="slider-radio2" 
+            class="slider-radio2" 
+            type="radio" 
+            name="slider" 
+            disabled>
+        <input id="slider-radio3" 
+            class="slider-radio3" 
+            type="radio" 
+            name="slider" 
+            disabled>
+        <input id="slider-radio4" 
+            class="slider-radio4" 
+            type="radio" 
+            name="slider" 
+            disabled>
+        <input id="slider-radio5" 
+            class="slider-radio5" 
+            type="radio" 
+            name="slider" 
+            disabled>
+        <input id="slider-radio6" 
+            class="slider-radio6" 
+            type="radio" 
+            name="slider" 
+            disabled>
 
-        <figure id="slider-relay" class="slider-relay">
+        <figure id="slider-relay" 
+            class="slider-relay">
             <figure class="slider-target1">
-                <img src="img/slider/welcome.jpg" alt="Welcome Picture">
-                <figcaption>Welcome to the Developers Agency !</figcaption>
+                <img src="img/slider/welcome.jpg" 
+                    alt="Welcome Picture">
+                <figcaption>
+                    Bienvenue à la DevsAgency!
+                </figcaption>
             </figure>
             <figure class="slider-target2">
-                <img src="img/slider/website.jpg" alt="Website Shop Picture">
-                <figcaption>If you need a Responsive Website for your Shop...</figcaption>
+                <img src="img/slider/website.jpg" 
+                    alt="Website Shop Picture">
+                <figcaption>
+                    Vous avez besoin d'un Site Web Responsive pour votre boutique...
+                </figcaption>
             </figure>
             <figure class="slider-target3">
-                <img src="img/slider/seo.jpg" alt="SEO Expertise Picture">
-                <figcaption>Or a SEO Expertise for your Own Website...</figcaption>
+                <img src="img/slider/seo.jpg" 
+                    alt="SEO Expertise Picture">
+                <figcaption>
+                    Ou d'une Expertise SEO pour votre propre site Web ...
+                </figcaption>
             </figure>
             <figure class="slider-target4">
-                <img src="img/slider/tool.jpg" alt="Digital Tool Picture">
-                <figcaption>Or else a Programming Tool for your Business...</figcaption>
+                <img src="img/slider/tool.jpg" 
+                    alt="Digital Tool Picture">
+                <figcaption>
+                    Ou bien d'un Outil de Programmation pour votre entreprise ...
+                </figcaption>
             </figure>
             <figure class="slider-target5">
-                <img src="img/slider/training.jpg" alt="Development Training Picture">
-                <figcaption>Or even a Development Training for You...</figcaption>
+                <img src="img/slider/training.jpg" 
+                    alt="Development Training Picture">
+                <figcaption>
+                    Ou même d'une Formation en Développement pour vous ...
+                </figcaption>
             </figure>
             <figure class="slider-target6">
-                <img src="img/slider/devsagency.jpg" alt="DevsAgency Picture">
-                <figcaption>You can find All of Them Here, @DevsAgency !</figcaption>
+                <img src="img/slider/devsagency.jpg" 
+                    alt="DevsAgency Picture">
+                <figcaption>
+                    Ou encore du Recrutement de votre futur Développeur.
+                </figcaption>
             </figure>
         </figure>
 
         <ul>
             <li>
-                <button id="slider-previous" class="slider-previous" title="Previous (&larr;)">
+                <button id="slider-previous" 
+                    class="slider-previous" 
+                    title="Previous (&larr;)">
                     <i class="fas fa-step-backward fa-2x"></i>
                 </button>
             </li>
             <li>
-                <button id="slider-auto" class="slider-auto" title="Pause (&uarr;)">
+                <button id="slider-auto" 
+                    class="slider-auto" 
+                    title="Pause (&uarr;)">
                     <i class="fas fa-pause fa-2x"></i>
                 </button>
             </li>
             <li class="hide">
-                <button id="slider-random" class="slider-random" title="Random (&darr;)">
+                <button id="slider-random" 
+                    class="slider-random" 
+                    title="Random (&darr;)">
                     <i class="fas fa-random fa-2x"></i>
                 </button>
             </li>
             <li>
-                <button id="slider-next" class="slider-next" title="Next (&rarr;)">
+                <button id="slider-next" 
+                    class="slider-next" 
+                    title="Next (&rarr;)">
                     <i class="fas fa-step-forward fa-2x"></i>
                 </button>
             </li>
@@ -71,32 +126,38 @@
         <ul class="slider-progress">
             <li>
                 <label for="slider-radio1">
-                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                    <i class="fas fa-dot-circle" 
+                        aria-hidden="true"></i>
                 </label>
             </li>
             <li>
                 <label for="slider-radio2">
-                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                    <i class="fas fa-dot-circle" 
+                        aria-hidden="true"></i>
                 </label>
             </li>
             <li>
                 <label for="slider-radio3">
-                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                    <i class="fas fa-dot-circle" 
+                        aria-hidden="true"></i>
                 </label>
             </li>
             <li>
                 <label for="slider-radio4">
-                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                    <i class="fas fa-dot-circle" 
+                        aria-hidden="true"></i>
                 </label>
             </li>
             <li>
                 <label for="slider-radio5">
-                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                    <i class="fas fa-dot-circle" 
+                        aria-hidden="true"></i>
                 </label>
             </li>
             <li>
                 <label for="slider-radio6">
-                    <i class="fas fa-dot-circle" aria-hidden="true"></i>
+                    <i class="fas fa-dot-circle" 
+                        aria-hidden="true"></i>
                 </label>
             </li>
         </ul>

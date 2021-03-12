@@ -2,23 +2,26 @@
 
 {% block subtitle %}Services{% endblock %}
 
-{% block summary %}Frameworks & Websites Projects - Animadio & Free Code Camp Pens - Languages HTML5, Twig, Pugjs, CSS3, SCSS, Stylus, JavaScript, jQuery, CoffeeScript, Nodejs, Expressjs, PHP, MySQL{% endblock %}
+{% block summary %}Frameworks & Sites Web - Animadio & Free Code Camp Pens - Langages HTML5, Twig, Pugjs, CSS3, SCSS, Stylus, JavaScript, jQuery, CoffeeScript, Nodejs, Expressjs, PHP, MySQL{% endblock %}
 
 {% block main %}
     <main class="container-90tn-80sm-70md-60lg-50wd mar-bot-lg">
 
-        <header class="container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-purple pad-md mar-bot-lg">
-            We offer web & mobile design services with particular attention to ergonomics, interfaces & relevance in search results.
+        <header class="container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-violet pad-md mar-bot-lg">
+            Nous proposons des services de conception web & mobile avec une attention particulière à l'ergonomie, aux interfaces & à la pertinence dans les résultats de recherche.
         </header>
 
         {% for service in allServices %}
-            <section itemscope itemtype="https://schema.org/Service">
+            <section itemscope 
+                itemtype="https://schema.org/Service">
 
-                <i class="fas fa-minus fa-lg block mar-lg" aria-hidden="true"></i>
+                <i class="fas fa-minus fa-lg block mar-lg" 
+                    aria-hidden="true"></i>
 
-                <i class="fas fa-{{ service.icon }} fa-4x color-navy anima-slipB"></i>
+                <i class="fas fa-{{ service.icon }} fa-4x color-in anima-grow-this"></i>
 
-                <h3 class="color-blue" itemprop="name">
+                <h3 class="color-blue" 
+                    itemprop="name">
                     {{ service.name }}
                 </h3>
                 <p itemprop="description">{{ service.description }}</p>

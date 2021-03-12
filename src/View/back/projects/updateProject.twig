@@ -1,56 +1,107 @@
 {% extends 'layout/layout.twig' %}
 
-{% block subtitle %}Edit a Project{% endblock %}
+{% block subtitle %}Modifier un Projet{% endblock %}
 
 {% block summary %}{% endblock %}
 
 {% block main %}
-    <main class="align-center">
-        <form class="form" method="post" action={{ url('projects!update', {'id': project.id}) }} enctype="multipart/form-data">
-            <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
-            <fieldset>
-                <legend>
-                    <i class="fas fa-jedi fa-4x color-green"></i>
-                </legend>
-                <ul>
-                    <li>
-                        <label for="name">Name</label>
-                        <input id="name" name="name" type="text" maxlength="50" required value="{{ project.name }}">
-                    </li>
-                    <li>
-                        <label for="file">Picture</label>
-                        <input name="file" type="file" accept=".jpg, .jpeg, .png, .gif">
-                    </li>
-                    <li>
-                        <label for="link">Link</label>
-                        <input id="link" name="link" type="text" maxlength="50" required value="https://{{ project.link }}">
-                    </li>
-                    <li>
-                        <label for="year">Year</label>
-                        <input id="year" name="year" type="number" required value="{{ project.year }}">
-                    </li>
-                    <li>
-                        <label for="category">Category</label>
-                        <select id="category" name="category" required>
-                            <option value="{{ project.category }}">{{ project.category|capitalize }} (is registred)</option>
-                            <option value="tool">-- Choose a category</option>
-                            <option value="tool">Tool</option>
-                            <option value="website">Website</option>
-                        </select>
-                    </li>
-                    <li>
-                        <label for="description">Description</label>
-                        <textarea id="description" name="description" rows="5" maxlength="255" required>{{ project.description }}</textarea>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <input type="reset" value="Reset">
-                        <input type="submit" value="Update">
-                    </li>
-                </ul>
-            </fieldset>
-        </form>
-        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quit</a>
-    </main>
+<main class="align-center">
+    <form class="form" 
+        method="post" 
+        action={{ url('projects!update', {'id': project.id}) }} 
+        enctype="multipart/form-data">
+        <input type="hidden" 
+            name="MAX_FILE_SIZE" 
+            value="10000000">
+        <fieldset>
+            <legend>
+                <i class="fas fa-jedi fa-4x color-green"></i>
+            </legend>
+            <ul>
+                <li>
+                    <label for="name">
+                        Nom
+                    </label>
+                    <input id="name" 
+                        name="name" 
+                        type="text" 
+                        maxlength="50" 
+                        value="{{ project.name }}"
+                        required>
+                </li>
+                <li>
+                    <label for="file">
+                        Image
+                    </label>
+                    <input name="file" 
+                        type="file" 
+                        accept=".jpg, .jpeg, .png, .gif">
+                </li>
+                <li>
+                    <label for="link">
+                        Lien
+                    </label>
+                    <input id="link" 
+                        name="link" 
+                        type="text" 
+                        maxlength="50" 
+                        value="https://{{ project.link }}"
+                        required>
+                </li>
+                <li>
+                    <label for="year">
+                        Année
+                    </label>
+                    <input id="year" 
+                        name="year" 
+                        type="number" 
+                        value="{{ project.year }}"
+                        required>
+                </li>
+                <li>
+                    <label for="category">
+                        Catégorie
+                    </label>
+                    <select id="category" 
+                        name="category" 
+                        required>
+                        <option value="{{ project.category }}">
+                            {{ project.category|capitalize }} (is registred)
+                        </option>
+                        <option value="tool">
+                            Outil
+                        </option>
+                        <option value="website">
+                            Site Web
+                        </option>
+                    </select>
+                </li>
+                <li>
+                    <label for="description">
+                        Description
+                    </label>
+                    <textarea id="description" 
+                        name="description" 
+                        rows="5" 
+                        maxlength="255" 
+                        required>
+                        {{ project.description }}
+                    </textarea>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <input type="reset" 
+                        value="Réinitialiser">
+                    <input type="submit" 
+                        value="Modifier">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <a class="btn-black btn-lg" 
+        href="{{ url('admin') }}">
+        Quitter
+    </a>
+</main>
 {% endblock %}

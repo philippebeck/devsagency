@@ -25,6 +25,11 @@ figure {
   margin: 0;
 }
 
-[class*="nav"] {
+.navbar {
   --navbar-background-color: var(--pp);
+}
+
+.foot {
+  --foot-list-background-color: var(--in);
+  --foot-list-link-hover-font-color: var(--black);
 }

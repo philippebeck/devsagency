@@ -55,7 +55,7 @@ class ServicesController extends MainController
             $this->setServiceData();
 
             ModelFactory::getModel("Services")->createData($this->service);
-            $this->getSession()->createAlert("New service created successfully !", "green");
+            $this->getSession()->createAlert("Nouveau Service Créé avec Succès !", "green");
 
             $this->redirect("admin");
         }
@@ -79,7 +79,7 @@ class ServicesController extends MainController
             $this->setServiceData();
 
             ModelFactory::getModel("Services")->updateData($this->getGet()->getGetVar("id"), $this->service);
-            $this->getSession()->createAlert("Successful modification of the selected services !", "blue");
+            $this->getSession()->createAlert("Modification du Service Sélectionné Effectuée !", "blue");
 
             $this->redirect("admin");
         }
@@ -96,7 +96,7 @@ class ServicesController extends MainController
         }
 
         ModelFactory::getModel("Services")->deleteData($this->getGet()->getGetVar("id"));
-        $this->getSession()->createAlert("Service actually deleted !", "red");
+        $this->getSession()->createAlert("Service Supprimé !", "red");
 
         $this->redirect("admin");
     }

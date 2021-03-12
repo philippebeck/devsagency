@@ -70,7 +70,7 @@ class ProjectsController extends MainController
             $this->setProjectPicture();
 
             ModelFactory::getModel("Projects")->createData($this->project);
-            $this->getSession()->createAlert("New project created successfully !", "green");
+            $this->getSession()->createAlert("Nouveau Projet Créé avec Succès !", "green");
 
             $this->redirect("admin");
         }
@@ -98,7 +98,7 @@ class ProjectsController extends MainController
             }
 
             ModelFactory::getModel("Projects")->updateData($this->getGet()->getGetVar("id"), $this->project);
-            $this->getSession()->createAlert("Successful modification of the selected project !", "blue");
+            $this->getSession()->createAlert("Modification du Projet Sélectionné Effectuée !", "blue");
 
             $this->redirect("admin");
         }
@@ -115,7 +115,7 @@ class ProjectsController extends MainController
         }
 
         ModelFactory::getModel("Projects")->deleteData($this->getGet()->getGetVar("id"));
-        $this->getSession()->createAlert("Project actually deleted !", "red");
+        $this->getSession()->createAlert("Projet Supprimé !", "red");
 
         $this->redirect("admin");
     }

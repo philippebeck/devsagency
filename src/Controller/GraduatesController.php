@@ -68,7 +68,7 @@ class GraduatesController extends MainController
             $this->setGraduateImage();
 
             ModelFactory::getModel("Graduates")->createData($this->graduate);
-            $this->getSession()->createAlert("New graduate successfully created !", "green");
+            $this->getSession()->createAlert("Nouveau Diplômé Créé avec Succès !", "green");
 
             $this->redirect("admin");
         }
@@ -96,7 +96,7 @@ class GraduatesController extends MainController
             }
 
             ModelFactory::getModel("Graduates")->updateData($this->getGet()->getGetVar("id"), $this->graduate);
-            $this->getSession()->createAlert("Successful modification of the graduate !", "blue");
+            $this->getSession()->createAlert("Modification du Diplômé Sélectionné Effectuée !", "blue");
 
             $this->redirect("admin");
         }
@@ -113,7 +113,7 @@ class GraduatesController extends MainController
         }
 
         ModelFactory::getModel("Graduates")->deleteData($this->getGet()->getGetVar("id"));
-        $this->getSession()->createAlert("Graduate actually deleted !", "red");
+        $this->getSession()->createAlert("Diplômé Supprimé !", "red");
 
         $this->redirect("admin");
     }

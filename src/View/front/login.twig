@@ -1,6 +1,6 @@
 {% extends 'layout/layout.twig' %}
 
-{% block subtitle %}Admin Login{% endblock %}
+{% block subtitle %}Connexion à l'Administration{% endblock %}
 
 {% block description %}{% endblock %}
 
@@ -21,7 +21,7 @@
                         <input id="email" 
                             name="email" 
                             type="email" 
-                            placeholder="Insert your email" 
+                            placeholder="Insérer votre Courriel" 
                             required>
                     </li>
                     <li>
@@ -29,7 +29,7 @@
                         <input id="pass" 
                             name="pass" 
                             type="password" 
-                            placeholder="Insert your password" 
+                            placeholder="Insérer votre Mot de Passe" 
                             autocomplete="off" 
                             required>
                     </li>
@@ -43,14 +43,14 @@
                     </li>
                     <li>
                         <input type="reset" 
-                            value="Reset">
+                            value="Réinitialiser">
                         <input type="submit" 
-                            value="Login">
+                            value="Connexion">
                     </li>
                 </ul>
             </fieldset>
         </form>
         <a class="btn-black btn-lg" 
-            href="./">Quit</a>
+            href="./">Quitter</a>
     </main>
 {% endblock %}

@@ -1,68 +1,148 @@
 {% extends 'layout/layout.twig' %}
 
-{% block subtitle %}Edit the Member{% endblock %}
+{% block subtitle %}Modifier un Membre{% endblock %}
 
 {% block summary %}{% endblock %}
 
 {% block main %}
-    <main class="align-center">
-        <form class="form" method="post" action={{ url('members!update', {'id': member.id}) }} enctype="multipart/form-data">
-            <input name="MAX_FILE_SIZE" type="hidden" value="5000000">
-            <fieldset>
-                <legend>
-                    <i class="fas fa-users fa-4x color-purple"></i>
-                </legend>
-                <ul>
-                    <li>
-                        <label for="name">Name</label>
-                        <input id="name" name="name" type="text" maxlength="30" required value="{{ member.name }}">
-                    </li>
-                    <li>
-                        <label for="file">Image (max 5Mo)</label>
-                        <input name="file" type="file" accept=".jpg, .jpeg, .png, .gif">
-                    </li>
-                    <li>
-                        <label for="email">Email :</label>
-                        <input id="email" name="email" type="email" maxlength="20" pattern=".+@devsagency.net" minlength="15" required value="{{ member.email }}">
-                    </li>
-                    <li>
-                        <label for="website">Website</label>
-                        <input id="website" name="website" type="url" maxlength="40" pattern="https://.*" required value="https://{{ member.website }}">
-                    </li>
-                    <li>
-                        <label for="position">Position</label>
-                        <input id="position" name="position" type="text" maxlength="30" required value="{{ member.position }}">
-                    </li>
-                    <li>
-                        <label for="city">City</label>
-                        <input id="city" name="city" type="text" maxlength="30" required value="{{ member.city }}">
-                    </li>
-                    <li>
-                        <label for="presentation">Presentation</label>
-                        <textarea id="presentation" name="presentation" maxlength="255" rows="10" required>{{ member.presentation }}</textarea>
-                    </li>
-                    <hr>
-                    <li>
-                        <label for="old-pass">Old Password :</label>
-                        <input id="old-pass" name="old-pass" type="password" placeholder="Type your Old Password" maxlength="100" minlength="8">
-                    </li>
-                    <li>
-                        <label for="new-pass">New Password :</label>
-                        <input id="new-pass" name="new-pass" type="password" placeholder="Type your New Password" maxlength="100" minlength="8">
-                    </li>
-                    <li>
-                        <label for="conf-pass">Confirm Password :</label>
-                        <input id="conf-pass" name="conf-pass" type="password" placeholder="Confirm your New Password" maxlength="100" minlength="8">
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <input type="reset" value="Reset">
-                        <input type="submit" value="Update">
-                    </li>
-                </ul>
-            </fieldset>
-        </form>
-        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quit</a>
-    </main>
+<main class="align-center">
+    <form class="form" 
+        method="post" 
+        action={{ url('members!update', {'id': member.id}) }} 
+        enctype="multipart/form-data">
+        <input name="MAX_FILE_SIZE" 
+            type="hidden" 
+            value="5000000">
+        <fieldset>
+            <legend>
+                <i class="fas fa-users fa-4x color-purple"></i>
+            </legend>
+            <ul>
+                <li>
+                    <label for="name">
+                        Nom
+                    </label>
+                    <input id="name" 
+                        name="name" 
+                        type="text" 
+                        maxlength="30" 
+                        value="{{ member.name }}"
+                        required>
+                </li>
+                <li>
+                    <label for="file">
+                        Image (max 5Mo)
+                    </label>
+                    <input name="file" 
+                        type="file" 
+                        accept=".jpg, .jpeg, .png, .gif">
+                </li>
+                <li>
+                    <label for="email">
+                        Courriel
+                    </label>
+                    <input id="email" 
+                        name="email" 
+                        type="email" 
+                        minlength="15" 
+                        maxlength="20" 
+                        pattern=".+@devsagency.net" 
+                        value="{{ member.email }}"
+                        required>
+                </li>
+                <li>
+                    <label for="website">
+                        Site Web
+                    </label>
+                    <input id="website" 
+                        name="website" 
+                        type="url" 
+                        maxlength="40" 
+                        pattern="https://.*" 
+                        value="https://{{ member.website }}"
+                        required>
+                </li>
+                <li>
+                    <label for="position">
+                        Status
+                    </label>
+                    <input id="position" 
+                        name="position" 
+                        type="text" 
+                        maxlength="30" 
+                        value="{{ member.position }}"
+                        required>
+                </li>
+                <li>
+                    <label for="city">
+                        Ville
+                    </label>
+                    <input id="city" 
+                        name="city" 
+                        type="text" 
+                        maxlength="30" 
+                        value="{{ member.city }}"
+                        required>
+                </li>
+                <li>
+                    <label for="presentation">
+                        Présentation
+                    </label>
+                    <textarea id="presentation" 
+                        name="presentation" 
+                        maxlength="255" 
+                        rows="10" 
+                        required>
+                        {{ member.presentation }}
+                    </textarea>
+                </li>
+                <hr>
+                <li>
+                    <label for="old-pass">
+                        Ancien Mot de Passe
+                    </label>
+                    <input id="old-pass" 
+                        name="old-pass" 
+                        type="password" 
+                        placeholder="Insérer votre Ancien Mot de Passe" 
+                        maxlength="100" 
+                        minlength="8">
+                </li>
+                <li>
+                    <label for="new-pass">
+                        Nouveau Mot de Passe
+                    </label>
+                    <input id="new-pass" 
+                        name="new-pass" 
+                        type="password" 
+                        placeholder="Insérer votre Nouveau Mot de Passe" 
+                        maxlength="100" 
+                        minlength="8">
+                </li>
+                <li>
+                    <label for="conf-pass">
+                        Confirmer le Mot de Passe</label>
+                    <input id="conf-pass" 
+                        name="conf-pass" 
+                        type="password" 
+                        placeholder="Confirmer votre Nouveau Mot de Passe"
+                        maxlength="100" 
+                        minlength="8">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <input type="reset" 
+                        value="Réinitialiser">
+                    <input type="submit" 
+                        value="Modifier">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <a class="btn-black btn-lg" 
+        href="{{ url('admin') }}">
+        Quitter
+    </a>
+</main>
 {% endblock %}

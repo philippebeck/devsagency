@@ -1,38 +1,67 @@
 {% extends 'layout/layout.twig' %}
 
-{% block subtitle %}Edit a Service{% endblock %}
+{% block subtitle %}Modifier un Service{% endblock %}
 
 {% block summary %}{% endblock %}
 
 {% block main %}
-    <main class="align-center">
-        <form class="form" method="post" action={{ url('services!update', {'id': service.id}) }}>
-            <fieldset>
-                <legend>
-                    <i class="fas fa-concierge-bell fa-4x color-red"></i>
-                </legend>
-                <ul>
-                    <li>
-                        <label for="name">Name</label>
-                        <input id="name" name="name" type="text" maxlength="30" required value="{{ service.name }}">
-                    </li>
-                    <li>
-                        <label for="icon">Icon</label>
-                        <input id="icon" name="icon" type="text" maxlength="30" required value="fa-{{ service.icon }}">
-                    </li>
-                    <li>
-                        <label for="description">Description</label>
-                        <textarea id="description" name="description" rows="5" maxlength="255" required>{{ service.description }}</textarea>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <input type="reset" value="Reset">
-                        <input type="submit" value="Update">
-                    </li>
-                </ul>
-            </fieldset>
-        </form>
-        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quit</a>
-    </main>
+<main class="align-center">
+    <form class="form" 
+        method="post" 
+        action={{ url('services!update', {'id': service.id}) }}>
+        <fieldset>
+            <legend>
+                <i class="fas fa-concierge-bell fa-4x color-red"></i>
+            </legend>
+            <ul>
+                <li>
+                    <label for="name">
+                        Nom
+                    </label>
+                    <input id="name" 
+                        name="name" 
+                        type="text" 
+                        maxlength="30" 
+                        value="{{ service.name }}"
+                        required>
+                </li>
+                <li>
+                    <label for="icon">
+                        Icône
+                    </label>
+                    <input id="icon" 
+                        name="icon" 
+                        type="text" 
+                        maxlength="30" 
+                        value="fa-{{ service.icon }}"
+                        required>
+                </li>
+                <li>
+                    <label for="description">
+                        Description
+                    </label>
+                    <textarea id="description" 
+                        name="description" 
+                        rows="5" 
+                        maxlength="255" 
+                        required>
+                        {{ service.description }}
+                    </textarea>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <input type="reset" 
+                        value="Réinitialiser">
+                    <input type="submit" 
+                        value="Modifier">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <a class="btn-black btn-lg" 
+        href="{{ url('admin') }}">
+        Quitter
+    </a>
+</main>
 {% endblock %}

@@ -61,9 +61,9 @@ INSERT INTO `Projects`
 ('Animadio.org',    'animadio-org.jpg', 'animadio.org',                             2019,   'website',  'Documentation du Framework Animadio'),
 ('Pam.net',         'pam-net.jpg',      'pam.devsagency.net',                       2020,   'website',  'Documentation du Microframework Pam'),
 ('Astronomy',       'astronomy.jpg',    'astronomy.philippebeck.net',               2020,   'website',  'Bibliothèque de Médias sur l’Astronomie'),
-('Asperger',        'asperger.jpg',     'asperger.philippebeck.net',                2021,   'website',  'Tests pour le Syndrome d’Asperger'),
-('Tools2Code',      'tools2code.jpg',   'tools2code.devsagency.net',                2021,   'website',  'Annuaire de Liens vers des Outils pour Coder'),
-('Philippe Beck',   'portal.jpg',       'philippebeck.net',                         2021,   'website',  'Portail de Liens de mes Organisations');
+('Asperger',        'asperger.png',     'asperger.philippebeck.net',                2021,   'website',  'Tests pour le Syndrome d’Asperger'),
+('Tools2Code',      'tools2code.png',   'tools2code.devsagency.net',                2021,   'website',  'Annuaire de Liens vers des Outils pour Coder'),
+('Philippe Beck',   'portal.png',       'philippebeck.net',                         2021,   'website',  'Portail de Liens de mes Organisations');
 
 INSERT INTO `Graduates`
 (`name`, `image`, `email`, `linkedin`, `website`, `position`, `city`, `presentation`) VALUES

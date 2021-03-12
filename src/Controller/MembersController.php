@@ -67,7 +67,7 @@ class MembersController extends MainController
             $this->setMemberImage();
 
             if ($this->getPost()->getPostVar("pass") !== $this->getPost()->getPostVar("conf-pass")) {
-                $this->getSession()->createAlert("Passwords do not match !", "red");
+                $this->getSession()->createAlert("Les Mots de Passe ne Correspondent pas !", "red");
 
                 $this->redirect("members!create");
             }
@@ -75,7 +75,7 @@ class MembersController extends MainController
             $this->member["pass"] = password_hash($this->getPost()->getPostVar("pass"), PASSWORD_DEFAULT);
 
             ModelFactory::getModel("Members")->createData($this->member);
-            $this->getSession()->createAlert("New member successfully created !", "green");
+            $this->getSession()->createAlert("Nouveau Membre Créé avec Succès !", "green");
 
             $this->redirect("admin");
         }
@@ -88,13 +88,13 @@ class MembersController extends MainController
         $member = ModelFactory::getModel("Members")->readData($this->getGet()->getGetVar("id"));
 
         if (!password_verify($this->getPost()->getPostVar("old-pass"), $member["pass"])) {
-            $this->getSession()->createAlert("Old Password does not match !", "red");
+            $this->getSession()->createAlert("L'Ancien Mot de Passe est Incorrect !", "red");
 
             $this->redirect("admin");
         }
 
         if ($this->getPost()->getPostVar("new-pass") !== $this->getPost()->getPostVar("conf-pass")) {
-            $this->getSession()->createAlert("New Passwords do not match !", "red");
+            $this->getSession()->createAlert("Les Nouveaux Mots de Passe ne Correspondent pas !", "red");
 
             $this->redirect("admin");
         }
@@ -126,7 +126,7 @@ class MembersController extends MainController
             }
 
             ModelFactory::getModel("Members")->updateData($this->getGet()->getGetVar("id"), $this->member);
-            $this->getSession()->createAlert("Successful modification of the member !", "blue");
+            $this->getSession()->createAlert("Modification du Membre Sélectionné Effectuée !", "blue");
 
             $this->redirect("admin");
         }
@@ -143,7 +143,7 @@ class MembersController extends MainController
         }
 
         ModelFactory::getModel("Members")->deleteData($this->getGet()->getGetVar("id"));
-        $this->getSession()->createAlert("Member actually deleted !", "red");
+        $this->getSession()->createAlert("Membre Supprimé !", "red");
 
         $this->redirect("admin");
     }

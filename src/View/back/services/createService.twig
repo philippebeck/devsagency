@@ -1,38 +1,67 @@
 {% extends 'layout/layout.twig' %}
 
-{% block subtitle %}Create a New Service{% endblock %}
+{% block subtitle %}Créer un Nouveau Service{% endblock %}
 
 {% block summary %}{% endblock %}
 
 {% block main %}
-    <main class="align-center">
-        <form class="form" method="post" action={{ url('services!create') }}>
-            <fieldset>
-                <legend>
-                    <i class="fas fa-concierge-bell fa-2x color-red"></i>
-                </legend>
-                <ul>
-                    <li>
-                        <label for="name">Name</label>
-                        <input id="name" name="name" type="text" placeholder="Service Name" maxlength="30" required>
-                    </li>
-                    <li>
-                        <label for="icon">Icon</label>
-                        <input id="icon" name="icon" type="text" value="fa-" maxlength="40" required>
-                    </li>
-                    <li>
-                        <label for="description">Description</label>
-                        <textarea id="description" name="description" rows="10" placeholder="Service Description" maxlength="255" required></textarea>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <input type="reset" value="Reset">
-                        <input type="submit" value="Create">
-                    </li>
-                </ul>
-            </fieldset>
-        </form>
-        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quit</a>
-    </main>
+<main class="align-center">
+    <form class="form" 
+        method="post" 
+        action={{ url('services!create') }}>
+        <fieldset>
+            <legend>
+                <i class="fas fa-concierge-bell fa-2x color-red"></i>
+            </legend>
+            <ul>
+                <li>
+                    <label for="name">
+                        Nom
+                    </label>
+                    <input id="name" 
+                        name="name" 
+                        type="text" 
+                        placeholder="Nom du Service" 
+                        maxlength="30" 
+                        required>
+                </li>
+                <li>
+                    <label for="icon">
+                        Icône
+                    </label>
+                    <input id="icon" 
+                        name="icon" 
+                        type="text" 
+                        value="fa-" 
+                        maxlength="40" 
+                        required>
+                </li>
+                <li>
+                    <label for="description">
+                        Description
+                    </label>
+                    <textarea id="description" 
+                        name="description" 
+                        rows="10" 
+                        placeholder="Description du Service" 
+                        maxlength="255" 
+                        required>
+                    </textarea>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <input type="reset" 
+                        value="Réinitialiser">
+                    <input type="submit" 
+                        value="Créer">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <a class="btn-black btn-lg" 
+        href="{{ url('admin') }}">
+        Quitter
+    </a>
+</main>
 {% endblock %}

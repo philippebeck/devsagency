@@ -1,64 +1,137 @@
 {% extends 'layout/layout.twig' %}
 
-{% block subtitle %}Create a New Member{% endblock %}
+{% block subtitle %}Créer un Nouveau Membre{% endblock %}
 
 {% block summary %}{% endblock %}
 
 {% block main %}
-    <main class="align-center">
-        <form class="form" method="post" action={{ url('members!create') }} enctype="multipart/form-data">
-            <input name="MAX_FILE_SIZE" type="hidden" value="5000000">
-            <fieldset>
-                <legend>
-                    <i class="fas fa-users fa-4x color-purple"></i>
-                </legend>
-                <ul>
-                    <li>
-                        <label for="name">Name</label>
-                        <input id="name" name="name" type="text" maxlength="30" required placeholder="Type your Name">
-                    </li>
-                    <li>
-                        <label for="file">Photo (max 5Mo)</label>
-                        <input name="file" type="file" accept=".jpg, .jpeg, .png, .svg, .gif" required>
-                    </li>
-                    <li>
-                        <label for="email">Email :</label>
-                        <input id="email" name="email" type="email" maxlength="30" minlength="5" required placeholder="example@devsagency.net">
-                    </li>
-                    <li>
-                        <label for="website">Website</label>
-                        <input id="website" name="website" type="url" maxlength="40" pattern="https://.*" required placeholder="https://example.com">
-                    </li>
-                    <li>
-                        <label for="position">Position</label>
-                        <input id="position" name="position" type="text" maxlength="30" required placeholder="Type your Position">
-                    </li>
-                    <li>
-                        <label for="city">City</label>
-                        <input id="city" name="city" type="text" maxlength="30" required placeholder="Type your City">
-                    </li>
-                    <li>
-                        <label for="presentation">Presentation</label>
-                        <textarea id="presentation" name="presentation" maxlength="255" rows="10" required placeholder="Type your Presentation"></textarea>
-                    </li>
-                    <hr>
-                    <li>
-                        <label for="pass">Password :</label>
-                        <input id="pass" name="pass" type="password" placeholder="Type your Password" maxlength="100" minlength="8">
-                    </li>
-                    <li>
-                        <label for="conf-pass">Confirm Password :</label>
-                        <input id="conf-pass" name="conf-pass" type="password" placeholder="Confirm your Password" maxlength="100" minlength="8">
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <input type="reset" value="Reset">
-                        <input type="submit" value="Create">
-                    </li>
-                </ul>
-            </fieldset>
-        </form>
-        <a class="btn-black btn-lg" href="{{ url('admin') }}">Quit</a>
-    </main>
+<main class="align-center">
+    <form class="form" 
+        method="post" 
+        action={{ url('members!create') }} 
+        enctype="multipart/form-data">
+        <input name="MAX_FILE_SIZE" 
+            type="hidden" 
+            value="5000000">
+        <fieldset>
+            <legend>
+                <i class="fas fa-users fa-4x color-purple"></i>
+            </legend>
+            <ul>
+                <li>
+                    <label for="name">
+                        Nom
+                    </label>
+                    <input id="name" 
+                        name="name" 
+                        type="text" 
+                        maxlength="30" 
+                        placeholder="Insérer le Nom du Membre"
+                        required>
+                </li>
+                <li>
+                    <label for="file">
+                        Photo (max 5Mo)
+                    </label>
+                    <input name="file" 
+                        type="file" 
+                        accept=".jpg, .jpeg, .png, .svg, .gif" 
+                        required>
+                </li>
+                <li>
+                    <label for="email">
+                        Courriel
+                    </label>
+                    <input id="email" 
+                        name="email" 
+                        type="email" 
+                        maxlength="30" 
+                        minlength="5" 
+                        placeholder="example@devsagency.net"
+                        required>
+                </li>
+                <li>
+                    <label for="website">
+                        Site Web
+                    </label>
+                    <input id="website" 
+                        name="website" 
+                        type="url" 
+                        maxlength="40" 
+                        pattern="https://.*" 
+                        placeholder="https://example.com"
+                        required>
+                </li>
+                <li>
+                    <label for="position">
+                        Status
+                    </label>
+                    <input id="position" 
+                        name="position" 
+                        type="text" 
+                        maxlength="30" 
+                        placeholder="Insérer le Status du Membre"
+                        required>
+                </li>
+                <li>
+                    <label for="city">
+                        Ville
+                    </label>
+                    <input id="city" 
+                        name="city" 
+                        type="text" 
+                        maxlength="30" 
+                        placeholder="Insérer la Ville de Résidence"
+                        required>
+                </li>
+                <li>
+                    <label for="presentation">
+                        Présentation
+                    </label>
+                    <textarea id="presentation" 
+                        name="presentation" 
+                        maxlength="255" 
+                        rows="10" 
+                        required>
+                    </textarea>
+                </li>
+                <hr>
+                <li>
+                    <label for="pass">
+                        Mot de Passe
+                    </label>
+                    <input id="pass" 
+                        name="pass" 
+                        type="password" 
+                        placeholder="Insérer le Mot de Passe" 
+                        maxlength="100" 
+                        minlength="8">
+                </li>
+                <li>
+                    <label for="conf-pass">
+                        Confirmer
+                    </label>
+                    <input id="conf-pass" 
+                        name="conf-pass" 
+                        type="password" 
+                        placeholder="Confirmer le Mot de Passe"
+                        maxlength="100" 
+                        minlength="8">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <input type="reset" 
+                        value="Réinitialiser">
+                    <input type="submit" 
+                        value="Créer">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <a class="btn-black btn-lg" 
+        href="{{ url('admin') }}">
+        Quitter
+    </a>
+</main>
 {% endblock %}

@@ -2,7 +2,7 @@
 
 {% block subtitle %}Contact{% endblock %}
 
-{% block description %}You can Contact us by Message{% endblock %}
+{% block description %}Vous pouvez nous contacter par message !{% endblock %}
 
 {% block script %}
     <script src="js/recaptcha.js"></script>
@@ -10,38 +10,85 @@
 {% endblock %}
 
 {% block main %}
-    <main class="align-center">
-        <form class="form anima-growX" method="post" action={{ url('contact') }}>
-            <fieldset>
-                <ul>
-                    <li>
-                        <label class="anima-slideR" for="name">Name</label>
-                        <input class="anima-slideL" id="name" name="name" type="text" placeholder="Your name" maxlength="20" required>
-                    </li>
-                    <li>
-                        <label class="anima-slideR" for="email">Email</label>
-                        <input class="anima-slideL" id="email" name="email" type="email" placeholder="Your email" maxlength="50" required>
-                    </li>
-                    <li>
-                        <label class="anima-slideR" for="subject">Subject</label>
-                        <input class="anima-slideL" id="subject" name="subject" type="text" placeholder="Your subject" maxlength="50" required>
-                    </li>
-                    <li>
-                        <label class="anima-slideR" for="message">Message</label>
-                        <textarea class="anima-slideL" id="message" name="message" placeholder="Your message" rows="5" cols="20"></textarea>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <div id="recaptcha" class="g-recaptcha" data-sitekey="6LddRNMZAAAAADmqqZklZD2MAdxrJI5yi_xCS1On"></div>
-                    </li>
-                    <li>
-                        <input class="anima-slideR" type="reset" value="Reset">
-                        <input class="anima-slideL" type="submit" value="Send">
-                    </li>
-                </ul>
-            </fieldset>
-        </form>
-        <a class="btn-black btn-lg" href="{{ url('home') }}">Quit</a>
-    </main>
+<main class="align-center">
+    <form class="form anima-growX" 
+        method="post" 
+        action={{ url('contact') }}>
+        <fieldset>
+            <ul>
+                <li>
+                    <label class="anima-slideR-this" 
+                        for="name">
+                        Nom
+                    </label>
+                    <input class="anima-slideL-this" 
+                        id="name" 
+                        name="name" 
+                        type="text" 
+                        placeholder="Votre nom" 
+                        maxlength="20" 
+                        required>
+                </li>
+                <li>
+                    <label class="anima-slideR-this" 
+                        for="email">
+                        Courriel
+                    </label>
+                    <input class="anima-slideL-this" 
+                        id="email" 
+                        name="email" 
+                        type="email" 
+                        placeholder="Votre Courriel" 
+                        maxlength="50" 
+                        required>
+                </li>
+                <li>
+                    <label class="anima-slideR-this" 
+                        for="subject">
+                        Sujet
+                    </label>
+                    <input class="anima-slideL-this" 
+                        id="subject" 
+                        name="subject" 
+                        type="text" 
+                        placeholder="Votre Sujet" 
+                        maxlength="50" 
+                        required>
+                </li>
+                <li>
+                    <label class="anima-slideR-this" 
+                        for="message">
+                        Message
+                    </label>
+                    <textarea class="anima-slideL-this" 
+                        id="message" 
+                        name="message" 
+                        placeholder="Votre message" 
+                        rows="5" 
+                        cols="20">
+                    </textarea>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <div id="recaptcha" 
+                        class="g-recaptcha" 
+                        data-sitekey="6LddRNMZAAAAADmqqZklZD2MAdxrJI5yi_xCS1On"></div>
+                </li>
+                <li>
+                    <input class="anima-slideR-this" 
+                        type="reset" 
+                        value="Réinitialiser">
+                    <input class="anima-slideL-this" 
+                        type="submit" 
+                        value="Envoyer">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <a class="btn-black btn-lg" 
+        href="{{ url('home') }}">
+        Quitter
+    </a>
+</main>
 {% endblock %}

@@ -1,40 +1,50 @@
 {% extends 'layout/layout.twig' %}
 
-{% block subtitle %}Graduates{% endblock %}
+{% block subtitle %}Diplômés{% endblock %}
 
-{% block summary %}The DevsAgency presents the Graduates Developers !{% endblock %}
+{% block summary %}La DevsAgency présente les développeurs diplômés !{% endblock %}
 
 {% block main %}
-    <main class="container-90tn-80sm-70md-60lg-50wd mar-bot-lg">
+<main class="container-90tn-80sm-70md-60lg-50wd mar-bot-lg">
 
-        <header class="container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-purple pad-md mar-bot-lg">Graduates could be your future Developers !</header>
+    <header class="container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-purple pad-md mar-bot-lg">
+        Les diplômés pourraient être vos futurs développeurs!
+    </header>
 
-        {% for graduate in allGraduates %}
-            <section class="card-blue anima-slideT">
-                <h2>{{ graduate.name }}</h2>
+    {% for graduate in allGraduates %}
+        <section class="card-blue anima-slideT-this">
+            <h2>{{ graduate.name }}</h2>
 
-                <figure>
-                    <img class="bord-rounded" src="img/graduates/{{ graduate.image }}" alt="{{ graduate.name }} picture">
-                    <figcaption>
-                        Looking for<br>
-                        <strong>{{ graduate.position }}</strong>
-                        <br>in<br>
-                        <strong>{{ graduate.city }}</strong>
-                    </figcaption>
-                </figure>
+            <figure>
+                <img class="bord-rounded" 
+                    src="img/graduates/{{ graduate.image }}" 
+                    alt="{{ graduate.name }} picture">
+                <figcaption>
+                    Recherche<br>
+                    <strong>{{ graduate.position }}</strong>
+                    <br>à<br>
+                    <strong>{{ graduate.city }}</strong>
+                </figcaption>
+            </figure>
 
-                <a class="btn-blue" href="https://www.linkedin.com/in/{{ graduate.linkedin }}" title="Watch the LinkedIn profile of {{ graduate.name }} !">
-                    <i class="fab fa-linkedin fa-lg"></i>
-                </a>
-                <a class="btn-blue" href="https://{{ graduate.website }}" title="Watch the website of {{ graduate.name }} !">
-                    <i class="fas fa-globe-europe fa-lg"></i>
-                </a>
-                <a class="btn-blue" href="mailto:{{ graduate.email }}" title="Contact {{ graduate.name}} by email !">
-                    <i class="fas fa-envelope fa-lg"></i>
-                </a>
+            <a class="btn-blue" 
+                href="https://www.linkedin.com/in/{{ graduate.linkedin }}" 
+                title="Voir le Profil LinkedIn de {{ graduate.name }} !">
+                <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+            <a class="btn-blue" 
+                href="https://{{ graduate.website }}" 
+                title="Voir le Site Web de {{ graduate.name }} !">
+                <i class="fas fa-globe-europe fa-lg"></i>
+            </a>
+            <a class="btn-blue" 
+                href="mailto:{{ graduate.email }}" 
+                title="Contacter {{ graduate.name}} par Courriel !">
+                <i class="fas fa-envelope fa-lg"></i>
+            </a>
 
-                <p>{{ graduate.presentation }}</p>
-            </section>
-        {% endfor %}
-    </main>
+            <p>{{ graduate.presentation }}</p>
+        </section>
+    {% endfor %}
+</main>
 {% endblock %}

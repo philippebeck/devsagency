@@ -40,7 +40,7 @@ class ProjectsController extends MainController
         $this->project["name"]         = $this->getPost()->getPostVar("name");
         $this->project["year"]         = $this->getPost()->getPostVar("year");
         $this->project["category"]     = $this->getPost()->getPostVar("category");
-        $this->project["description"]  = $this->getPost()->getPostVar("description");
+        $this->project["description"]  = trim($this->getPost()->getPostVar("description"));
 
         $this->project["link"] = str_replace("https://", "", $this->getPost()->getPostVar("link"));
     }

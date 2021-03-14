@@ -40,7 +40,7 @@ class GraduatesController extends MainController
         $this->graduate["website"]        = $this->getPost()->getPostVar("website");
         $this->graduate["position"]       = $this->getPost()->getPostVar("position");
         $this->graduate["city"]           = $this->getPost()->getPostVar("city");
-        $this->graduate["presentation"]   = $this->getPost()->getPostVar("presentation");
+        $this->graduate["presentation"]   = trim($this->getPost()->getPostVar("presentation"));
     }
 
     private function setGraduateImage()

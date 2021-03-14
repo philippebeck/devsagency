@@ -39,7 +39,7 @@ class MembersController extends MainController
         $this->member["website"]        = $this->getPost()->getPostVar("website");
         $this->member["position"]       = $this->getPost()->getPostVar("position");
         $this->member["city"]           = $this->getPost()->getPostVar("city");
-        $this->member["presentation"]   = $this->getPost()->getPostVar("presentation");
+        $this->member["presentation"]   = trim($this->getPost()->getPostVar("presentation"));
     }
 
     private function setMemberImage()

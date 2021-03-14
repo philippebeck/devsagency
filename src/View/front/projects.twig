@@ -8,76 +8,77 @@
 <input id="menu-radio1" 
     class="menu-radio1" 
     type="radio" 
-    name="menu">
+    name="menu"
+    checked>
 <input id="menu-radio2" 
     class="menu-radio2" 
     type="radio" 
-    name="menu" 
-    checked>
+    name="menu">
 
 <nav class="menu">
-    <label class="button-red" 
-        for="menu-radio1" 
-        title="Programming Tools">
-        <i class="fas fa-tools color-red-into"></i>
-        <span class="color-red-into">Tools</span>
-    </label>
     <label class="button-blue" 
-        for="menu-radio2" 
+        for="menu-radio1" 
         title="Responsive Web Design">
-        <i class="fas fa-globe color-blue-into"></i>
-        <span class="color-blue-into">WebSites</span>
+        <i class="fas fa-globe onto-color-blue"></i>
+        <span class="onto-color-blue">Sites Web</span>
+    </label>
+        <label class="button-red" 
+        for="menu-radio2" 
+        title="Programming Tools">
+        <i class="fas fa-tools onto-color-red"></i>
+        <span class="onto-color-red">Outils</span>
     </label>
 </nav>
 
-<header class="container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-violet pad-md mar-bot-lg block">
+<header class="head">
     Vous trouverez ici quelques exemples de nos Créations : des outils de programmation & des sites Web Responsives, n'hésitez pas à les regarder.
 </header>
 
 <main id="project" 
-    class="container-90tn-80md-70wd align-center menu-relay">
+    class="container-90tn menu-relay">
     <section class="menu-target1">
-        <h2 class="color-red">
-            <i class="fas fa-tools"></i> Tools
+        <h2 class="color-blue">
+            <i class="fas fa-globe"></i> Sites Web
         </h2>
         <figure class="gallery">
-            {% for tools in tools %}
-                <figure class="button-red anima-turnX-this">
-                    <a href="https://{{ tools.link }}" 
-                        title="Watch {{ tools.name }} on GitHub">
-                        <img src="img/projects/{{ tools.image }}" 
-                            alt="Screenshot of {{ tools.name }}">
+            {% for website in websites %}
+                <figure class="btn-blue anima-turnY-this">
+                    <a href="https://{{ website.link }}" 
+                        title="Voir {{ website.name }}">
+                        <img src="img/projects/{{ website.image }}" 
+                            alt="Screenshot of {{ website.name }}">
                     </a>
                     <figcaption>
-                        <a href="https://{{ tools.link }}" 
-                            title="Watch {{ tools.name }} on GitHub">
-                            <h3>{{ tools.name }}</h3>
-                            <p>{{ tools.description }}</p>
-                            <p>{{ tools.year }}</p>
+                        <a href="https://{{ website.link }}" 
+                            title="Voir {{ website.name }}">
+                            <h3>{{ website.name }}</h3>
+                            <p>{{ website.description }}</p>
+                            <p>{{ website.year }}</p>
                         </a>
                     </figcaption>
                 </figure>
             {% endfor %}
         </figure>
     </section>
+
     <section class="menu-target2">
-        <h2 class="color-blue">
-            <i class="fas fa-globe"></i> WebSites
+        <h2 class="color-red">
+            <i class="fas fa-tools"></i> Outils
         </h2>
         <figure class="gallery">
-            {% for website in websites %}
-                <figure class="btn-blue anima-turnY-this">
-                    <a href="https://{{ website.link }}" 
-                        title="Watch {{ website.name }} on GitHub">
-                        <img src="img/projects/{{ website.image }}" 
-                            alt="Screenshot of {{ website.name }}">
+            {% for tools in tools %}
+                <figure class="button-red anima-turnX-this">
+                    <a href="https://{{ tools.link }}" 
+                        title="Voir {{ tools.name }}">
+                        <img src="img/projects/{{ tools.image }}" 
+                            alt="Screenshot of {{ tools.name }}">
                     </a>
                     <figcaption>
-                        <a href="https://{{ website.link }}" 
-                            title="Watch {{ website.name }} on GitHub">
-                            <h3>{{ website.name }}</h3>
-                            <p>{{ website.description }}</p>
-                            <p>{{ website.year }}</p>
+                        <a href="https://{{ tools.link }}" 
+                            title="Voir {{ tools.name }}">
+                            <h3>{{ tools.name }}</h3>
+                            <p>{{ tools.description }}</p>
+                            <p>{{ tools.year }}</p>
                         </a>
                     </figcaption>
                 </figure>

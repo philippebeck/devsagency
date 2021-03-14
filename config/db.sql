@@ -12,7 +12,7 @@ CREATE TABLE `Services` (
 
 CREATE TABLE `Projects` (
     `id`            TINYINT         UNSIGNED    PRIMARY KEY AUTO_INCREMENT,
-    `name`          VARCHAR(30)     NOT NULL    UNIQUE,
+    `name`          VARCHAR(30)     NOT NULL,
     `image`         VARCHAR(30)     NOT NULL    UNIQUE,
     `link`          VARCHAR(50)     NOT NULL    UNIQUE,
     `year`          YEAR            NOT NULL,
@@ -57,13 +57,13 @@ INSERT INTO `Services`
 INSERT INTO `Projects`
 (`name`, `image`, `link`, `year`, `category`, `description`) VALUES
 ('Pam',             'pam.png',          'packagist.org/packages/devsagency/pam',    2018,   'tool',     'Microframework Php Adaptatif'),
-('Animadio',        'animadio.png',     'www.npmjs.com/package/animadio',           2019,   'tool',     'Framework CSS Animadio'),
-('Animadio.org',    'animadio-org.jpg', 'animadio.org',                             2019,   'website',  'Documentation du Framework Animadio'),
-('Pam.net',         'pam-net.jpg',      'pam.devsagency.net',                       2020,   'website',  'Documentation du Microframework Pam'),
+('Animadio',        'animadio.png',     'www.npmjs.com/package/animadio',           2019,   'tool',     'Framework CSS'),
+('Animadio',        'animadio-org.jpg', 'animadio.org',                             2019,   'website',  'Documentation du Framework Animadio'),
+('Pam',             'pam-net.jpg',      'pam.devsagency.net',                       2020,   'website',  'Documentation du Microframework Pam'),
 ('Astronomy',       'astronomy.jpg',    'astronomy.philippebeck.net',               2020,   'website',  'Bibliothèque de Médias sur l’Astronomie'),
-('Asperger',        'asperger.jpg',     'asperger.philippebeck.net',                2021,   'website',  'Tests pour le Syndrome d’Asperger'),
-('Tools2Code',      'tools2code.jpg',   'tools2code.devsagency.net',                2021,   'website',  'Annuaire de Liens vers des Outils pour Coder'),
-('Philippe Beck',   'portal.jpg',       'philippebeck.net',                         2021,   'website',  'Portail de Liens de mes Organisations');
+('Asperger',        'asperger.png',     'asperger.philippebeck.net',                2021,   'website',  'Tests pour le Syndrome d’Asperger'),
+('Tools2Code',      'tools2code.png',   'tools2code.devsagency.net',                2021,   'website',  'Annuaire de Liens vers des Outils pour Coder'),
+('Philippe Beck',   'portal.png',       'philippebeck.net',                         2021,   'website',  'Portail de Liens vers mes Projets & Réseaux');
 
 INSERT INTO `Graduates`
 (`name`, `image`, `email`, `linkedin`, `website`, `position`, `city`, `presentation`) VALUES

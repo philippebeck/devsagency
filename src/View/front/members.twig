@@ -5,14 +5,13 @@
 {% block summary %}Découvrez les membres de l'équipe de DevsAgency!{% endblock %}
 
 {% block main %}
-<main class="container-90tn-80sm-70md-60lg-50wd mar-bot-lg">
-
-    <header class="container-90sm-80md-70lg-60wd bg-white bord-double bord-curve bord-purple pad-md mar-bot-lg">
+<main>
+    <header class="head">
         Nous sommes une équipe professionnelle pour tous vos projets !
     </header>
 
     {% for member in allMembers %}
-        <section class="card-violet anima-twistT-this">
+        <section class="card-violet anima-flipY-this">
             <h2>{{ member.name }}</h2>
 
             <figure>

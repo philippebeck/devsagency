@@ -1,7 +1,7 @@
 :root {
-  --sans-serif-font-family: 'Text Me One', sans-serif;
-  --serif-font-family: 'Cinzel', serif;
-  --monospace-font-family: 'Share Tech Mono', monospace;
+  --sans-serif: 'Text Me One', sans-serif;
+  --serif: 'Cinzel', serif;
+  --monospace: 'Share Tech Mono', monospace;
 }
 
 body {
@@ -10,6 +10,11 @@ body {
 
 .navbar {
   --navbar-background-color: var(--pp);
+}
+
+.head {
+  --head-border: medium solid var(--tw);
+  --head-color: var(--fb);
 }
 
 .foot {

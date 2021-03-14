@@ -35,7 +35,7 @@ class ServicesController extends MainController
     private function setServiceData()
     {
         $this->service["name"]          = $this->getPost()->getPostVar("name");
-        $this->service["description"]   = $this->getPost()->getPostVar("description");
+        $this->service["description"]   = trim($this->getPost()->getPostVar("description"));
         $this->service["icon"]          = str_replace("fa-", "", $this->getPost()->getPostVar("icon"));
     }
 

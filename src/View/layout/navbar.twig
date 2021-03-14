@@ -14,35 +14,37 @@
         href="./" 
         title="Accueil">
         <img src="img/logo.svg" 
-            alt="Logo DevsAgency">
+            alt="Logo DevsAgency"
+            width="40px"
+            height="40px">
     </a>
     
     <ul>
         <li>
             <a href="{{ url('services') }}"
                  title="Services Disponibles">
-                <i class="fas fa-concierge-bell fa-lg"></i>
+                <i class="fas fa-concierge-bell fa-lg fa-fw"></i>
                 <span>Services</span>
             </a>
         </li>
         <li>
             <a href="{{ url('projects') }}" 
                 title="Outils & Sites Web">
-                <i class="fas fa-jedi fa-lg"></i>
+                <i class="fas fa-jedi fa-lg fa-fw"></i>
                 <span>Projets</span>
             </a>
         </li>
         <li>
             <a href="{{ url('graduates') }}" 
                 title="Développeurs Diplômés">
-                <i class="fas fa-user-graduate fa-lg"></i>
+                <i class="fas fa-user-graduate fa-lg fa-fw"></i>
                 <span>Diplômés</span>
             </a>
         </li>
         <li>
             <a href="{{ url('members') }}" 
                 title="Membres de l'Équipe">
-                <i class="fas fa-users fa-lg"></i>
+                <i class="fas fa-users fa-lg fa-fw"></i>
                 <span>Équipe</span>
             </a>
         </li>
@@ -52,7 +54,7 @@
         {% if (isLogged()) %}
         <li>
             <a href="{{ url('admin') }}" 
-                title="{{ getUserVar('name') }} Admin">
+                title="Administration">
                 <img class="bord-circle" 
                     src="img/members/{{ getUserVar('image') }}" 
                     alt="{{ getUserVar('name') }} Picture">
@@ -61,8 +63,8 @@
         <li>
             <a class="onto-color-red" 
                 href="{{ url('auth!logout') }}" 
-                title="Logout">
-                <i class="fas fa-sign-out-alt fa-lg"></i>
+                title="Déconnexion">
+                <i class="fas fa-sign-out-alt fa-lg fa-fw"></i>
             </a>
         </li>
         {% else %}
@@ -70,14 +72,14 @@
             <a class="onto-color-cyan" 
                 href="{{ url('contact') }}" 
                 title="Contact">
-                <i class="fas fa-at fa-lg"></i>
+                <i class="fas fa-at fa-lg fa-fw"></i>
             </a>
         </li>
         <li>
             <a class="onto-color-orange" 
                 href="{{ url('auth') }}" 
-                title="Login">
-                <i class="fas fa-sign-in-alt fa-lg"></i>
+                title="Connexion">
+                <i class="fas fa-sign-in-alt fa-lg fa-fw"></i>
             </a>
         </li>
         {% endif %}

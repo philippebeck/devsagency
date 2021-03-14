@@ -19,7 +19,6 @@ Developers Agency
 
 Dev Agency has continuous support !
 
-[![Project Maintained](https://img.shields.io/maintenance/yes/2020.svg?label=Maintained)](https://github.com/devsagency/devsagency)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/devsagency/devsagency.svg?label=Last+Commit)](https://github.com/devsagency/devsagency/commits/master)
 
 ---

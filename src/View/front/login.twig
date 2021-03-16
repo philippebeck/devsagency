@@ -1,12 +1,15 @@
 {% extends 'layout/layout.twig' %}
 
-{% block subtitle %}Connexion à l'Administration{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block description %}{% endblock %}
 
 {% block script %}
     <script src="js/recaptcha.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" 
+        async 
+        defer>
+    </script>
 {% endblock %}
 
 {% block main %}
@@ -17,16 +20,24 @@
         <fieldset>
             <ul>
                 <li>
-                    <label for="email">Courriel</label>
+                    <label class="anima-slideR-this" 
+                        for="email">
+                        Courriel
+                    </label>
                     <input id="email" 
+                        class="anima-slideL-this"
                         name="email" 
                         type="email" 
                         placeholder="Insérer votre Courriel" 
                         required>
                 </li>
                 <li>
-                    <label for="pass">Mot de Passe</label>
+                    <label class="anima-slideR-this" 
+                        for="pass">
+                        Mot de Passe
+                    </label>
                     <input id="pass" 
+                        class="anima-slideL-this"
                         name="pass" 
                         type="password" 
                         placeholder="Insérer votre Mot de Passe" 
@@ -37,14 +48,16 @@
             <ul>
                 <li>
                     <div id="recaptcha" 
-                        class="g-recaptcha container" 
+                        class="g-recaptcha" 
                         data-sitekey="6LddRNMZAAAAADmqqZklZD2MAdxrJI5yi_xCS1On">
                     </div>
                 </li>
                 <li>
-                    <input type="reset" 
+                    <input class="anima-slideR-this" 
+                        type="reset" 
                         value="Réinitialiser">
-                    <input type="submit" 
+                    <input class="anima-slideL-this" 
+                        type="submit" 
                         value="Connexion">
                 </li>
             </ul>

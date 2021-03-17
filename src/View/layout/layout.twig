@@ -8,9 +8,7 @@
     <meta http-equiv="X-UA-Compatible" 
         content="IE=edge">
 
-    <title>
-        {% block title %}DevsAgency - {{ block('subtitle') }}{% endblock %}
-    </title>
+    <title>{{ block('title') }}</title>
 
     <link rel="canonical" 
         href="{% block canonical %}https://devsagency.net{% endblock %}">
@@ -21,7 +19,7 @@
         href="https://fonts.gstatic.com">
 
     <meta name="description" 
-        content="{% block description %}DevsAgency, Developers Agency : Research & Development in Digital Products - {{ block('subtitle') }} : {{ block('summary') }}{% endblock %}">
+        content="{% block description %}{% endblock %}">
     <meta name="author" 
         content="Philippe Beck}">
     
@@ -54,7 +52,7 @@
     <link rel="stylesheet" 
         href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" 
-        href="node_modules/animadio/dist/min/animadio.min.css">
+        href="node_modules/animadio/dist/animadio.min.css">
 
     <link rel="stylesheet" 
         href="css/style.css">
@@ -72,7 +70,7 @@
         </p>
     {% endif %}
 
-    <h1 class="color-violet">{{ block('subtitle') }}</h1>
+    <h1 class="color-violet">{{ block('title') }}</h1>
 </header>
 
 {% block main %}{% endblock %}

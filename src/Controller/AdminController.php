@@ -28,7 +28,7 @@ class AdminController extends MainController
 
         $allServices    = ModelFactory::getModel("Services")->listData();
         $allProjects    = ModelFactory::getModel("Projects")->listData();
-        $allGraduates   = ModelFactory::getModel("Graduates")->listData();
+        $allDevelopers  = ModelFactory::getModel("Developers")->listData();
         $allMembers     = ModelFactory::getModel("Members")->listData();
 
         $allProjects = array_reverse($allProjects);
@@ -36,7 +36,7 @@ class AdminController extends MainController
         return $this->render("back/admin.twig", [
             "allProjects"   => $allProjects,
             "allServices"   => $allServices,
-            "allGraduates"  => $allGraduates,
+            "allDevelopers" => $allDevelopers,
             "allMembers"    => $allMembers
         ]);
     }

@@ -34,12 +34,14 @@ class MembersController extends MainController
 
     private function setMemberData()
     {
-        $this->member["name"]           = $this->getPost()->getPostVar("name");
-        $this->member["email"]          = $this->getPost()->getPostVar("email");
-        $this->member["website"]        = $this->getPost()->getPostVar("website");
-        $this->member["position"]       = $this->getPost()->getPostVar("position");
-        $this->member["city"]           = $this->getPost()->getPostVar("city");
-        $this->member["presentation"]   = trim($this->getPost()->getPostVar("presentation"));
+        $this->member["name"]           = (string) trim($this->getPost()->getPostVar("name"));
+        $this->member["email"]          = (string) trim($this->getPost()->getPostVar("email"));
+        $this->member["linkedin"]       = (string) trim($this->getPost()->getPostVar("linkedin"));
+        $this->member["github"]         = (string) trim($this->getPost()->getPostVar("github"));
+        $this->member["website"]        = (string) trim($this->getPost()->getPostVar("website"));
+        $this->member["position"]       = (string) trim($this->getPost()->getPostVar("position"));
+        $this->member["city"]           = (string) trim($this->getPost()->getPostVar("city"));
+        $this->member["presentation"]   = (string) trim($this->getPost()->getPostVar("presentation"));
     }
 
     private function setMemberImage()

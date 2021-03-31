@@ -1,11 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Alatsi&family=Fira+Code&family=Gabriela&display=swap");
+
 :root {
-  --sans-serif: 'Text Me One', sans-serif;
-  --serif: 'Cinzel', serif;
-  --monospace: 'Share Tech Mono', monospace;
+  --sans-serif: 'Alatsi', sans-serif;
+  --serif: 'Gabriela', serif;
+  --monospace: 'Fira Code', monospace;
+
+  --primary: rgb(60, 60, 59);
+  --primary-dark: rgba(60, 60, 59, var(--opacity-dark));
+  --primary-light: rgba(60, 60, 59, var(--opacity-light));
+
+  --grow: scale(0.5, 0.5);
+  --slideT: translate(0, 10vh);
+  --turnX: rotate3d(1, 0, 0, 180deg);
+  --turnY: rotate3d(0, 1, 0, 180deg);
 }
 
 body {
   --body-background-color: AliceBlue;
+}
+
+h1,
+h2,
+h3 {
+  --title-color: var(--primary);
 }
 
 .navbar {
@@ -19,5 +36,9 @@ body {
 
 .foot {
   --foot-list-background-color: var(--in);
-  --foot-list-link-hover-font-color: var(--black);
+}
+
+[class*="btn"] > *,
+[class*="button"] > * {
+  margin: auto;
 }

@@ -1,0 +1,91 @@
+<section class="menu-target3">
+    <h2 class="deco-under color-blue">
+        <i class="fas fa-user-tie"></i> 
+        Développeurs
+    </h2>
+    <a class="btn-green btn-lg" 
+        href="{{ url('developers!create') }}">
+        Nouveau Développeur
+    </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Développeur</th>
+            <th>Infos</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        {% for developer in allDevelopers %}
+            <tr>
+                <td>
+                    <figure>
+                        <img class="bord-sm bord-violet" 
+                            src="img/developers/{{ developer.image }}" 
+                            alt="Screenshot of {{ developer.name }}">
+                        <figcaption>
+                            {{ developer.name }}
+                        </figcaption>
+                    </figure>
+                </td>
+                <td>
+                    <p>
+                        <i class="fas fa-map-marker-alt fa-fw fa-lg"></i> 
+                        {{ developer.city }}
+                    </p>
+                    <p>
+                        <i class="fas fa-briefcase fa-fw fa-lg"></i> 
+                        {{ developer.position }}
+                    </p>
+                    <hr>
+                    <ul>
+                        <li>
+                            <a class="button-in"
+                                href="https://www.linkedin.com/in/{{ developer.linkedin }}">
+                                <i class="fab fa-linkedin fa-fw fa-lg"></i> 
+                                {{ developer.linkedin }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="button-gh"
+                                href="https://github.com/{{ developer.github }}">
+                                <i class="fab fa-github fa-fw fa-lg"></i> 
+                                {{ developer.github }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="button-blue"
+                                href="mailto:{{ developer.email }}">
+                                <i class="fas fa-envelope fa-fw fa-lg"></i> 
+                                <span>{{ developer.email }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="button-green"
+                                href="https://{{ developer.website }}">
+                                <i class="fas fa-globe-europe fa-fw fa-lg"></i> 
+                                {{ developer.website }}
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <p>{{ developer.presentation }}</p>
+                </td>
+                <td>
+                    <a class="btn-blue" 
+                        href="{{ url('developers!update', {'id': developer.id}) }}">
+                        <i class="fas fa-pen-square fa-fw fa-lg"></i>
+                    </a>
+                    <br>
+                    <a class="btn-red" 
+                        href="{{ url('developers!delete', {'id': developer.id}) }}">
+                        <i class="fas fa-times-circle fa-fw fa-lg"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</section>

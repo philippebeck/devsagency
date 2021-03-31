@@ -24,35 +24,31 @@
         name="menu">
 
     <nav class="menu">
-        <label class="button-red" 
-            for="menu-radio1" 
+        <label for="menu-radio1" 
             title="Voir les Services">
-            <i class="fas fa-concierge-bell onto-color-red"></i>
-            <span class="onto-color-red">
+            <i class="fas fa-concierge-bell"></i>
+            <span>
                 Services
             </span>
         </label>
-        <label class="button-green" 
-            for="menu-radio2" 
+        <label for="menu-radio2" 
             title="Voir les Projets">
-            <i class="fas fa-jedi onto-color-green"></i>
-            <span class="onto-color-green">
+            <i class="fas fa-jedi"></i>
+            <span>
                 Projets
             </span>
         </label>
-        <label class="button-blue" 
-            for="menu-radio3" 
+        <label for="menu-radio3" 
             title="Voir les Développeurs Diplômés">
-            <i class="fas fa-user-graduate onto-color-blue"></i>
-            <span class="onto-color-blue">
-                Diplômés
+            <i class="fas fa-user-tie"></i>
+            <span>
+                Développeurs
             </span>
         </label>
-        <label class="button-violet" 
-            for="menu-radio4" 
+        <label for="menu-radio4" 
             title="Voir les Membres de l'Équipe">
-            <i class="fas fa-users onto-color-violet"></i>
-            <span class="onto-color-violet">
+            <i class="fas fa-user-ninja"></i>
+            <span>
                 Équipe
             </span>
         </label>
@@ -60,245 +56,11 @@
 
     <main id="admin" 
         class="menu-relay">
-        <section class="menu-target1">
-            <h2 class="deco-under color-red">
-                <i class="fas fa-concierge-bell"></i>
-                Services
-            </h2>
-            <a class="btn-green btn-lg" 
-                href="{{ url('services!create') }}">
-                Nouveau Service
-            </a>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Service</th>
-                    <th>Infos</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for service in allServices %}
-                    <tr>
-                        <td>
-                            <i class="fas fa-{{ service.icon }} fa-lg"></i>
-                            <hr>
-                            {{ service.name }}
-                        </td>
-                        <td>{{ service.description }}</td>
-                        <td>
-                            <a class="btn-blue" 
-                                href="{{ url('services!update', {'id': service.id}) }}">
-                                <i class="fas fa-pen-square fa-fw fa-lg"></i>
-                            </a>
-                            <a class="btn-red" 
-                                href="{{ url('services!delete', {'id': service.id}) }}">
-                                <i class="fas fa-times-circle fa-fw fa-lg"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </section>
 
-        <section class="menu-target2">
-            <h2 class="deco-under color-green">
-                <i class="fas fa-jedi"></i>
-                Projets
-            </h2>
-            <a class="btn-green btn-lg" 
-                href="{{ url('projects!create') }}">
-                Nouveau Projet
-            </a>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Project</th>
-                    <th>Infos</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for project in allProjects %}
-                    <tr>
-                        <td>
-                            <a class="button-gh" 
-                                href="https://{{ project.link }}" 
-                                title="Voir le Projet @GitHub">
-                                <figure>
-                                    <img src="img/projects/{{ project.image }}" 
-                                        alt="Screenshot of the project {{ project.name }}">
-                                    <figcaption>
-                                        {{ project.name }}
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </td>
-                        <td>{{ project.description }}
-                            <hr>
-                            {{ project.category|capitalize }} - {{ project.year }}
-                        </td>
-                        <td>
-                            <a class="btn-blue" 
-                                href="{{ url('projects!update', {'id': project.id}) }}">
-                                <i class="fas fa-pen-square fa-fw fa-lg"></i>
-                            </a>
-                            <a class="btn-red" 
-                                href="{{ url('projects!delete', {'id': project.id}) }}">
-                                <i class="fas fa-times-circle fa-fw fa-lg"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </section>
+        {{ include("back/admin/listServices.twig") }}        
+        {{ include("back/admin/listProjects.twig") }}        
+        {{ include("back/admin/listDevelopers.twig") }}        
+        {{ include("back/admin/listMembers.twig") }}        
 
-        <section class="menu-target3">
-            <h2 class="deco-under color-blue">
-                <i class="fas fa-user-graduate"></i>
-                Diplômés
-            </h2>
-            <a class="btn-green btn-lg" 
-                href="{{ url('graduates!create') }}">
-                Nouveau Diplômé
-            </a>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Diplômé</th>
-                    <th>Infos</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for graduate in allGraduates %}
-                    <tr>
-                        <td>
-                            <figure>
-                                <img class="bord-sm bord-violet" 
-                                    src="img/graduates/{{ graduate.image }}" 
-                                    alt="Screenshot of {{ graduate.name }}">
-                                <figcaption>
-                                    <h3>{{ graduate.name }}</h3>
-                                    <p>{{ graduate.position }}</p>
-                                </figcaption>
-                            </figure>
-                        </td>
-                        <td>
-                            <p>
-                                <i class="fas fa-map-marker-alt fa-fw fa-lg"></i> 
-                                {{ graduate.city }}
-                            </p>
-                            <p>
-                                <a href="https://www.linkedin.com/in/{{ graduate.linkedin }}">
-                                    <i class="fab fa-linkedin fa-fw fa-lg"></i> 
-                                    {{ graduate.linkedin }}
-                                </a>
-                            </p>
-                            <p>
-                                <a href="mailto:{{ graduate.email }}">
-                                    <i class="fas fa-envelope fa-fw fa-lg"></i> 
-                                    {{ graduate.email }}
-                                </a>
-                            </p>
-                            <p>
-                                <a href="https://{{ graduate.website }}">
-                                    <i class="fas fa-globe-europe fa-fw fa-lg"></i> 
-                                    {{ graduate.website }}
-                                </a>
-                            </p>
-                            <hr>
-                            <p>{{ graduate.presentation }}</p>
-                        </td>
-                        <td>
-                            <a class="btn-blue" 
-                                href="{{ url('graduates!update', {'id': graduate.id}) }}">
-                                <i class="fas fa-pen-square fa-fw fa-lg"></i>
-                            </a>
-                            <a class="btn-red" 
-                                href="{{ url('graduates!delete', {'id': graduate.id}) }}">
-                                <i class="fas fa-times-circle fa-fw fa-lg"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </section>
-
-        <section class="menu-target4">
-            <h2 class="deco-under color-violet">
-                <i class="fas fa-users"></i>
-                Membres
-            </h2>
-            <a class="btn-green btn-lg" 
-                href="{{ url('members!create') }}">
-                Nouveau Membre
-            </a>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Membre</th>
-                    <th>Infos</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for member in allMembers %}
-                    <tr>
-                        <td>
-                            <figure>
-                                <img class="bord-sm bord-violet" 
-                                    src="img/members/{{ member.image }}" 
-                                    alt="Screenshot of {{ member.name }}">
-                                <figcaption>
-                                    <h3>{{ member.name }}</h3>
-                                    <p>{{ member.position }}</p>
-                                </figcaption>
-                            </figure>
-                        </td>
-                        <td>
-                            <p>
-                                <i class="fas fa-map-marker-alt fa-fw fa-lg"></i> 
-                                {{ member.city }}
-                            </p>
-                            <p>
-                                <a href="https://www.linkedin.com/in/{{ member.linkedin }}">
-                                    <i class="fab fa-linkedin fa-fw fa-lg"></i> 
-                                    {{ member.linkedin }}
-                                </a>
-                            </p>
-                            <p>
-                                <a href="mailto:{{ member.email }}">
-                                    <i class="fas fa-envelope fa-fw fa-lg"></i> 
-                                    {{ member.email }}
-                                </a>
-                            </p>
-                            <p>
-                                <a href="https://{{ member.website }}">
-                                    <i class="fas fa-globe-europe fa-fw fa-lg"></i> 
-                                    {{ member.website }}
-                                </a>
-                            </p>
-                            <hr>
-                            <p>{{ member.presentation }}</p>
-                        </td>
-                        <td>
-                            <a class="btn-blue" 
-                                href="{{ url('members!update', {'id': member.id}) }}">
-                                <i class="fas fa-pen-square fa-fw fa-lg"></i>
-                            </a>
-                            <a class="btn-red" 
-                                href="{{ url('members!delete', {'id': member.id}) }}">
-                                <i class="fas fa-times-circle fa-fw fa-lg"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </section>
     </main>
 {% endblock %}

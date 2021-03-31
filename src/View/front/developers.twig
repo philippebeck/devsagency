@@ -1,0 +1,54 @@
+{% extends 'layout/layout.twig' %}
+
+{% block title %}Développeurs{% endblock %}
+
+{% block description %}La DevsAgency présente les développeurs diplômés !{% endblock %}
+
+{% block main %}
+<main>
+    <header class="head">
+        Ces Développeurs pourraient être vos futurs collaborateurs!
+    </header>
+
+    {% for developer in allDevelopers %}
+        <section class="card-blue anima-slideT-tn-this">
+            <h2>{{ developer.name }}</h2>
+
+            <figure>
+                <img class="bord-rounded" 
+                    src="img/developers/{{ developer.image }}" 
+                    alt="{{ developer.name }} picture">
+                <figcaption>
+                    Recherche<br>
+                    <strong>{{ developer.position }}</strong>
+                    <br>à<br>
+                    <strong>{{ developer.city }}</strong>
+                </figcaption>
+            </figure>
+
+            <a class="btn" 
+                href="mailto:{{ developer.email }}" 
+                title="Contacter {{ developer.name}} par Courriel !">
+                <i class="fas fa-envelope fa-lg"></i>
+            </a>
+            <a class="btn" 
+                href="https://www.linkedin.com/in/{{ developer.linkedin }}" 
+                title="Voir le Profil LinkedIn de {{ developer.name }} !">
+                <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+            <a class="btn" 
+                href="https://github.com/{{ developer.github }}" 
+                title="Voir le Profil GitHub de {{ developer.name }} !">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+            <a class="btn" 
+                href="https://{{ developer.website }}" 
+                title="Voir le Site Web de {{ developer.name }} !">
+                <i class="fas fa-globe-europe fa-lg"></i>
+            </a>
+
+            <p>{{ developer.presentation }}</p>
+        </section>
+    {% endfor %}
+</main>
+{% endblock %}

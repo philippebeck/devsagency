@@ -1,21 +1,21 @@
 {% extends 'layout/layout.twig' %}
 
-{% block title %}Modifier un Diplômé{% endblock %}
+{% block title %}Modifier un Développeur{% endblock %}
 
 {% block description %}{% endblock %}
 
 {% block main %}
-    <main class="align-center">
+    <main>
         <form class="form" 
             method="post" 
-            action={{ url('graduates!update', {'id': graduate.id}) }} 
+            action={{ url('developers!update', {'id': developer.id}) }} 
             enctype="multipart/form-data">
             <input name="MAX_FILE_SIZE" 
                 type="hidden" 
-                value="5000000">
+                value="1000000">
             <fieldset>
                 <legend>
-                    <i class="fas fa-user-graduate fa-4x color-blue"></i>
+                    <i class="fas fa-user-developer fa-4x color-blue"></i>
                 </legend>
                 <ul>
                     <li>
@@ -26,12 +26,12 @@
                             name="name" 
                             type="text" 
                             maxlength="30" 
-                            value="{{ graduate.name }}"
+                            value="{{ developer.name }}"
                             required>
                     </li>
                     <li>
                         <label for="file">
-                            Image (max 5Mo)
+                            Image (max 1Mo)
                         </label>
                         <input name="file" 
                             type="file" 
@@ -46,7 +46,7 @@
                             type="email" 
                             maxlength="30" 
                             minlength="15" 
-                            value="{{ graduate.email }}"
+                            value="{{ developer.email }}"
                             required>
                     </li>
                     <li>
@@ -57,7 +57,18 @@
                             name="linkedin" 
                             type="text" 
                             maxlength="30" 
-                            value="{{ graduate.linkedin }}"
+                            value="{{ developer.linkedin }}"
+                            required>
+                    </li>
+                    <li>
+                        <label for="github">
+                            GitHub
+                        </label>
+                        <input id="github" 
+                            name="github" 
+                            type="text" 
+                            maxlength="30" 
+                            value="{{ developer.github }}"
                             required>
                     </li>
                     <li>
@@ -69,7 +80,7 @@
                             type="url" 
                             maxlength="40" 
                             pattern="https://.*" 
-                            value="https://{{ graduate.website }}"
+                            value="https://{{ developer.website }}"
                             required>
                     </li>
                     <li>
@@ -80,7 +91,7 @@
                             name="position" 
                             type="text" 
                             maxlength="30" 
-                            value="{{ graduate.position }}"
+                            value="{{ developer.position }}"
                             required>
                     </li>
                     <li>
@@ -91,7 +102,7 @@
                             name="city" 
                             type="text" 
                             maxlength="30" 
-                            value="{{ graduate.city }}"
+                            value="{{ developer.city }}"
                             required>
                     </li>
                     <li>
@@ -102,9 +113,7 @@
                             name="presentation" 
                             maxlength="255" 
                             rows="10" 
-                            required>
-                            {{ graduate.presentation }}
-                        </textarea>
+                            required>{{ developer.presentation }}</textarea>
                     </li>
                 </ul>
                 <ul>

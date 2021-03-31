@@ -7,11 +7,11 @@
 {% block main %}
 <main>
     <header class="head">
-        Nous sommes une équipe professionnelle pour tous vos projets !
+        Nous sommes une équipe professionnelle pour tous vos projets!
     </header>
 
     {% for member in allMembers %}
-        <section class="card-violet anima-flipY-this">
+        <section class="card-primary anima-slideT-tn-this">
             <h2>{{ member.name }}</h2>
 
             <figure>
@@ -25,20 +25,25 @@
                 </figcaption>
             </figure>
 
-            <a class="btn-blue" 
+            <a class="btn" 
+                href="mailto:{{ member.email }}" 
+                title="Contacter {{ member.name}} par Courriel !">
+                <i class="fas fa-envelope fa-lg"></i>
+            </a>
+            <a class="btn" 
                 href="https://www.linkedin.com/in/{{ member.linkedin }}" 
                 title="Voir le Profil LinkedIn de {{ member.name }} !">
                 <i class="fab fa-linkedin fa-lg"></i>
             </a>
-            <a class="btn-blue" 
+            <a class="btn" 
+                href="https://github.com/{{ member.github }}" 
+                title="Voir le Profil GitHub de {{ member.name }} !">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+            <a class="btn" 
                 href="https://{{ member.website }}" 
                 title="Voir le Site Web de {{ member.name }} !">
                 <i class="fas fa-globe-europe fa-lg"></i>
-            </a>
-            <a class="btn-blue" 
-                href="mailto:{{ member.email }}" 
-                title="Contacter {{ member.name}} par Courriel !">
-                <i class="fas fa-envelope fa-lg"></i>
             </a>
 
             <p>{{ member.presentation }}</p>

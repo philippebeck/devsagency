@@ -16,33 +16,32 @@
     name="menu">
 
 <nav class="menu">
-    <label class="button-blue" 
-        for="menu-radio1" 
+    <label for="menu-radio1" 
         title="Responsive Web Design">
-        <i class="fas fa-globe onto-color-blue"></i>
-        <span class="onto-color-blue">Sites Web</span>
+        <i class="fas fa-globe"></i>
+        <span>Sites Web</span>
     </label>
-        <label class="button-red" 
-        for="menu-radio2" 
+        <label for="menu-radio2" 
         title="Programming Tools">
-        <i class="fas fa-tools onto-color-red"></i>
-        <span class="onto-color-red">Outils</span>
+        <i class="fas fa-tools"></i>
+        <span>Outils</span>
     </label>
 </nav>
 
 <header class="head">
-    Vous trouverez ici quelques exemples de nos Créations : des outils de programmation & des sites Web Responsives, n'hésitez pas à les regarder.
+    Vous trouverez ici quelques exemples de nos Créations : des outils de programmation & des sites Web Responsives.
 </header>
 
 <main id="project" 
     class="container-90tn menu-relay">
     <section class="menu-target1">
-        <h2 class="color-blue">
-            <i class="fas fa-globe"></i> Sites Web
+        <h2>
+            <i class="fas fa-globe"></i> 
+            Sites Web
         </h2>
         <figure class="gallery">
             {% for website in websites %}
-                <figure class="btn-blue anima-turnY-this">
+                <figure class="button-primary anima-turnY-this">
                     <a href="https://{{ website.link }}" 
                         title="Voir {{ website.name }}">
                         <img src="img/projects/{{ website.image }}" 
@@ -62,12 +61,13 @@
     </section>
 
     <section class="menu-target2">
-        <h2 class="color-red">
-            <i class="fas fa-tools"></i> Outils
+        <h2>
+            <i class="fas fa-tools"></i> 
+            Outils
         </h2>
         <figure class="gallery">
             {% for tools in tools %}
-                <figure class="button-red anima-turnX-this">
+                <figure class="button anima-turnX-this">
                     <a href="https://{{ tools.link }}" 
                         title="Voir {{ tools.name }}">
                         <img src="img/projects/{{ tools.image }}" 

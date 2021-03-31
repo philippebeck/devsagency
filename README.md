@@ -17,7 +17,7 @@ Developers Agency
 
 ## Support
 
-Dev Agency has continuous support !
+DevsAgency has continuous support !
 
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/devsagency/devsagency.svg?label=Last+Commit)](https://github.com/devsagency/devsagency/commits/master)
 

@@ -37,8 +37,3 @@ h3 {
 .foot {
   --foot-list-background-color: var(--in);
 }
-
-[class*="btn"] > *,
-[class*="button"] > * {
-  margin: auto;
-}

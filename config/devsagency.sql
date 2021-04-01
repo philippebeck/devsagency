@@ -55,4 +55,4 @@ INSERT INTO `Projects`
 
 INSERT INTO `Developers`
 (`name`, `image`, `email`, `linkedin`, `github`, `website`, `position`, `city`, `presentation`) VALUES
-('Timothée Segard', 'timothee.jpg', 'segard.timothee@gmail.com', 'timothee-segard', 'TimSeg', 'boutiqueaem.pro', 'Développeur Web / Intégrateur', 'Paris / Lille', 'Développeur web indépendant ou en équipe, ayant également plusieurs années d’expérience dans la gestion de projets numériques. Je sais comprendre & anticiper les attentes des personnes qui souhaitent avoir une première présence en ligne, ou une refonte de leur site internet.');
+('Timothée Segard', 'timothee.jpg', 'segard.timothee@gmail.com', 'timothee-segard', 'TimSeg', 'boutiqueaem.pro', 'Développeur Web / Intégrateur', 'Paris / Lille', 'Développeur Web indépendant ou en équipe, ayant aussi une expérience de plusieurs années dans la gestion de projets numériques. Je sais comprendre & devancer les attentes des personnes qui souhaite une présence en ligne, ou une refonte de leur site Web.');

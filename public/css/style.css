@@ -8,6 +8,9 @@
   --primary: rgb(60, 60, 59);
   --primary-dark: rgba(60, 60, 59, var(--opacity-dark));
   --primary-light: rgba(60, 60, 59, var(--opacity-light));
+  --secondary: rgb(29, 161, 242);
+  --secondary-dark: rgba(29, 161, 242, var(--opacity-dark));
+  --secondary-light: rgba(29, 161, 242, var(--opacity-light));
 
   --grow: scale(0.5, 0.5);
   --slideT: translate(0, 10vh);
@@ -15,25 +18,6 @@
   --turnY: rotate3d(0, 1, 0, 180deg);
 }
 
-body {
-  --body-background-color: AliceBlue;
-}
-
-h1,
-h2,
 h3 {
-  --title-color: var(--primary);
-}
-
-.navbar {
-  --navbar-background-color: var(--pp);
-}
-
-.head {
-  --head-border: medium solid var(--tw);
-  --head-color: var(--fb);
-}
-
-.foot {
-  --foot-list-background-color: var(--in);
+  --title-color: var(--black);
 }

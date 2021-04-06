@@ -2,7 +2,9 @@
 
 {% block title %}Développeurs{% endblock %}
 
-{% block description %}La DevsAgency présente les développeurs diplômés !{% endblock %}
+{% block description %}
+La DevsAgency présente des Développeurs Diplômés à recruter!
+{% endblock %}
 
 {% block main %}
 <main>
@@ -11,7 +13,7 @@
     </header>
 
     {% for developer in allDevelopers %}
-        <section class="card-blue anima-slideT-tn-this">
+        <section class="card-secondary anima-slideT-tn-this">
             <h2>{{ developer.name }}</h2>
 
             <figure>

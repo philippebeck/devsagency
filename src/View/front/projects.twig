@@ -2,7 +2,9 @@
 
 {% block title %}Projets{% endblock %}
 
-{% block description %}Frameworks & Sites Web - Animadio & Free Code Camp Pens - Languages HTML5, Twig, Pugjs, CSS3, SCSS, Stylus, JavaScript, jQuery, CoffeeScript, Nodejs, Expressjs, PHP, MySQL{% endblock %}
+{% block description %}
+Portfolio de Projets Digitaux : Sites Web & Outils de Programmation
+{% endblock %}
 
 {% block main %}
 <input id="menu-radio1" 
@@ -41,7 +43,7 @@
         </h2>
         <figure class="gallery">
             {% for website in websites %}
-                <figure class="button-primary anima-turnY-this">
+                <figure class="button-secondary anima-turnY-this">
                     <a href="https://{{ website.link }}" 
                         title="Voir {{ website.name }}">
                         <img src="img/projects/{{ website.image }}" 
@@ -67,7 +69,7 @@
         </h2>
         <figure class="gallery">
             {% for tools in tools %}
-                <figure class="button anima-turnX-this">
+                <figure class="button-secondary anima-turnX-this">
                     <a href="https://{{ tools.link }}" 
                         title="Voir {{ tools.name }}">
                         <img src="img/projects/{{ tools.image }}" 

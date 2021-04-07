@@ -19,12 +19,12 @@ Portfolio de Projets Digitaux : Sites Web & Outils de Programmation
 
 <nav class="menu">
     <label for="menu-radio1" 
-        title="Responsive Web Design">
+        title="Sites Web">
         <i class="fas fa-globe"></i>
         <span>Sites Web</span>
     </label>
         <label for="menu-radio2" 
-        title="Programming Tools">
+        title="Outils">
         <i class="fas fa-tools"></i>
         <span>Outils</span>
     </label>
@@ -43,7 +43,7 @@ Portfolio de Projets Digitaux : Sites Web & Outils de Programmation
         </h2>
         <figure class="gallery">
             {% for website in websites %}
-                <figure class="button-secondary anima-turnY-this">
+                <figure class="anima-turnY-this">
                     <a href="https://{{ website.link }}" 
                         title="Voir {{ website.name }}">
                         <img src="img/projects/{{ website.image }}" 
@@ -69,7 +69,7 @@ Portfolio de Projets Digitaux : Sites Web & Outils de Programmation
         </h2>
         <figure class="gallery">
             {% for tools in tools %}
-                <figure class="button-secondary anima-turnX-this">
+                <figure class="anima-turnX-this">
                     <a href="https://{{ tools.link }}" 
                         title="Voir {{ tools.name }}">
                         <img src="img/projects/{{ tools.image }}" 

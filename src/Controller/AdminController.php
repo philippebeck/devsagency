@@ -33,7 +33,7 @@ class AdminController extends MainController
 
         $allProjects = array_reverse($allProjects);
 
-        return $this->render("back/admin.twig", [
+        return $this->render("back/admin/admin.twig", [
             "allProjects"   => $allProjects,
             "allServices"   => $allServices,
             "allDevelopers" => $allDevelopers,

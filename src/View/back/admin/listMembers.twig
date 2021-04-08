@@ -12,7 +12,6 @@
         <tr>
             <th>Membre</th>
             <th>Infos</th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -28,17 +27,7 @@
                             {{ member.name }}
                         </figcaption>
                     </figure>
-                </td>
-                <td>
-                    <p>
-                        <i class="fas fa-map-marker-alt fa-fw fa-lg"></i> 
-                        {{ member.city }}
-                    </p>
-                    <p>
-                        <i class="fas fa-briefcase fa-fw fa-lg"></i> 
-                        {{ member.position }}
-                    </p>
-                    <hr>
+                    <br>
                     <ul>
                         <li>
                             <a class="button-in"
@@ -69,15 +58,23 @@
                             </a>
                         </li>
                     </ul>
-                    <hr>
-                    <p>{{ member.presentation }}</p>
                 </td>
                 <td>
+                    <p>
+                        <i class="fas fa-map-marker-alt fa-fw fa-lg"></i> 
+                        {{ member.city }}
+                    </p>
+                    <p>
+                        <i class="fas fa-briefcase fa-fw fa-lg"></i> 
+                        {{ member.position }}
+                    </p>                   
+                    <hr>
+                    <p>{{ member.presentation }}</p>
+                    <br>
                     <a class="btn-blue" 
                         href="{{ url('members!update', {'id': member.id}) }}">
                         <i class="fas fa-pen-square fa-fw fa-lg"></i>
                     </a>
-                    <br>
                     <a class="btn-red" 
                         href="{{ url('members!delete', {'id': member.id}) }}">
                         <i class="fas fa-times-circle fa-fw fa-lg"></i>

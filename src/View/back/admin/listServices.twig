@@ -12,7 +12,6 @@
         <tr>
             <th>Service</th>
             <th>Infos</th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -21,11 +20,9 @@
             <tr>
                 <td>
                     <i class="fas fa-{{ service.icon }} fa-lg"></i>
-                    <hr>
+                    <br>
                     {{ service.name }}
-                </td>
-                <td>{{ service.description }}</td>
-                <td>
+                    <br>
                     <a class="btn-blue" 
                         href="{{ url('services!update', {'id': service.id}) }}">
                         <i class="fas fa-pen-square fa-fw fa-lg"></i>
@@ -34,6 +31,9 @@
                         href="{{ url('services!delete', {'id': service.id}) }}">
                         <i class="fas fa-times-circle fa-fw fa-lg"></i>
                     </a>
+                </td>
+                <td>
+                    {{ service.description }}
                 </td>
             </tr>
         {% endfor %}

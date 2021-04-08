@@ -34,11 +34,14 @@ class MembersController extends MainController
 
     private function setMemberData()
     {
-        $this->member["name"]           = (string) trim($this->getPost()->getPostVar("name"));
-        $this->member["email"]          = (string) trim($this->getPost()->getPostVar("email"));
-        $this->member["linkedin"]       = (string) trim($this->getPost()->getPostVar("linkedin"));
-        $this->member["github"]         = (string) trim($this->getPost()->getPostVar("github"));
-        $this->member["website"]        = (string) trim($this->getPost()->getPostVar("website"));
+        $this->member["name"]       = (string) trim($this->getPost()->getPostVar("name"));
+        $this->member["email"]      = (string) trim($this->getPost()->getPostVar("email"));
+        $this->member["linkedin"]   = (string) trim($this->getPost()->getPostVar("linkedin"));
+        $this->member["github"]     = (string) trim($this->getPost()->getPostVar("github"));
+
+        $this->member["website"]    = (string) trim($this->getPost()->getPostVar("website"));
+        $this->member["website"]    = str_replace("https://", "", $this->member["website"]);
+
         $this->member["position"]       = (string) trim($this->getPost()->getPostVar("position"));
         $this->member["city"]           = (string) trim($this->getPost()->getPostVar("city"));
         $this->member["presentation"]   = (string) trim($this->getPost()->getPostVar("presentation"));
@@ -49,7 +52,7 @@ class MembersController extends MainController
         $this->member["image"] = $this->getString()->cleanString($this->member["name"]) . $this->getFiles()->setFileExtension();
 
         $this->getFiles()->uploadFile("img/members/", $this->getString()->cleanString($this->member["name"]));
-        $this->getImage()->makeThumbnail("img/members/" . $this->member["image"], 150);
+        $this->getImage()->makeThumbnail("img/members/" . $this->member["image"], 200);
     }
 
     /**

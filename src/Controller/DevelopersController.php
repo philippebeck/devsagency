@@ -34,14 +34,17 @@ class DevelopersController extends MainController
 
     private function setDeveloperData()
     {
-        $this->developer["name"]         = (string) trim($this->getPost()->getPostVar("name"));
-        $this->developer["email"]        = (string) trim($this->getPost()->getPostVar("email"));
-        $this->developer["linkedin"]     = (string) trim($this->getPost()->getPostVar("linkedin"));
-        $this->developer["github"]       = (string) trim($this->getPost()->getPostVar("github"));
-        $this->developer["website"]      = (string) trim($this->getPost()->getPostVar("website"));
-        $this->developer["position"]     = (string) trim($this->getPost()->getPostVar("position"));
-        $this->developer["city"]         = (string) trim($this->getPost()->getPostVar("city"));
-        $this->developer["presentation"] = (string) trim($this->getPost()->getPostVar("presentation"));
+        $this->developer["name"]        = (string) trim($this->getPost()->getPostVar("name"));
+        $this->developer["email"]       = (string) trim($this->getPost()->getPostVar("email"));
+        $this->developer["linkedin"]    = (string) trim($this->getPost()->getPostVar("linkedin"));
+        $this->developer["github"]      = (string) trim($this->getPost()->getPostVar("github"));
+
+        $this->developer["website"] = (string) trim($this->getPost()->getPostVar("website"));
+        $this->developer["website"] = str_replace("https://", "", $this->developer["website"]);
+
+        $this->developer["position"]        = (string) trim($this->getPost()->getPostVar("position"));
+        $this->developer["city"]            = (string) trim($this->getPost()->getPostVar("city"));
+        $this->developer["presentation"]    = (string) trim($this->getPost()->getPostVar("presentation"));
     }
 
     private function setDeveloperImage()
@@ -49,7 +52,7 @@ class DevelopersController extends MainController
         $this->developer["image"] = $this->getString()->cleanString($this->developer["name"]) . $this->getFiles()->setFileExtension();
 
         $this->getFiles()->uploadFile("img/developers/", $this->getString()->cleanString($this->developer["name"]));
-        $this->getImage()->makeThumbnail("img/developers/" . $this->developer["image"], 150);
+        $this->getImage()->makeThumbnail("img/developers/" . $this->developer["image"], 200);
     }
 
     /**

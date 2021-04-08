@@ -12,7 +12,6 @@
         <tr>
             <th>Développeur</th>
             <th>Infos</th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -28,17 +27,6 @@
                             {{ developer.name }}
                         </figcaption>
                     </figure>
-                </td>
-                <td>
-                    <p>
-                        <i class="fas fa-map-marker-alt fa-fw fa-lg"></i> 
-                        {{ developer.city }}
-                    </p>
-                    <p>
-                        <i class="fas fa-briefcase fa-fw fa-lg"></i> 
-                        {{ developer.position }}
-                    </p>
-                    <hr>
                     <ul>
                         <li>
                             <a class="button-in"
@@ -69,15 +57,23 @@
                             </a>
                         </li>
                     </ul>
-                    <hr>
-                    <p>{{ developer.presentation }}</p>
                 </td>
                 <td>
+                    <p>
+                        <i class="fas fa-map-marker-alt fa-fw fa-lg"></i> 
+                        {{ developer.city }}
+                    </p>
+                    <p>
+                        <i class="fas fa-briefcase fa-fw fa-lg"></i> 
+                        {{ developer.position }}
+                    </p>
+                    <hr>
+                    <p>{{ developer.presentation }}</p>
+                    <br>
                     <a class="btn-blue" 
                         href="{{ url('developers!update', {'id': developer.id}) }}">
                         <i class="fas fa-pen-square fa-fw fa-lg"></i>
                     </a>
-                    <br>
                     <a class="btn-red" 
                         href="{{ url('developers!delete', {'id': developer.id}) }}">
                         <i class="fas fa-times-circle fa-fw fa-lg"></i>

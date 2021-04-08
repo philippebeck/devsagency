@@ -12,7 +12,6 @@
         <tr>
             <th>Project</th>
             <th>Infos</th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -35,8 +34,7 @@
                 <td>{{ project.description }}
                     <hr>
                     {{ project.category|capitalize }} - {{ project.year }}
-                </td>
-                <td>
+                    <br>
                     <a class="btn-blue" 
                         href="{{ url('projects!update', {'id': project.id}) }}">
                         <i class="fas fa-pen-square fa-fw fa-lg"></i>

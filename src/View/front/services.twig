@@ -7,23 +7,53 @@ Services proposés : Responsive Web Design, Expertise SEO, Outil de Programmatio
 {% endblock %}
 
 {% block main %}
-<main>
+<main id="service-home">
     <header class="head">
         Nous proposons des services de conception web & mobile avec une attention particulière sur l'ergonomie, les interfaces & la pertinence dans les résultats de recherche.
     </header>
 
+    <nav class="sidebar">
+        <input id="sidebar-service"
+            class="sidebar-check" 
+            type="checkbox">
+        <label for="sidebar-service"
+            class="sidebar-open" 
+            title="Show Sidebar">
+            <i class="far fa-eye fa-lg fa-fw"></i>
+        </label>
+        <label for="sidebar-service"
+            title="Hide Sidebar">
+            <i class="far fa-eye-slash fa-lg fa-fw"></i>
+        </label>
+
     {% for service in allServices %}
-        <section itemscope 
-            itemtype="https://schema.org/Service"
-             class="container-90tn-80sm-70md-60lg-50wd mar-bot-lg">
-            <i class="fas fa-minus fa-lg block mar-lg" 
-                aria-hidden="true"></i>
-            <i class="fas fa-{{ service.icon }} fa-4x color-secondary anima-grow-this"></i>
-            <h2 itemprop="name">
-                {{ service.name }}
-            </h2>
-            <p itemprop="description">{{ service.description }}</p>
-        </section>
+        <a href="#{{ service.icon }}" 
+            title="{{ service.name }}">
+            <i class="fas fa-{{ service.icon }} fa-lg fa-fw"></i>
+        </a>
     {% endfor %}
+
+
+        <a href="#service-home" 
+            title="Services Home">
+            <i class="fas fa-chevron-circle-up fa-lg fa-fw"></i>
+        </a>
+    </nav>
+
+{% for service in allServices %}
+    <section itemscope 
+        itemtype="https://schema.org/Service"
+        id="{{ service.icon }}"
+        class="container-90tn-80sm-70md-60lg-50wd mar-bot-lg">
+        <i class="fas fa-minus fa-lg block mar-lg" 
+            aria-hidden="true"></i>
+        <i class="fas fa-{{ service.icon }} fa-4x color-secondary anima-grow-this"></i>
+        <h2 itemprop="name">
+            {{ service.name }}
+        </h2>
+        <p itemprop="description">{{ service.description }}</p>
+    </section>
+{% endfor %}
+
 </main>
 {% endblock %}

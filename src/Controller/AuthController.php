@@ -27,8 +27,9 @@ class AuthController extends MainController
      */
     public function defaultMethod()
     {
-        if (!empty($this->getPost()->getPostArray())) {
-            $this->member = $this->getPost()->getPostArray();
+        if ($this->checkArray($this->getPost())) {
+
+            $this->member = $this->getPost();
             $this->CheckSecurity();
         }
 
@@ -39,35 +40,49 @@ class AuthController extends MainController
     {
         if (isset($this->member["g-recaptcha-response"]) && !empty($this->member["g-recaptcha-response"])) {
 
-            if ($this->getSecurity()->checkRecaptcha($this->member["g-recaptcha-response"])) {
+            if ($this->checkRecaptcha($this->member["g-recaptcha-response"])) {
                 $this->checkLogin();
             }
         }
 
-        $this->getSession()->createAlert("Vérifier le reCAPTCHA !", "red");
+        $this->setSession([
+            "message"   => "Vérifier le reCAPTCHA !", 
+            "type"      => "red"
+        ]);
 
         $this->redirect("users");
     }
 
     private function checkLogin()
     {
-        $member = ModelFactory::getModel("Members")->readData($this->member["email"], "email");
+        $member = ModelFactory::getModel("Members")->readData(
+            $this->member["email"], 
+            "email"
+        );
 
         if (!password_verify($this->member["pass"], $member["pass"])) {
-            $this->getSession()->createAlert("Authentification Échouée !", "black");
+            
+            $this->setSession([
+                "message"   => "Authentification Échouée !", 
+                "type"      => "black"
+            ]);
 
             $this->redirect("users");
         }
 
-        $this->getSession()->createSession($member);
-        $this->getSession()->createAlert("Authentification Réussie, bienvenue " . $member["name"] . " !", "violet");
+        $this->setSession($member);
+
+        $this->setSession([
+            "message"   => "Authentification Réussie, bienvenue " . $member["name"] . " !", 
+            "type"      => "violet"
+        ]);
 
         $this->redirect("admin");
     }
 
     public function logoutMethod()
     {
-        $this->getSession()->destroySession();
+        $this->destroyGlobal();
 
         $this->redirect("home");
     }

@@ -1,6 +1,6 @@
 {
   "name": "devsagency/devsagency",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "type": "project",
   "description": "Agence Digitale, Responsive Web Design, Expertise SEO, Outil de Programmation, Transformation Digitale, Formation & Mentorat, Recrutement de Développeurs",
   "keywords": [
@@ -13,7 +13,6 @@
     "developer recruitment",
     "twig",
     "animadio",
-    "animadio.js",
     "pam",
     "sql",
     "git"

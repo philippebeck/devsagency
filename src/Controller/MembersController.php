@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
-use Pam\Model\Factory\ModelFactory;
+use Pam\Model\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -34,25 +34,80 @@ class MembersController extends MainController
 
     private function setMemberData()
     {
-        $this->member["name"]       = (string) trim($this->getPost()->getPostVar("name"));
-        $this->member["email"]      = (string) trim($this->getPost()->getPostVar("email"));
-        $this->member["linkedin"]   = (string) trim($this->getPost()->getPostVar("linkedin"));
-        $this->member["github"]     = (string) trim($this->getPost()->getPostVar("github"));
+        $this->member["name"]       = (string) trim($this->getPost("name"));
+        $this->member["email"]      = (string) trim($this->getPost("email"));
+        $this->member["linkedin"]   = (string) trim($this->getPost("linkedin"));
+        $this->member["github"]     = (string) trim($this->getPost("github"));
 
-        $this->member["website"]    = (string) trim($this->getPost()->getPostVar("website"));
+        $this->member["website"]    = (string) trim($this->getPost("website"));
         $this->member["website"]    = str_replace("https://", "", $this->member["website"]);
 
-        $this->member["position"]       = (string) trim($this->getPost()->getPostVar("position"));
-        $this->member["city"]           = (string) trim($this->getPost()->getPostVar("city"));
-        $this->member["presentation"]   = (string) trim($this->getPost()->getPostVar("presentation"));
+        $this->member["position"]       = (string) trim($this->getPost("position"));
+        $this->member["city"]           = (string) trim($this->getPost("city"));
+        $this->member["presentation"]   = (string) trim($this->getPost("presentation"));
     }
 
     private function setMemberImage()
     {
-        $this->member["image"] = $this->getString()->cleanString($this->member["name"]) . $this->getFiles()->setFileExtension();
+        $this->member["image"] = $this->getString($this->member["name"]) . $this->getExtension();
 
-        $this->getFiles()->uploadFile("img/members/", $this->getString()->cleanString($this->member["name"]));
-        $this->getImage()->makeThumbnail("img/members/" . $this->member["image"], 200);
+        $this->getUploadedFile("img/members/", $this->getString($this->member["name"]));
+        $this->getThumbnail("img/members/" . $this->member["image"], 200);
+    }
+
+    private function setUpdateData()
+    {
+        $this->setMemberData();
+
+        if ($this->checkArray($this->getFiles("file"), "name")) {
+            $this->setMemberImage();
+        }
+
+        if ($this->checkArray($this->getPost(), "old-pass")) {
+            $this->setUpdatePassword();
+        }
+
+        ModelFactory::getModel("Member")->updateData(
+            $this->getGet("id"), 
+            $this->member
+        );
+
+        $this->setSession([
+            "message"   => "Modification du Membre réussie !", 
+            "type"      => "blue"
+        ]);
+
+        $this->redirect("admin");
+    }
+
+    private function setUpdatePassword()
+    {
+        $member = ModelFactory::getModel("Members")->readData($this->getGet("id"));
+
+        if (!password_verify($this->getPost("old-pass"), $member["pass"])) {
+
+            $this->setSession([
+                "message"   => "L'Ancien Mot de Passe est Incorrect !", 
+                "type"      => "red"
+            ]);
+
+            $this->redirect("admin");
+        }
+
+        if ($this->getPost("new-pass") !== $this->getPost("conf-pass")) {
+
+            $this->setSession([
+                "message"   => "Les Nouveaux Mots de Passe ne Correspondent pas !", 
+                "type"      => "red"
+            ]);
+
+            $this->redirect("admin");
+        }
+
+        $this->member["pass"] = password_hash(
+            $this->getPost("new-pass"), 
+            PASSWORD_DEFAULT
+        );
     }
 
     /**
@@ -63,48 +118,40 @@ class MembersController extends MainController
      */
     public function createMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        if (!empty($this->getPost()->getPostArray())) {
+        if ($this->checkArray($this->getPost())) {
             $this->setMemberData();
             $this->setMemberImage();
 
-            if ($this->getPost()->getPostVar("pass") !== $this->getPost()->getPostVar("conf-pass")) {
-                $this->getSession()->createAlert("Les Mots de Passe ne Correspondent pas !", "red");
+            if ($this->getPost("pass") !== $this->getPost("conf-pass")) {
+
+                $this->setSession([
+                    "message"   => "Les Mots de Passe ne Correspondent pas !", 
+                    "type"      => "red"
+                ]);
 
                 $this->redirect("members!create");
             }
 
-            $this->member["pass"] = password_hash($this->getPost()->getPostVar("pass"), PASSWORD_DEFAULT);
+            $this->member["pass"] = password_hash(
+                $this->getPost("pass"), 
+                PASSWORD_DEFAULT
+            );
 
             ModelFactory::getModel("Members")->createData($this->member);
-            $this->getSession()->createAlert("Nouveau Membre Créé avec Succès !", "green");
+
+            $this->setSession([
+                "message"   => "Nouveau Membre Créé avec Succès !", 
+                "type"      => "green"
+            ]);
 
             $this->redirect("admin");
         }
 
         return $this->render("back/members/createMember.twig");
-    }
-
-    private function setUpdatePassword()
-    {
-        $member = ModelFactory::getModel("Members")->readData($this->getGet()->getGetVar("id"));
-
-        if (!password_verify($this->getPost()->getPostVar("old-pass"), $member["pass"])) {
-            $this->getSession()->createAlert("L'Ancien Mot de Passe est Incorrect !", "red");
-
-            $this->redirect("admin");
-        }
-
-        if ($this->getPost()->getPostVar("new-pass") !== $this->getPost()->getPostVar("conf-pass")) {
-            $this->getSession()->createAlert("Les Nouveaux Mots de Passe ne Correspondent pas !", "red");
-
-            $this->redirect("admin");
-        }
-
-        $this->member["pass"] = password_hash($this->getPost()->getPostVar("new-pass"), PASSWORD_DEFAULT);
     }
 
     /**
@@ -115,40 +162,31 @@ class MembersController extends MainController
      */
     public function updateMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        if (!empty($this->getPost()->getPostArray())) {
-            $this->setMemberData();
-
-            if (!empty($this->getFiles()->getFileVar("name"))) {
-                $this->setMemberImage();
-            }
-
-            if (!empty($this->getPost()->getPostVar("old-pass"))) {
-                $this->setUpdatePassword();
-            }
-
-            ModelFactory::getModel("Members")->updateData($this->getGet()->getGetVar("id"), $this->member);
-            $this->getSession()->createAlert("Modification du Membre Sélectionné Effectuée !", "blue");
-
-            $this->redirect("admin");
+        if ($this->checkArray($this->getPost())) {
+            $this->setUpdateData();
         }
 
-        $member = ModelFactory::getModel("Members")->readData($this->getGet()->getGetVar("id"));
+        $member = ModelFactory::getModel("Members")->readData($this->getGet("id"));
 
         return $this->render("back/members/updateMember.twig", ["member" => $member]);
     }
 
     public function deleteMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        ModelFactory::getModel("Members")->deleteData($this->getGet()->getGetVar("id"));
-        $this->getSession()->createAlert("Membre Supprimé !", "red");
+        ModelFactory::getModel("Members")->deleteData($this->getGet("id"));
+
+        $this->setSession([
+            "message"   => "Membre Supprimé !", 
+            "type"      => "red"
+        ]);
 
         $this->redirect("admin");
     }

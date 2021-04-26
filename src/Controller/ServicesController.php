@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
-use Pam\Model\Factory\ModelFactory;
+use Pam\Model\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -34,9 +34,9 @@ class ServicesController extends MainController
 
     private function setServiceData()
     {
-        $this->service["name"]          = $this->getPost()->getPostVar("name");
-        $this->service["description"]   = trim($this->getPost()->getPostVar("description"));
-        $this->service["icon"]          = str_replace("fa-", "", $this->getPost()->getPostVar("icon"));
+        $this->service["name"]          = $this->getPost("name");
+        $this->service["description"]   = trim($this->getPost("description"));
+        $this->service["icon"]          = str_replace("fa-", "", $this->getPost("icon"));
     }
 
     /**
@@ -47,20 +47,24 @@ class ServicesController extends MainController
      */
     public function createMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        if (!empty($this->getPost()->getPostArray())) {
+        if ($this->checkArray($this->getPost())) {
             $this->setServiceData();
 
             ModelFactory::getModel("Services")->createData($this->service);
-            $this->getSession()->createAlert("Nouveau Service Créé avec Succès !", "green");
+
+            $this->setSession([
+                "message"   => "Nouveau Service Créé avec Succès !", 
+                "type"      => "green"
+            ]);
 
             $this->redirect("admin");
         }
 
-        return $this->render("back/services/createService.twig");
+        return $this->render("back/createService.twig");
     }
 
     /**
@@ -71,32 +75,43 @@ class ServicesController extends MainController
      */
     public function updateMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        if (!empty($this->getPost()->getPostArray())) {
+        if ($this->checkArray($this->getPost())) {
             $this->setServiceData();
 
-            ModelFactory::getModel("Services")->updateData($this->getGet()->getGetVar("id"), $this->service);
-            $this->getSession()->createAlert("Modification du Service Sélectionné Effectuée !", "blue");
+            ModelFactory::getModel("Services")->updateData(
+                $this->getGet("id"), 
+                $this->service
+            );
+
+            $this->setSession([
+                "message"   => "Modification du Service Sélectionné Effectuée !", 
+                "type"      => "blue"
+            ]);
 
             $this->redirect("admin");
         }
 
-        $service = ModelFactory::getModel("Services")->readData($this->getGet()->getGetVar("id"));
+        $service = ModelFactory::getModel("Services")->readData($this->getGet("id"));
 
-        return $this->render("back/services/updateService.twig", ["service" => $service]);
+        return $this->render("back/updateService.twig", ["service" => $service]);
     }
 
     public function deleteMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        ModelFactory::getModel("Services")->deleteData($this->getGet()->getGetVar("id"));
-        $this->getSession()->createAlert("Service Supprimé !", "red");
+        ModelFactory::getModel("Services")->deleteData($this->getGet("id"));
+
+        $this->setSession([
+            "message"   => "Service Supprimé !", 
+            "type"      => "red"
+        ]);
 
         $this->redirect("admin");
     }

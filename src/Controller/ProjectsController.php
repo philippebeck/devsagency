@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
-use Pam\Model\Factory\ModelFactory;
+use Pam\Model\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -27,7 +27,7 @@ class ProjectsController extends MainController
      */
     public function defaultMethod()
     {
-        $allProjects = $this->getArray()->getArrayElements(ModelFactory::getModel("Projects")->listData());
+        $allProjects = $this->getArrayElements(ModelFactory::getModel("Projects")->listData());
 
         return $this->render("front/projects.twig", [
             "tools"      => $allProjects["tool"],
@@ -37,20 +37,20 @@ class ProjectsController extends MainController
 
     private function setProjectData()
     {
-        $this->project["name"]         = $this->getPost()->getPostVar("name");
-        $this->project["year"]         = $this->getPost()->getPostVar("year");
-        $this->project["category"]     = $this->getPost()->getPostVar("category");
-        $this->project["description"]  = trim($this->getPost()->getPostVar("description"));
+        $this->project["name"]         = $this->getPost("name");
+        $this->project["year"]         = $this->getPost("year");
+        $this->project["category"]     = $this->getPost("category");
+        $this->project["description"]  = trim($this->getPost("description"));
 
-        $this->project["link"] = str_replace("https://", "", $this->getPost()->getPostVar("link"));
+        $this->project["link"] = str_replace("https://", "", $this->getPost("link"));
     }
 
     private function setProjectPicture()
     {
-        $this->project["image"] = $this->getString()->cleanString($this->project["name"]) . $this->getFiles()->setFileExtension();
+        $this->project["image"] = $this->getString($this->project["name"]) . $this->getExtension();
 
-        $this->getFiles()->uploadFile("img/projects/", $this->getString()->cleanString($this->project["name"]));
-        $this->getImage()->makeThumbnail("img/projects/" . $this->project["image"], 300);
+        $this->getUploadedFile("img/projects/", $this->getString($this->project["name"]));
+        $this->getThumbnail("img/projects/" . $this->project["image"], 300);
     }
 
     /**
@@ -61,21 +61,26 @@ class ProjectsController extends MainController
      */
     public function createMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        if (!empty($this->getPost()->getPostArray())) {
+        if ($this->checkArray($this->getPost())) {
+
             $this->setProjectData();
             $this->setProjectPicture();
 
             ModelFactory::getModel("Projects")->createData($this->project);
-            $this->getSession()->createAlert("Nouveau Projet Créé avec Succès !", "green");
+
+            $this->setSession([
+                "message"   => "Nouveau Projet Créé avec Succès !", 
+                "type"      => "green"
+            ]);
 
             $this->redirect("admin");
         }
 
-        return $this->render("back/projects/createProject.twig");
+        return $this->render("back/createProject.twig");
     }
 
     /**
@@ -86,36 +91,47 @@ class ProjectsController extends MainController
      */
     public function updateMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        if (!empty($this->getPost()->getPostArray())) {
+        if ($this->checkArray($this->getPost())) {
             $this->setProjectData();
 
-            if (!empty($this->getFiles()->getFileVar("name"))) {
+            if ($this->checkArray($this->getFiles("file"), "name")) {
                 $this->setProjectPicture();
             }
 
-            ModelFactory::getModel("Projects")->updateData($this->getGet()->getGetVar("id"), $this->project);
-            $this->getSession()->createAlert("Modification du Projet Sélectionné Effectuée !", "blue");
+            ModelFactory::getModel("Projects")->updateData(
+                $this->getGet("id"), 
+                $this->project
+            );
+            
+            $this->setSession([
+                "message"   => "Modification du Projet Sélectionné Effectuée !", 
+                "type"      => "blue"
+            ]);
 
             $this->redirect("admin");
         }
 
-        $project = ModelFactory::getModel("Projects")->readData($this->getGet()->getGetVar("id"));
+        $project = ModelFactory::getModel("Projects")->readData($this->getGet("id"));
 
-        return $this->render("back/projects/updateProject.twig", ["project" => $project]);
+        return $this->render("back/updateProject.twig", ["project" => $project]);
     }
 
     public function deleteMethod()
     {
-        if ($this->getSecurity()->checkIsAdmin() !== true) {
+        if ($this->checkAdmin() !== true) {
             $this->redirect("home");
         }
 
-        ModelFactory::getModel("Projects")->deleteData($this->getGet()->getGetVar("id"));
-        $this->getSession()->createAlert("Projet Supprimé !", "red");
+        ModelFactory::getModel("Projects")->deleteData($this->getGet("id"));
+
+        $this->setSession([
+            "message"   => "Projet Supprimé !", 
+            "type"      => "red"
+        ]);
 
         $this->redirect("admin");
     }

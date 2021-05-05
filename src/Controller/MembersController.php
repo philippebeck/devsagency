@@ -67,7 +67,7 @@ class MembersController extends MainController
             $this->setUpdatePassword();
         }
 
-        ModelFactory::getModel("Member")->updateData(
+        ModelFactory::getModel("Members")->updateData(
             $this->getGet("id"), 
             $this->member
         );
@@ -151,7 +151,7 @@ class MembersController extends MainController
             $this->redirect("admin");
         }
 
-        return $this->render("back/members/createMember.twig");
+        return $this->render("back/createMember.twig");
     }
 
     /**
@@ -172,7 +172,7 @@ class MembersController extends MainController
 
         $member = ModelFactory::getModel("Members")->readData($this->getGet("id"));
 
-        return $this->render("back/members/updateMember.twig", ["member" => $member]);
+        return $this->render("back/updateMember.twig", ["member" => $member]);
     }
 
     public function deleteMethod()

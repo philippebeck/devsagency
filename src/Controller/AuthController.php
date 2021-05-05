@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Pam\Controller\MainController;
-use Pam\Model\Factory\ModelFactory;
+use Pam\Model\ModelFactory;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -70,7 +70,10 @@ class AuthController extends MainController
             $this->redirect("users");
         }
 
-        $this->setSession($member);
+        $this->setSession(
+            $member, 
+            true
+        );
 
         $this->setSession([
             "message"   => "Authentification Réussie, bienvenue " . $member["name"] . " !", 

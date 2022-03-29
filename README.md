@@ -2,9 +2,6 @@
 
 Developers Agency
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/dbf0057fd602424d8dcdc7a1fd145cbe)](https://www.codacy.com/gh/devsagency/devsagency/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=devsagency/devsagency&amp;utm_campaign=Badge_Grade)
-[![Maintainability](https://api.codeclimate.com/v1/badges/143e7bd142f50605b891/maintainability)](https://codeclimate.com/github/devsagency/devsagency/maintainability)
-
 ---
 
 ## Download
@@ -17,7 +14,7 @@ Developers Agency
 
 ## Support
 
-DevsAgency has continuous support !
+DevsAgency has NO continuous support !
 
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/devsagency/devsagency.svg?label=Last+Commit)](https://github.com/devsagency/devsagency/commits/master)
 

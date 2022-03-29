@@ -1,6 +1,6 @@
 {
   "name": "devsagency/devsagency",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "type": "project",
   "description": "Agence Digitale, Responsive Web Design, Expertise SEO, Outil de Programmation, Transformation Digitale, Formation & Mentorat, Recrutement de Développeurs",
   "keywords": [
@@ -17,7 +17,6 @@
     "sql",
     "git"
   ],
-  "homepage": "https://devsagency.net",
   "license": "MIT",
   "authors": [
     {
@@ -43,11 +42,5 @@
     "platform": {
       "php": "7.3"
     }
-  },
-  "support": {
-    "email": "admin@devsagency.net",
-    "issues": "https://github.com/devsagency/devsagency/issues",
-    "wiki": "https://github.com/devsagency/devsagency/wiki",
-    "source": "https://github.com/devsagency/devsagency"
   }
 }

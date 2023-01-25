@@ -22,7 +22,7 @@
   "bugs": "https://github.com/devsagency/devsagency/issues",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "animadio": "^4.2.9"
+    "animadio": "^5.6.0"
   },
   "author": {
     "name": "Philippe Beck",
